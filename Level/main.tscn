@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ie58kyyqrj2q"]
+
+[ext_resource type="PackedScene" uid="uid://ckc5o6ee3cxfo" path="res://Level/calle_fresno.tscn" id="1_gqyk6"]
+
+[node name="Main" type="Node3D" unique_id=381470861]
+
+[node name="CalleFresno" parent="." unique_id=988524370 instance=ExtResource("1_gqyk6")]
