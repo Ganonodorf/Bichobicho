@@ -16,6 +16,8 @@ shape = SubResource("BoxShape3D_0ai5s")
 
 [node name="pataIzquierda" parent="." unique_id=1847736130 instance=ExtResource("2_0ai5s")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.901, -0.38, 0.4)
+action = "pata_izquierda_1"
 
 [node name="pataDerecha" parent="." unique_id=759726274 instance=ExtResource("2_0ai5s")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.901, -0.38, -0.4)
+action = "pata_derecha_1"

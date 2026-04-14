@@ -15,5 +15,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed(action)):
 		impulse_vector = global_transform.basis.z * impulse
-		get_parent().apply_impulse(impulse_vector, position)
+		get_parent().apply_impulse(impulse_vector, global_position - get_parent().global_position)
 	pass
