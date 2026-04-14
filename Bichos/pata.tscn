@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://rt7tpyrkbrw2"]
+
+[ext_resource type="Script" uid="uid://bntv6dp4n2sa0" path="res://pata.gd" id="1_81onr"]
+[ext_resource type="Script" uid="uid://bsbia6lgwgfus" path="res://Bichos/punto_colision.gd" id="2_sli38"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sli38"]
+top_radius = 0.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_81onr"]
+
+[node name="Pata" type="Node3D" unique_id=1847736130]
+script = ExtResource("1_81onr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=380498464]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_sli38")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=14890189]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+script = ExtResource("2_sli38")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=494581697]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_81onr")
