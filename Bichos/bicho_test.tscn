@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://drlksdf76cbi"]
 
 [ext_resource type="PackedScene" uid="uid://7877fvcuji8h" path="res://Bichos/bichoTest.blend" id="1_o3f60"]
+[ext_resource type="PackedScene" uid="uid://rt7tpyrkbrw2" path="res://Bichos/pata.tscn" id="2_0ai5s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ai5s"]
 size = Vector3(2.0644531, 0.61035156, 1)
@@ -12,3 +13,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107421875, -0.075683594, 0
 shape = SubResource("BoxShape3D_0ai5s")
 
 [node name="bichoTest" parent="." unique_id=1629151449 instance=ExtResource("1_o3f60")]
+
+[node name="pataIzquierda" parent="." unique_id=1847736130 instance=ExtResource("2_0ai5s")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.901, -0.38, 0.4)
+
+[node name="pataDerecha" parent="." unique_id=759726274 instance=ExtResource("2_0ai5s")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.901, -0.38, -0.4)
