@@ -2,8 +2,36 @@
 
 [ext_resource type="PackedScene" uid="uid://ckc5o6ee3cxfo" path="res://Level/calle_fresno.tscn" id="1_gqyk6"]
 [ext_resource type="PackedScene" uid="uid://drlksdf76cbi" path="res://Bichos/bicho_test.tscn" id="2_r23e8"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_q3hbn"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_oycwn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q3hbn"]
+sky_top_color = Color(0.2609106, 0.40177265, 0.48864365, 1)
+sky_horizon_color = Color(0.48920518, 0.5222728, 0.5474156, 1)
+ground_bottom_color = Color(0.10499931, 0.09640781, 0.11010795, 1)
+ground_horizon_color = Color(0.48920518, 0.5222728, 0.5474156, 1)
+
+[sub_resource type="Sky" id="Sky_oycwn"]
+sky_material = SubResource("ProceduralSkyMaterial_q3hbn")
+
+[sub_resource type="Environment" id="Environment_y023f"]
+background_mode = 2
+sky = SubResource("Sky_oycwn")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_y023f"]
+script = ExtResource("4_oycwn")
 
 [node name="Main" type="Node3D" unique_id=381470861]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2097278584]
+environment = SubResource("Environment_y023f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=101961134]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.8659327, 0.85835665, 0.811493, 1)
+shadow_enabled = true
 
 [node name="CalleFresno" parent="." unique_id=988524370 instance=ExtResource("1_gqyk6")]
 
@@ -12,3 +40,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.306892, 1.4309549, -15.80
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1615831159]
 transform = Transform3D(1, 0, 0, 0, 0.07986835, 0.9968054, 0, -0.9968054, 0.07986835, -46.780235, 24.95239, -14.42633)
+visible = false
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1772517170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.306892, 1.4309549, -15.803219)
+top_level = true
+script = ExtResource("3_q3hbn")
+follow_mode = 2
+tween_resource = SubResource("Resource_y023f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
