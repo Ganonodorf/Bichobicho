@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ckc5o6ee3cxfo" path="res://Level/calle_fresno.tscn" id="1_gqyk6"]
 [ext_resource type="PackedScene" uid="uid://drlksdf76cbi" path="res://Bichos/bicho_test.tscn" id="2_r23e8"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_oycwn"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_q3hbn"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_oycwn"]
 
@@ -39,13 +40,23 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.306892, 1.4309549, -15.803219)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1615831159]
-transform = Transform3D(1, 0, 0, 0, 0.07986835, 0.9968054, 0, -0.9968054, 0.07986835, -46.780235, 24.95239, -14.42633)
-visible = false
-
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1772517170]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.306892, 1.4309549, -15.803219)
+physics_interpolation_mode = 1
+transform = Transform3D(-0.42171407, 0.4719995, -0.77419233, -2.9802322e-08, 0.85383, 0.520552, 0.90672886, 0.2195241, -0.36007202, -77.601875, 23.145477, -30.82342)
 top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=81195016]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_oycwn")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1772517170 node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(-0.42171404, 0.4719995, -0.7741925, -2.980232e-08, 0.85383, 0.5205521, 0.9067288, 0.2195241, -0.3600721, -77.601875, 23.145477, -30.82342)
 script = ExtResource("3_q3hbn")
-follow_mode = 2
+follow_target = NodePath("../BichoTest")
+look_at_mode = 2
+look_at_target = NodePath("../BichoTest")
 tween_resource = SubResource("Resource_y023f")
+align_transform_with_view = Callable()
+align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
