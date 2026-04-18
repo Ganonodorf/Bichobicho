@@ -28,6 +28,7 @@ func isPataGrounded():
 	for child in get_children():
 		if child is GroundCheck:
 			return child.isGrounded()
+	return true
 
 func getKey():
 	return key_name
