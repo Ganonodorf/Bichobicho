@@ -4,7 +4,7 @@ class_name Pata
 
 @export var impulse: float = 3.0
 
-@export_enum("Q_key", "A_key", "E_key", "D_key") var key_name: String
+@export_enum("Q_key", "A_key", "Z_key", "E_key", "D_key",  "C_key",) var key_name: String
 
 var on_ground: bool = false
 var impulse_vector: Vector3
