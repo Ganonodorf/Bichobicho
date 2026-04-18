@@ -2,6 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://cphoq4d7v0sju" path="res://Level/3DModels/CalleFresno.blend" id="1_i1gfv"]
 
-[node name="CalleFresno" type="Node3D" unique_id=988524370]
+[node name="CalleFresno" unique_id=1995856108 instance=ExtResource("1_i1gfv")]
 
-[node name="CalleFresno" parent="." unique_id=1942154045 instance=ExtResource("1_i1gfv")]
+[node name="StaticBody3D" parent="ground" parent_id_path=PackedInt32Array(667506175) index="0" unique_id=1880905656]
+collision_layer = 4
+
+[node name="StaticBody3D" parent="edificio1" parent_id_path=PackedInt32Array(159266133) index="0" unique_id=2071305304]
+collision_layer = 4
+
+[node name="StaticBody3D" parent="iglesia" parent_id_path=PackedInt32Array(535310498) index="0" unique_id=1841925108]
+collision_layer = 4
+
+[node name="StaticBody3D" parent="edificio2" parent_id_path=PackedInt32Array(1172570206) index="0" unique_id=1307699766]
+collision_layer = 4

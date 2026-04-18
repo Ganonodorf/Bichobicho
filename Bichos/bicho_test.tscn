@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://drlksdf76cbi"]
 
+[ext_resource type="Script" uid="uid://b8fn1y3nc1l1x" path="res://Bichos/bicho_test.gd" id="1_4d45s"]
 [ext_resource type="PackedScene" uid="uid://7877fvcuji8h" path="res://Bichos/bichoTest.blend" id="1_o3f60"]
 [ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/pata.tscn" id="2_0ai5s"]
 [ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/ground_check.tscn" id="3_epfm8"]
@@ -8,6 +9,8 @@
 size = Vector3(2.0644531, 0.61035156, 1)
 
 [node name="BichoTest" type="RigidBody3D" unique_id=1702474466]
+collision_mask = 4
+script = ExtResource("1_4d45s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=347228391]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107421875, 0.26597908, 0)
@@ -17,16 +20,13 @@ shape = SubResource("BoxShape3D_0ai5s")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="pataIzquierda" parent="." unique_id=1847736130 instance=ExtResource("2_0ai5s")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.901, -0.03833732, 0.4)
-action = "pata_izquierda_1"
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, -0.901, 0.03755805, 0.4)
+key_name = "E_key"
 
 [node name="groundCheck" parent="pataIzquierda" unique_id=102550460 instance=ExtResource("3_epfm8")]
 
-[node name="groundCheck2" parent="pataIzquierda/groundCheck" unique_id=1596812808 instance=ExtResource("3_epfm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12110618, -0.004115507, 0)
-
-[node name="groundCheck3" parent="pataIzquierda/groundCheck/groundCheck2" unique_id=773645639 instance=ExtResource("3_epfm8")]
-
 [node name="pataDerecha" parent="." unique_id=759726274 instance=ExtResource("2_0ai5s")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.901, -0.03833732, -0.4)
-action = "pata_derecha_1"
+transform = Transform3D(0.49999997, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, 0.49999997, -0.901, 0.03755805, -0.4)
+key_name = "Q_key"
+
+[node name="groundCheck" parent="pataDerecha" unique_id=996994009 instance=ExtResource("3_epfm8")]
