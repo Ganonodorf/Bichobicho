@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cbiqq30n104ig"]
+
+[ext_resource type="Script" uid="uid://b8fn1y3nc1l1x" path="res://Bichos/bicho_test.gd" id="1_ddsum"]
+[ext_resource type="PackedScene" uid="uid://dkw2fw2jh0mv4" path="res://Bichos/bichoCoraza.blend" id="2_hrnkt"]
+[ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/pata.tscn" id="3_h17ml"]
+[ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/ground_check.tscn" id="4_x2hrt"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hrnkt"]
+height = 0.5854492
+radius = 1.3134766
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tkuur"]
+radius = 0.45875186
+
+[node name="bichoCoraza" type="RigidBody3D" unique_id=2139795818 node_paths=PackedStringArray("animation_player")]
+collision_mask = 4
+script = ExtResource("1_ddsum")
+animation_player = NodePath("bichoCoraza/AnimationPlayer")
+
+[node name="bichoCoraza" parent="." unique_id=1843821661 instance=ExtResource("2_hrnkt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26081932)
+
+[node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(1843821661, 411755875) index="0" unique_id=1336057069]
+bones/0/position = Vector3(-0.0083938055, 0.0012270218, -0.01180705)
+bones/0/rotation = Quaternion(0.4223608, -0.003968726, -0.011186307, 0.90635)
+bones/1/rotation = Quaternion(0.3593988, 0.011512298, 0.024458759, 0.9327924)
+bones/2/rotation = Quaternion(0.9512419, 0.0025268767, -0.0102893505, -0.30826402)
+bones/3/position = Vector3(0.48454472, 0.38714907, 0.24816875)
+bones/3/rotation = Quaternion(0.31346315, 0.11918682, -0.26683813, 0.90351146)
+bones/4/position = Vector3(0.75381184, -0.18556307, -0.24179763)
+bones/4/rotation = Quaternion(0.2999805, 0.2512221, -0.6871446, 0.6121532)
+bones/5/position = Vector3(0.6993685, -0.43066272, -0.388005)
+bones/5/rotation = Quaternion(-0.16280071, -0.38200995, 0.8971357, -0.15070459)
+bones/6/position = Vector3(-0.49891198, 0.38131744, 0.24173501)
+bones/6/rotation = Quaternion(0.32744586, -0.18035011, 0.20993997, 0.9034258)
+bones/7/position = Vector3(-0.7531527, -0.19686359, -0.25419432)
+bones/7/rotation = Quaternion(0.3067002, -0.278079, 0.65729904, 0.62973416)
+bones/8/position = Vector3(-0.6842424, -0.43287623, -0.39494154)
+bones/8/rotation = Quaternion(0.14572617, -0.42146212, 0.8835983, 0.14278555)
+
+[node name="body" parent="bichoCoraza/Armature/Skeleton3D" index="0" unique_id=82528022]
+transform = Transform3D(0.99998236, -0.0054822993, 0.0022745542, -0.002662004, -0.0717338, 0.99741983, -0.005304993, -0.99740857, -0.071747035, 0.0027561802, 0.42481062, 0.4926298)
+
+[node name="AnimationPlayer" parent="bichoCoraza" index="1" unique_id=883559791]
+autoplay = &"Idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2023895932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24455237, 0)
+shape = SubResource("CylinderShape3D_hrnkt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1515634126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45063174, 0)
+shape = SubResource("SphereShape3D_tkuur")
+
+[node name="Pata" parent="." unique_id=1847736130 instance=ExtResource("3_h17ml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1447982, 0.057079673, 0.3422997)
+impulse = 1.5
+key_name = "E_key"
+
+[node name="groundCheck" parent="Pata" unique_id=102550460 instance=ExtResource("4_x2hrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26090527)
+target_position = Vector3(0, -0.36, 0)
+
+[node name="groundCheck2" parent="Pata/groundCheck" unique_id=384196225 instance=ExtResource("4_x2hrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2478405)
+target_position = Vector3(0, -0.36, 0)
+
+[node name="Pata2" parent="." unique_id=1404070798 instance=ExtResource("3_h17ml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1395878, 0.057079673, 0.3422997)
+impulse = 1.5
+key_name = "Q_key"
+
+[node name="groundCheck" parent="Pata2" unique_id=1879932017 instance=ExtResource("4_x2hrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26090527)
+target_position = Vector3(0, -0.36, 0)
+
+[node name="groundCheck2" parent="Pata2/groundCheck" unique_id=1550541892 instance=ExtResource("4_x2hrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2478405)
+target_position = Vector3(0, -0.36, 0)
+
+[editable path="bichoCoraza"]
