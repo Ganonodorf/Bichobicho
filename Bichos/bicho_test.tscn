@@ -27,6 +27,20 @@ shape = SubResource("CapsuleShape3D_4d45s")
 [node name="bichoTest" parent="." unique_id=1629151449 instance=ExtResource("1_o3f60")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
+[node name="Skeleton3D" parent="bichoTest/Armature" parent_id_path=PackedInt32Array(1629151449, 1677277965) index="0" unique_id=127099683]
+bones/0/rotation = Quaternion(-0.32732186, -0.6267858, 0.32732174, 0.62678576)
+bones/1/rotation = Quaternion(9.1492275e-08, -5.0230226e-10, 0.34872139, 0.9372265)
+bones/2/rotation = Quaternion(3.0030705e-07, -8.157922e-09, 0.9561323, -0.29293528)
+bones/3/position = Vector3(-0.1679399, 0.5764097, 0.21052042)
+bones/4/position = Vector3(-0.007254559, 0.3356034, 0.3529196)
+bones/5/position = Vector3(-0.16793998, 0.57640976, -0.21052013)
+bones/5/rotation = Quaternion(-0.41002467, 0.8229687, -0.37455735, 0.1196209)
+bones/6/position = Vector3(-0.007254629, 0.33560348, -0.35291937)
+bones/6/rotation = Quaternion(0.42700228, -0.038205378, 0.8345604, -0.3460034)
+
+[node name="AnimationPlayer" parent="bichoTest" index="1" unique_id=87582072]
+autoplay = &"Idle"
+
 [node name="pataIzquierda" parent="." unique_id=1847736130 instance=ExtResource("2_0ai5s")]
 transform = Transform3D(-0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, -0.7071068, -0.9492712, 0.22114791, 0)
 impulse = 2.0
@@ -42,3 +56,7 @@ key_name = "Q_key"
 
 [node name="groundCheck" parent="pataDerecha" unique_id=996994009 instance=ExtResource("3_epfm8")]
 transform = Transform3D(0.9829627, 0.1830127, 0.017037123, -0.18301268, 0.9659258, 0.1830127, 0.017037094, -0.18301271, 0.9829627, -0.101380646, -0.1057328, -0.40087965)
+
+[connection signal="animation_finished" from="bichoTest/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="bichoTest"]
