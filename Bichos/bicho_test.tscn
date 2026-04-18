@@ -6,27 +6,39 @@
 [ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/ground_check.tscn" id="3_epfm8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ai5s"]
-size = Vector3(2.0644531, 0.61035156, 1)
+size = Vector3(1.3989258, 0.61035156, 1.0231934)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4d45s"]
+radius = 0.31884766
+height = 1.9238281
 
 [node name="BichoTest" type="RigidBody3D" unique_id=1702474466]
 collision_mask = 4
 script = ExtResource("1_4d45s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=347228391]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107421875, 0.26597908, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.068115234, 0.26597908, 0)
 shape = SubResource("BoxShape3D_0ai5s")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=21108105]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.06542969, 0.2685808, 0)
+shape = SubResource("CapsuleShape3D_4d45s")
 
 [node name="bichoTest" parent="." unique_id=1629151449 instance=ExtResource("1_o3f60")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="pataIzquierda" parent="." unique_id=1847736130 instance=ExtResource("2_0ai5s")]
-transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, -0.901, 0.03755805, 0.4)
+transform = Transform3D(-0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, -0.7071068, -0.9492712, 0.22114791, 0)
+impulse = 2.0
 key_name = "E_key"
 
 [node name="groundCheck" parent="pataIzquierda" unique_id=102550460 instance=ExtResource("3_epfm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00407511, 0, -0.5847211)
 
 [node name="pataDerecha" parent="." unique_id=759726274 instance=ExtResource("2_0ai5s")]
-transform = Transform3D(0.49999997, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, 0.49999997, -0.901, 0.03755805, -0.4)
+transform = Transform3D(0.7071067, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.7071067, -0.9492712, 0.22114791, 0)
+impulse = 2.0
 key_name = "Q_key"
 
 [node name="groundCheck" parent="pataDerecha" unique_id=996994009 instance=ExtResource("3_epfm8")]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.039192736, 0, -0.5414531)

@@ -34,14 +34,14 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 light_color = Color(0.8659327, 0.85835665, 0.811493, 1)
 shadow_enabled = true
 
-[node name="CalleFresno" parent="." unique_id=988524370 instance=ExtResource("1_gqyk6")]
+[node name="CalleFresno" parent="." unique_id=1995856108 instance=ExtResource("1_gqyk6")]
 
 [node name="BichoTest" parent="." unique_id=1702474466 instance=ExtResource("2_r23e8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.306892, 1.4309549, -15.803219)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1615831159]
 physics_interpolation_mode = 1
-transform = Transform3D(-0.42171407, 0.4719995, -0.77419233, -2.9802322e-08, 0.85383, 0.520552, 0.90672886, 0.2195241, -0.36007202, -77.601875, 23.145477, -30.82342)
+transform = Transform3D(-0.36895943, 0.544347, -0.7533627, 0, 0.8105507, 0.5856685, 0.92944556, 0.21608788, -0.29906034, -58.975403, 12.056932, -21.229168)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=81195016]
@@ -51,7 +51,7 @@ script = ExtResource("3_oycwn")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1772517170 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.42171404, 0.4719995, -0.7741925, -2.980232e-08, 0.85383, 0.5205521, 0.9067288, 0.2195241, -0.3600721, -77.601875, 23.145477, -30.82342)
+transform = Transform3D(-0.3689594, 0.544347, -0.7533629, 0, 0.8105507, 0.5856686, 0.9294455, 0.21608788, -0.2990604, -58.975403, 12.056932, -21.229168)
 script = ExtResource("3_q3hbn")
 look_at_mode = 2
 look_at_target = NodePath("../BichoTest")
