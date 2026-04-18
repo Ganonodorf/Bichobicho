@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 				move = true
 	
 	if(move):
+		animation_player.stop()
 		animation_player.play("Move")
 		pass
 	

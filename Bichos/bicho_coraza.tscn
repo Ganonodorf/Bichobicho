@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/pata.tscn" id="3_h17ml"]
 [ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/ground_check.tscn" id="4_x2hrt"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h17ml"]
+friction = 0.35
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hrnkt"]
 height = 0.5854492
 radius = 1.3134766
@@ -14,6 +17,9 @@ radius = 0.45875186
 
 [node name="bichoCoraza" type="RigidBody3D" unique_id=2139795818 node_paths=PackedStringArray("animation_player")]
 collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_h17ml")
+linear_damp = 1.511
+angular_damp = 2.907
 script = ExtResource("1_ddsum")
 animation_player = NodePath("bichoCoraza/AnimationPlayer")
 
@@ -53,8 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45063174, 0)
 shape = SubResource("SphereShape3D_tkuur")
 
 [node name="Pata" parent="." unique_id=1847736130 instance=ExtResource("3_h17ml")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1447982, 0.057079673, 0.3422997)
-impulse = 1.5
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 0.057079673, 1.0706131)
 key_name = "E_key"
 
 [node name="groundCheck" parent="Pata" unique_id=102550460 instance=ExtResource("4_x2hrt")]
@@ -66,8 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2478405)
 target_position = Vector3(0, -0.36, 0)
 
 [node name="Pata2" parent="." unique_id=1404070798 instance=ExtResource("3_h17ml")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1395878, 0.057079673, 0.3422997)
-impulse = 1.5
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0.057079673, 1.0706131)
 key_name = "Q_key"
 
 [node name="groundCheck" parent="Pata2" unique_id=1879932017 instance=ExtResource("4_x2hrt")]
