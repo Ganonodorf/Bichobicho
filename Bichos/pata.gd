@@ -2,9 +2,10 @@ extends Node3D
 
 class_name Pata
 
-@export var impulse: float = 3.0
-
 @export_enum("Q_key", "A_key", "Z_key", "E_key", "D_key",  "C_key",) var key_name: String
+
+@export var impulse: float = 3.0
+@export var vertical_impulse: float = 0
 
 var on_ground: bool = false
 var impulse_vector: Vector3
@@ -20,7 +21,7 @@ func _process(_delta: float) -> void:
 
 func applyImpulse():
 	if isPataGrounded():
-		impulse_vector = global_transform.basis.z * impulse
+		impulse_vector = global_transform.basis.z * impulse + Vector3.UP * vertical_impulse
 		get_parent().apply_impulse(impulse_vector, global_position - get_parent().global_position)
 	pass
 
