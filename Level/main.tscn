@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://ie58kyyqrj2q"]
 
-[ext_resource type="PackedScene" uid="uid://ckc5o6ee3cxfo" path="res://Level/calle_fresno.tscn" id="1_gqyk6"]
+[ext_resource type="PackedScene" uid="uid://ckc5o6ee3cxfo" path="res://Level/3DModels/calle_fresno.tscn" id="1_gqyk6"]
 [ext_resource type="PackedScene" uid="uid://drlksdf76cbi" path="res://Bichos/bicho_test.tscn" id="2_r23e8"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_oycwn"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_q3hbn"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_oycwn"]
 [ext_resource type="PackedScene" uid="uid://cbiqq30n104ig" path="res://Bichos/bicho_coraza.tscn" id="6_y023f"]
-[ext_resource type="PackedScene" uid="uid://dh38l4ltkbe4s" path="res://Bichos/bicho_volador.tscn" id="7_76v5r"]
+[ext_resource type="PackedScene" path="res://Bichos/bicho_volador.tscn" id="7_76v5r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q3hbn"]
 sky_top_color = Color(0.2609106, 0.40177265, 0.48864365, 1)
@@ -43,8 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.306892, 1.4309549, -15.80
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1615831159]
 physics_interpolation_mode = 1
-transform = Transform3D(0.41503364, 0.34804988, -0.8406, 0, 0.92393315, 0.38255394, 0.90980613, -0.15877277, 0.38346332, -58.975403, 12.056932, -21.229168)
-top_level = true
+transform = Transform3D(0.41503364, 0.3480499, -0.8406, 0, 0.9239332, 0.38255394, 0.90980613, -0.15877275, 0.38346332, -58.975403, 12.056932, -21.229168)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=81195016]
 process_priority = 300
@@ -53,13 +52,11 @@ script = ExtResource("3_oycwn")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1772517170 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.41503364, 0.34804988, -0.8406002, 0, 0.92393315, 0.38255402, 0.90980613, -0.15877277, 0.3834634, -58.975403, 12.056932, -21.229168)
+transform = Transform3D(0.41503364, 0.34804985, -0.8406002, 0, 0.9239331, 0.38255402, 0.90980613, -0.15877275, 0.3834634, -58.975403, 12.056932, -21.229168)
 script = ExtResource("3_q3hbn")
 look_at_mode = 2
 look_at_target = NodePath("../BichoVolador")
 tween_resource = SubResource("Resource_y023f")
-align_transform_with_view = Callable()
-align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="bichoCoraza" parent="." unique_id=2139795818 instance=ExtResource("6_y023f")]
