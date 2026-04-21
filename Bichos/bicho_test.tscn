@@ -28,7 +28,7 @@ shape = SubResource("CapsuleShape3D_4d45s")
 [node name="bichoTest" parent="." unique_id=1629151449 instance=ExtResource("1_o3f60")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Skeleton3D" parent="bichoTest/Armature" parent_id_path=PackedInt32Array(1629151449, 431311005) index="0" unique_id=573946544]
+[node name="Skeleton3D" parent="bichoTest/Armature" parent_id_path=PackedInt32Array(1629151449, 967177406) index="0" unique_id=464852474]
 bones/0/position = Vector3(-0.015539359, 0.021632101, -0.0038724244)
 bones/0/rotation = Quaternion(-0.33228782, -0.60665363, 0.3415914, 0.6362951)
 bones/1/rotation = Quaternion(0.009141773, 0.019975571, 0.36315382, 0.9314702)
@@ -42,21 +42,21 @@ bones/5/rotation = Quaternion(-0.38941607, 0.82507986, -0.39171666, 0.118981324)
 bones/6/position = Vector3(0.0065465984, 0.31794968, -0.3380103)
 bones/6/rotation = Quaternion(0.40791562, -0.037235424, 0.83611, -0.36488152)
 
-[node name="AnimationPlayer" parent="bichoTest" index="1" unique_id=877909760]
+[node name="AnimationPlayer" parent="bichoTest" index="1" unique_id=1103188289]
 autoplay = &"Idle"
 
 [node name="pataIzquierda" parent="." unique_id=1847736130 instance=ExtResource("2_0ai5s")]
 transform = Transform3D(-0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, -0.7071068, -0.9492712, 0.22114791, 0)
-impulse = 2.0
 key_name = "E_key"
+impulse = 2.0
 
 [node name="groundCheck" parent="pataIzquierda" unique_id=102550460 instance=ExtResource("3_epfm8")]
 transform = Transform3D(0.98296297, -0.18301271, -0.017037094, 0.18301271, 0.9659258, 0.18301268, -0.017037064, -0.18301268, 0.98296285, 0.14464855, -0.1057328, -0.44414765)
 
 [node name="pataDerecha" parent="." unique_id=759726274 instance=ExtResource("2_0ai5s")]
 transform = Transform3D(0.7071067, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.7071067, -0.9492712, 0.22114791, 0)
-impulse = 2.0
 key_name = "Q_key"
+impulse = 2.0
 
 [node name="groundCheck" parent="pataDerecha" unique_id=996994009 instance=ExtResource("3_epfm8")]
 transform = Transform3D(0.9829627, 0.1830127, 0.017037123, -0.18301268, 0.9659258, 0.1830127, 0.017037094, -0.18301271, 0.9829627, -0.101380646, -0.1057328, -0.40087965)
