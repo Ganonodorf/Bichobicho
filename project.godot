@@ -20,9 +20,17 @@ config/icon="res://icon.svg"
 
 PhantomCameraManager="*uid://duq6jhf6unyis"
 
+[editor]
+
+movie_writer/movie_file="/Users/juanjogarridobascaran/Proyectos/ColectivoRayente/Bichobicho/Recording/test.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+
+[global_group]
+
+Bichos=""
 
 [input]
 
@@ -63,7 +71,7 @@ C_key={
 
 [physics]
 
-3d/physics_engine="Jolt Physics"
+3d/physics_engine="GodotPhysics3D"
 
 [rendering]
 

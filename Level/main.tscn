@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cbiqq30n104ig" path="res://Bichos/bicho_coraza.tscn" id="6_y023f"]
 [ext_resource type="PackedScene" uid="uid://dh38l4ltkbe4s" path="res://Bichos/bicho_volador.tscn" id="7_76v5r"]
 [ext_resource type="PackedScene" uid="uid://dq0hxuoypc7vd" path="res://Objetos/banner.tscn" id="8_c8g86"]
+[ext_resource type="PackedScene" uid="uid://6sjxqsqifnj8" path="res://Objetos/wind_zone.tscn" id="9_c17l7"]
+[ext_resource type="Script" uid="uid://btdtn34am3yjg" path="res://Level/hard_wind_zone.gd" id="10_wt2cp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q3hbn"]
 sky_top_color = Color(0.2609106, 0.40177265, 0.48864365, 1)
@@ -27,6 +29,9 @@ glow_enabled = true
 [sub_resource type="Resource" id="Resource_y023f"]
 script = ExtResource("4_oycwn")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_c17l7"]
+size = Vector3(10, 10, 30)
+
 [node name="Main" type="Node3D" unique_id=381470861]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2097278584]
@@ -44,7 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.306892, 1.4309549, -15.80
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1615831159]
 physics_interpolation_mode = 1
-transform = Transform3D(0.41503364, 0.34804988, -0.8406, 0, 0.92393315, 0.38255394, 0.90980613, -0.15877277, 0.38346332, -58.975403, 12.056932, -21.229168)
+transform = Transform3D(0.29644263, 0.2145268, -0.930645, -7.450581e-09, 0.97444564, 0.22462347, 0.9550507, -0.06658796, 0.28886718, -58.975403, 12.056932, -21.229168)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=81195016]
@@ -54,7 +59,7 @@ script = ExtResource("3_oycwn")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1772517170 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.41503364, 0.34804982, -0.8406002, 0, 0.92393297, 0.38255402, 0.90980613, -0.15877274, 0.3834634, -58.975403, 12.056932, -21.229168)
+transform = Transform3D(0.29644263, 0.21452671, -0.9306452, -7.450581e-09, 0.9744452, 0.22462353, 0.9550507, -0.06658793, 0.28886724, -58.975403, 12.056932, -21.229168)
 script = ExtResource("3_q3hbn")
 look_at_mode = 2
 look_at_target = NodePath("../BichoVolador")
@@ -66,8 +71,42 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="bichoCoraza" parent="." unique_id=2139795818 instance=ExtResource("6_y023f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 1.3592691, -17)
 
-[node name="BichoVolador" parent="." unique_id=2120523336 instance=ExtResource("7_76v5r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.125984, 0.29295826, -33.02111)
+[node name="BichoVolador" parent="." unique_id=2120523336 groups=["Bichos"] instance=ExtResource("7_76v5r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.985249, 2.8875074, -33.02111)
 
 [node name="Banner" parent="." unique_id=1973557918 instance=ExtResource("8_c8g86")]
-transform = Transform3D(0.05803453, 0, -0.99831456, 0, 1, 0, 0.99831456, 0, 0.05803453, -49.364395, -0.48664975, -35.616013)
+transform = Transform3D(-0.9020586, 0, -0.43161353, 0, 1, 0, 0.43161353, 0, -0.9020586, -43.92549, 15.627364, -21.982979)
+
+[node name="Banner2" parent="." unique_id=1646348738 instance=ExtResource("8_c8g86")]
+transform = Transform3D(-0.9020586, 0, -0.43161353, 0, 1, 0, 0.43161353, 0, -0.9020586, -42.284237, 15.659755, -17.69483)
+
+[node name="Banner3" parent="." unique_id=894846338 instance=ExtResource("8_c8g86")]
+transform = Transform3D(0.9361946, 0, 0.3514822, 0, 1, 0, -0.3514822, 0, 0.9361946, -62.902103, 3.7693443, -13.220354)
+
+[node name="Banner4" parent="." unique_id=162868646 instance=ExtResource("8_c8g86")]
+transform = Transform3D(0.9361946, 0, 0.3514822, 0, 1, 0, -0.3514822, 0, 0.9361946, -61.87756, 3.999238, -10.491415)
+
+[node name="Banner5" parent="." unique_id=356668635 instance=ExtResource("8_c8g86")]
+transform = Transform3D(0.9361946, 0, 0.3514822, 0, 1, 0, -0.3514822, 0, 0.9361946, -60.615227, 4.2025204, -7.129117)
+
+[node name="Banner6" parent="." unique_id=64091099 instance=ExtResource("8_c8g86")]
+transform = Transform3D(0.9361946, 0, 0.3514822, 0, 1, 0, -0.3514822, 0, 0.9361946, -59.35353, 4.1901293, -3.7685118)
+
+[node name="Banner7" parent="." unique_id=1720082470 instance=ExtResource("8_c8g86")]
+transform = Transform3D(0.9361946, 0, 0.3514822, 0, 1, 0, -0.3514822, 0, 0.9361946, -57.70093, 4.3228693, 0.63328934)
+
+[node name="windZone" parent="." unique_id=356858045 instance=ExtResource("9_c17l7")]
+transform = Transform3D(0.86289316, 0, 0.50538635, 0, 1, 0, -0.50538635, 0, 0.86289316, -49.584095, 0.24956894, -12.600847)
+change_speed = 1.0
+
+[node name="hardWindZone" type="Area3D" parent="." unique_id=381538961]
+transform = Transform3D(0.93669057, 0, 0.35015833, 0, 1, 0, -0.35015833, 0, 0.93669057, -35.008156, 3.4911413, -30.98423)
+script = ExtResource("10_wt2cp")
+force = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hardWindZone" unique_id=1976876786]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+shape = SubResource("BoxShape3D_c17l7")
+
+[connection signal="body_entered" from="hardWindZone" to="hardWindZone" method="_on_body_entered"]
+[connection signal="body_exited" from="hardWindZone" to="hardWindZone" method="_on_body_exited"]
