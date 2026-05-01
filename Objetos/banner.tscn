@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dq0hxuoypc7vd"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ux8tw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7g23l"]
+cull_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_pcpp2"]
+subdivide_width = 4
+subdivide_depth = 4
+
+[node name="Banner" type="Node3D" unique_id=1973557918]
+
+[node name="Pole" type="MeshInstance3D" parent="." unique_id=1820371342]
+transform = Transform3D(-4.371139e-09, -0.6, 0, 0.1, -2.6226834e-08, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ux8tw")
+
+[node name="Cloth" type="SoftBody3D" parent="." unique_id=1439662406]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5233419, 0)
+material_override = SubResource("StandardMaterial3D_7g23l")
+mesh = SubResource("QuadMesh_pcpp2")
+pinned_points = [30, 0]
+attachments/0/point_index = 30
+attachments/0/spatial_attachment_path = NodePath("../Pole")
+attachments/0/offset = Vector3(-0.23341894, 0.8333333, 0)
+attachments/1/point_index = 0
+attachments/1/spatial_attachment_path = NodePath("../Pole")
+attachments/1/offset = Vector3(-0.23341894, -0.83333325, 0)
