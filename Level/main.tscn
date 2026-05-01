@@ -101,6 +101,7 @@ change_speed = 1.0
 
 [node name="hardWindZone" type="Area3D" parent="." unique_id=381538961]
 transform = Transform3D(0.93669057, 0, 0.35015833, 0, 1, 0, -0.35015833, 0, 0.93669057, -35.008156, 3.4911413, -30.98423)
+visible = false
 script = ExtResource("10_wt2cp")
 force = 0.1
 
