@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 func _apply_wind() -> void:
 	for bicho in bichos:
-		var impulse_vector = force * Vector3.FORWARD
+		var impulse_vector = force * global_transform.basis.z
 		bicho.apply_impulse(impulse_vector, bicho.global_position)
 	pass
 
