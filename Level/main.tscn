@@ -49,7 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.306892, 1.4309549, -15.80
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1615831159]
 physics_interpolation_mode = 1
-transform = Transform3D(0.29644263, 0.2145268, -0.930645, -7.450581e-09, 0.97444564, 0.22462347, 0.9550507, -0.06658796, 0.28886718, -58.975403, 12.056932, -21.229168)
+transform = Transform3D(0.3315692, 0.23554039, -0.9135549, -7.450581e-09, 0.96833265, 0.24966362, 0.9434309, -0.08278074, 0.32106924, -58.975403, 12.056932, -21.229168)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=81195016]
@@ -59,7 +59,7 @@ script = ExtResource("3_oycwn")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1772517170 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.29644263, 0.21452671, -0.9306452, -7.450581e-09, 0.9744452, 0.22462353, 0.9550507, -0.06658793, 0.28886724, -58.975403, 12.056932, -21.229168)
+transform = Transform3D(0.3315692, 0.23554024, -0.91355515, -7.450581e-09, 0.968332, 0.24966368, 0.9434309, -0.08278069, 0.32106933, -58.975403, 12.056932, -21.229168)
 script = ExtResource("3_q3hbn")
 look_at_mode = 2
 look_at_target = NodePath("../BichoVolador")
@@ -72,10 +72,10 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 1.3592691, -17)
 
 [node name="BichoVolador" parent="." unique_id=2120523336 groups=["Bichos"] instance=ExtResource("7_76v5r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.985249, 2.8875074, -33.02111)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.423162, 2.8875074, -33.02111)
 
 [node name="Banner" parent="." unique_id=1973557918 instance=ExtResource("8_c8g86")]
-transform = Transform3D(-0.9020586, 0, -0.43161353, 0, 1, 0, 0.43161353, 0, -0.9020586, -43.92549, 15.627364, -21.982979)
+transform = Transform3D(-0.90205866, 0, -0.43161345, 0, 1, 0, 0.43161345, 0, -0.90205866, -43.92549, 15.627364, -21.982979)
 
 [node name="Banner2" parent="." unique_id=1646348738 instance=ExtResource("8_c8g86")]
 transform = Transform3D(-0.9020586, 0, -0.43161353, 0, 1, 0, 0.43161353, 0, -0.9020586, -42.284237, 15.659755, -17.69483)
@@ -96,12 +96,11 @@ transform = Transform3D(0.9361946, 0, 0.3514822, 0, 1, 0, -0.3514822, 0, 0.93619
 transform = Transform3D(0.9361946, 0, 0.3514822, 0, 1, 0, -0.3514822, 0, 0.9361946, -57.70093, 4.3228693, 0.63328934)
 
 [node name="windZone" parent="." unique_id=356858045 instance=ExtResource("9_c17l7")]
-transform = Transform3D(0.86289316, 0, 0.50538635, 0, 1, 0, -0.50538635, 0, 0.86289316, -49.584095, 0.24956894, -12.600847)
+transform = Transform3D(0.91925913, 0, 0.39365312, 0, 1, 0, -0.39365312, 0, 0.91925913, -42.999264, 12.543615, -17.5526)
 change_speed = 1.0
 
 [node name="hardWindZone" type="Area3D" parent="." unique_id=381538961]
 transform = Transform3D(0.93669057, 0, 0.35015833, 0, 1, 0, -0.35015833, 0, 0.93669057, -35.008156, 3.4911413, -30.98423)
-visible = false
 script = ExtResource("10_wt2cp")
 force = 0.1
 

@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 		count = 0
 		wind_force_magnitude = randf_range(0.1, 1)
 		
-		pass
+		return
 	
 	count += delta
 	
