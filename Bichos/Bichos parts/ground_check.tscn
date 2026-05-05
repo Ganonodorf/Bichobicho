@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://oio5e4wia2x5"]
 
-[ext_resource type="Script" uid="uid://cpsd16j37e218" path="res://Bichos/ground_check.gd" id="1_xpne8"]
+[ext_resource type="Script" uid="uid://cpsd16j37e218" path="res://Bichos/Bichos parts/ground_check.gd" id="1_xpne8"]
 
 [node name="groundCheck" type="RayCast3D" unique_id=102550460]
 target_position = Vector3(0, -0.3, 0)

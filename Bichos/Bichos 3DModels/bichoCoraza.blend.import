@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://7877fvcuji8h"
-path="res://.godot/imported/bichoTest.blend-f200ef06be6ac0b5068fb176a07f9c75.scn"
+uid="uid://dkw2fw2jh0mv4"
+path="res://.godot/imported/bichoCoraza.blend-a39dc69d74d8e64424197168bf854ade.scn"
 
 [deps]
 
-source_file="res://Bichos/bichoTest.blend"
-dest_files=["res://.godot/imported/bichoTest.blend-f200ef06be6ac0b5068fb176a07f9c75.scn"]
+source_file="res://Bichos/Bichos 3DModels/bichoCoraza.blend"
+dest_files=["res://.godot/imported/bichoCoraza.blend-a39dc69d74d8e64424197168bf854ade.scn"]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dh38l4ltkbe4s"]
 
-[ext_resource type="Script" uid="uid://b8fn1y3nc1l1x" path="res://Bichos/bicho_test.gd" id="1_jredg"]
-[ext_resource type="PackedScene" uid="uid://7877fvcuji8h" path="res://Bichos/bichoTest.blend" id="2_76g5e"]
-[ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/pata.tscn" id="3_ac0pl"]
-[ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/ground_check.tscn" id="4_76g5e"]
+[ext_resource type="Script" uid="uid://b8fn1y3nc1l1x" path="res://Bichos/bicho.gd" id="1_jredg"]
+[ext_resource type="PackedScene" uid="uid://7877fvcuji8h" path="res://Bichos/Bichos 3DModels/bichoTest.blend" id="2_76g5e"]
+[ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/Bichos parts/pata.tscn" id="3_ac0pl"]
+[ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/Bichos parts/ground_check.tscn" id="4_76g5e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ai5s"]
 size = Vector3(1.3989258, 0.61035156, 1.0231934)

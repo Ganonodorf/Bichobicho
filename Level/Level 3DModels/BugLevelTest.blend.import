@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cphoq4d7v0sju"
-path="res://.godot/imported/CalleFresno.blend-aef13618a92ef1f3df67cf27a3d94048.scn"
+uid="uid://c8pk4utldjwrx"
+path="res://.godot/imported/BugLevelTest.blend-5a33bfca30ee76af2f7bdfef949ecb75.scn"
 
 [deps]
 
-source_file="res://Level/3DModels/CalleFresno.blend"
-dest_files=["res://.godot/imported/CalleFresno.blend-aef13618a92ef1f3df67cf27a3d94048.scn"]
+source_file="res://Level/Level 3DModels/BugLevelTest.blend"
+dest_files=["res://.godot/imported/BugLevelTest.blend-5a33bfca30ee76af2f7bdfef949ecb75.scn"]
 
 [params]
 

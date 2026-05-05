@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cct8w2urcxriy"
-path.s3tc="res://.godot/imported/ermita2.png-87d63d6bafec7ec39810256a99d965cc.s3tc.ctex"
+path.s3tc="res://.godot/imported/ermita2.png-b4fe8731e6b586f8e5de835262bc12f2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Level/3DModels/textures/ermita2.png"
-dest_files=["res://.godot/imported/ermita2.png-87d63d6bafec7ec39810256a99d965cc.s3tc.ctex"]
+source_file="res://Level/Level 3DModels/textures/ermita2.png"
+dest_files=["res://.godot/imported/ermita2.png-b4fe8731e6b586f8e5de835262bc12f2.s3tc.ctex"]
 
 [params]
 

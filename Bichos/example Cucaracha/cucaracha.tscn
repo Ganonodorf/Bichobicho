@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cf1qbuvs77lp4"]
 
 [ext_resource type="Script" uid="uid://cjjb3uosg4pvd" path="res://Bichos/example Cucaracha/cucaracha.gd" id="1_bpscs"]
-[ext_resource type="Texture2D" uid="uid://bv4ru24j4ga2g" path="res://Bichos/textures/ermita2.png" id="3_xuso4"]
+[ext_resource type="Texture2D" uid="uid://uxed0ohjc10e" path="res://Bichos/Bichos resources/textures/ermita2.png" id="3_xuso4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bpscs"]
 size = Vector3(0.77536, 0.407227, 1.60132)

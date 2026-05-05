@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://5jh3lqk7c6il"
-path="res://.godot/imported/callePeana.blend-ffa196ca3c2c4bf5c3ceabc240959555.scn"
+uid="uid://nc0jthgdmfhh"
+path="res://.godot/imported/2ndBugLevel.blend-066fc4b176a7d2223316e8e52812b994.scn"
 
 [deps]
 
-source_file="res://Level/3DModels/callePeana.blend"
-dest_files=["res://.godot/imported/callePeana.blend-ffa196ca3c2c4bf5c3ceabc240959555.scn"]
+source_file="res://Level/Level 3DModels/2ndBugLevel.blend"
+dest_files=["res://.godot/imported/2ndBugLevel.blend-066fc4b176a7d2223316e8e52812b994.scn"]
 
 [params]
 

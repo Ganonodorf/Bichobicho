@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cbiqq30n104ig"]
 
-[ext_resource type="Script" uid="uid://b8fn1y3nc1l1x" path="res://Bichos/bicho_test.gd" id="1_ddsum"]
-[ext_resource type="PackedScene" uid="uid://dkw2fw2jh0mv4" path="res://Bichos/bichoCoraza.blend" id="2_hrnkt"]
-[ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/pata.tscn" id="3_h17ml"]
-[ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/ground_check.tscn" id="4_x2hrt"]
+[ext_resource type="Script" uid="uid://b8fn1y3nc1l1x" path="res://Bichos/bicho.gd" id="1_ddsum"]
+[ext_resource type="PackedScene" uid="uid://dkw2fw2jh0mv4" path="res://Bichos/Bichos 3DModels/bichoCoraza.blend" id="2_hrnkt"]
+[ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/Bichos parts/pata.tscn" id="3_h17ml"]
+[ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/Bichos parts/ground_check.tscn" id="4_x2hrt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h17ml"]
 friction = 0.35
@@ -26,7 +26,7 @@ animation_player = NodePath("bichoCoraza/AnimationPlayer")
 [node name="bichoCoraza" parent="." unique_id=1843821661 instance=ExtResource("2_hrnkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26081932)
 
-[node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(1843821661, 411755875) index="0" unique_id=1336057069]
+[node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(1843821661, 1715855950) index="0" unique_id=148888390]
 bones/0/position = Vector3(-0.0083938055, 0.0012270218, -0.01180705)
 bones/0/rotation = Quaternion(0.4223608, -0.003968726, -0.011186307, 0.90635)
 bones/1/rotation = Quaternion(0.3593988, 0.011512298, 0.024458759, 0.9327924)
@@ -44,10 +44,10 @@ bones/7/rotation = Quaternion(0.3067002, -0.278079, 0.65729904, 0.62973416)
 bones/8/position = Vector3(-0.6842424, -0.43287623, -0.39494154)
 bones/8/rotation = Quaternion(0.14572617, -0.42146212, 0.8835983, 0.14278555)
 
-[node name="body" parent="bichoCoraza/Armature/Skeleton3D" index="0" unique_id=82528022]
+[node name="body" parent="bichoCoraza/Armature/Skeleton3D" index="0" unique_id=994089511]
 transform = Transform3D(0.99998236, -0.0054822993, 0.0022745542, -0.002662004, -0.0717338, 0.99741983, -0.005304993, -0.99740857, -0.071747035, 0.0027561802, 0.42481062, 0.4926298)
 
-[node name="AnimationPlayer" parent="bichoCoraza" index="1" unique_id=883559791]
+[node name="AnimationPlayer" parent="bichoCoraza" index="1" unique_id=114960577]
 autoplay = &"Idle"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2023895932]

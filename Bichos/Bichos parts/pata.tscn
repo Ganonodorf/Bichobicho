@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://deykxnu7y6hu5"]
 
-[ext_resource type="Script" uid="uid://d2ntd1ri0pjm0" path="res://Bichos/pata.gd" id="1_81onr"]
+[ext_resource type="Script" uid="uid://d2ntd1ri0pjm0" path="res://Bichos/Bichos parts/pata.gd" id="1_81onr"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_sli38"]
 top_radius = 0.0

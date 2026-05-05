@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dmsri3fk2vcbj"
-path="res://.godot/imported/bichoTrompa.blend-ad863377bf442971884c8dbc3047e135.scn"
+uid="uid://5jh3lqk7c6il"
+path="res://.godot/imported/callePeana.blend-7a7b78db3105fb39aa3f5240026c6ae9.scn"
 
 [deps]
 
-source_file="res://Bichos/bichoTrompa.blend"
-dest_files=["res://.godot/imported/bichoTrompa.blend-ad863377bf442971884c8dbc3047e135.scn"]
+source_file="res://Level/Level 3DModels/callePeana.blend"
+dest_files=["res://.godot/imported/callePeana.blend-7a7b78db3105fb39aa3f5240026c6ae9.scn"]
 
 [params]
 

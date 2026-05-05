@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by5evem6dsrm1"
-path.s3tc="res://.godot/imported/Bone&StoneTexture.png-7ae619994f9754a8d1c41e8e6a27b9f3.s3tc.ctex"
+uid="uid://uxed0ohjc10e"
+path.s3tc="res://.godot/imported/ermita2.png-55987de1a6e31407c082efc62795dbd2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Level/3DModels/Bone&StoneTexture.png"
-dest_files=["res://.godot/imported/Bone&StoneTexture.png-7ae619994f9754a8d1c41e8e6a27b9f3.s3tc.ctex"]
+source_file="res://Bichos/Bichos 3DModels/textures/ermita2.png"
+dest_files=["res://.godot/imported/ermita2.png-55987de1a6e31407c082efc62795dbd2.s3tc.ctex"]
 
 [params]
 

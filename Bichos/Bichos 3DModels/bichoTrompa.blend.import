@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c42a1a33fpytg"
-path="res://.godot/imported/mamasHead.blend-063e7df430740846635ba8d2742d80f4.scn"
+uid="uid://dmsri3fk2vcbj"
+path="res://.godot/imported/bichoTrompa.blend-8b0a2151bc82ea497ea4abfd332f8f06.scn"
 
 [deps]
 
-source_file="res://Level/3DModels/mamasHead.blend"
-dest_files=["res://.godot/imported/mamasHead.blend-063e7df430740846635ba8d2742d80f4.scn"]
+source_file="res://Bichos/Bichos 3DModels/bichoTrompa.blend"
+dest_files=["res://.godot/imported/bichoTrompa.blend-8b0a2151bc82ea497ea4abfd332f8f06.scn"]
 
 [params]
 
