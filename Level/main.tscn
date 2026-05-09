@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ie58kyyqrj2q"]
 
-[ext_resource type="PackedScene" uid="uid://ckc5o6ee3cxfo" path="res://Level/Level 3DModels/calle_fresno.tscn" id="1_gqyk6"]
+[ext_resource type="PackedScene" uid="uid://ckc5o6ee3cxfo" path="res://Level/calle_fresno.tscn" id="1_gqyk6"]
 [ext_resource type="PackedScene" uid="uid://drlksdf76cbi" path="res://Bichos/bicho_test.tscn" id="2_r23e8"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_oycwn"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_q3hbn"]
