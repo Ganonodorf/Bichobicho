@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://cqr3vb3lfv0cj"]
+
+[ext_resource type="PackedScene" uid="uid://c6ydis8d0bkpj" path="res://Bichos/bicho_bola.tscn" id="1_b6aqx"]
+[ext_resource type="Script" uid="uid://btdtn34am3yjg" path="res://Objetos/hard_wind_zone.gd" id="2_5uhlh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b6aqx"]
+sky_top_color = Color(0.2609106, 0.40177265, 0.48864365, 1)
+sky_horizon_color = Color(0.48920518, 0.5222728, 0.5474156, 1)
+ground_bottom_color = Color(0.10499931, 0.09640781, 0.11010795, 1)
+ground_horizon_color = Color(0.48920518, 0.5222728, 0.5474156, 1)
+
+[sub_resource type="Sky" id="Sky_oycwn"]
+sky_material = SubResource("ProceduralSkyMaterial_b6aqx")
+
+[sub_resource type="Environment" id="Environment_5uhlh"]
+background_mode = 2
+sky = SubResource("Sky_oycwn")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w5s21"]
+size = Vector3(4, 4, 19)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5uhlh"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5s21"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="BrainTest" type="Node3D" unique_id=851020098]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1442129166]
+environment = SubResource("Environment_5uhlh")
+
+[node name="BichoBola" parent="." unique_id=1610339241 groups=["Bichos"] instance=ExtResource("1_b6aqx")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.7683716e-07, -2, -15)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=420665948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, -7)
+use_collision = true
+collision_layer = 5
+size = Vector3(12, 1, 20)
+
+[node name="AgujeroNasales" type="CSGCylinder3D" parent="." unique_id=488933236]
+transform = Transform3D(-4.3711385e-08, -4.371139e-08, 1, -1, 0, -4.371139e-08, 0, -1, -4.371139e-08, 4, -1, 2.5625)
+use_collision = true
+collision_layer = 5
+radius = 2.0
+height = 1.625
+
+[node name="AgujeroNasales2" type="CSGCylinder3D" parent="." unique_id=1382496795]
+transform = Transform3D(-4.3711385e-08, -4.371139e-08, 1, -1, 0, -4.371139e-08, 0, -1, -4.371139e-08, -4, -0.9999997, 2.5625)
+use_collision = true
+collision_layer = 5
+radius = 2.0
+height = 1.625
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=693249236]
+use_collision = true
+collision_layer = 5
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=906361627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -7)
+layers = 5
+flip_faces = true
+size = Vector3(17, 8, 19)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1365709497]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.25000018, 2, 1.5903258)
+layers = 5
+flip_faces = true
+radius = 5.0
+height = 3.5
+sides = 16
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=2001312843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -2, -6)
+use_collision = true
+collision_layer = 5
+size = Vector3(6, 1, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=6770320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -2, -3)
+use_collision = true
+collision_layer = 5
+size = Vector3(6, 1, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=873724660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -2, -9)
+use_collision = true
+collision_layer = 5
+size = Vector3(6, 1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=1432056726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -2, -12)
+use_collision = true
+collision_layer = 5
+size = Vector3(6, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=1293412871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, -2, -14)
+use_collision = true
+collision_layer = 5
+size = Vector3(6, 1, 1)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=914131019]
+physics_interpolation_mode = 1
+transform = Transform3D(-4.371139e-08, -0.25881904, 0.9659258, 0, 0.9659258, 0.25881904, -1, 1.131334e-08, -4.222196e-08, 14.375156, 4.331951, -7)
+top_level = true
+
+[node name="hardWindZone" type="Area3D" parent="." unique_id=1805121495 node_paths=PackedStringArray("viento_activado", "viento_desactivado")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.565, -6.74)
+script = ExtResource("2_5uhlh")
+force = 50.0
+viento_activado = NodePath("VientoActivado")
+viento_desactivado = NodePath("VientoDesactivado")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hardWindZone" unique_id=1479221845]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, -0.5)
+shape = SubResource("BoxShape3D_w5s21")
+
+[node name="VientoActivado" type="CSGBox3D" parent="hardWindZone" unique_id=1468052436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1, 7)
+visible = false
+material_override = SubResource("StandardMaterial3D_5uhlh")
+
+[node name="VientoDesactivado" type="CSGBox3D" parent="hardWindZone" unique_id=620725918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1, 6)
+material_override = SubResource("StandardMaterial3D_w5s21")
+
+[connection signal="body_entered" from="hardWindZone" to="hardWindZone" method="_on_body_entered"]
+[connection signal="body_exited" from="hardWindZone" to="hardWindZone" method="_on_body_exited"]
