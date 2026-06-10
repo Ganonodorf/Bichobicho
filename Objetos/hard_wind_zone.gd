@@ -46,13 +46,18 @@ func _trigger_wind():
 		_add_force_to_bichos()
 
 func _deactivate_wind():
-	viento_activado.hide()
-	viento_desactivado.show()
+	if(viento_activado != null):
+		viento_activado.hide()
+	if(viento_activado != null):
+		viento_desactivado.show()
 	is_wind_active = false
 
 func _activate_wind():
-	viento_activado.show()
-	viento_desactivado.hide()
+	if(viento_activado != null):
+		viento_activado.show()
+
+	if(viento_activado != null):
+		viento_desactivado.hide()
 	is_wind_active = true
 	
 func _delete_force_from_bichos():

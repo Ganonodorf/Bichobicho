@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://7877fvcuji8h" path="res://Bichos/Bichos 3DModels/bichoTest.blend" id="2_a8j3b"]
 [ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/Bichos parts/pata.tscn" id="3_jx17o"]
 [ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/Bichos parts/ground_check.tscn" id="4_8dyog"]
+[ext_resource type="Script" uid="uid://c286hsmm61a6i" path="res://Bichos/camera_spring_arm.gd" id="5_a8j3b"]
+[ext_resource type="Script" uid="uid://jrjkyxpvuck6" path="res://Bichos/camera_follow_spring_arm.gd" id="6_jx17o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ai5s"]
 size = Vector3(1.3989258, 0.61035156, 1.0231934)
@@ -14,6 +16,9 @@ height = 1.9238281
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d15ak"]
 radius = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jx17o"]
+radius = 0.3
 
 [node name="BichoBola" type="RigidBody3D" unique_id=1702474466 node_paths=PackedStringArray("animation_player", "original_shape1", "original_shape2", "bola_shape")]
 collision_mask = 4
@@ -39,7 +44,7 @@ disabled = true
 [node name="bichoTest" parent="." unique_id=1629151449 instance=ExtResource("2_a8j3b")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Skeleton3D" parent="bichoTest/Armature" parent_id_path=PackedInt32Array(1629151449, 554008709) index="0" unique_id=1767292636]
+[node name="Skeleton3D" parent="bichoTest/Armature" parent_id_path=PackedInt32Array(1629151449, 1709234412) index="0" unique_id=1053529702]
 bones/0/position = Vector3(-0.015539359, 0.021632101, -0.0038724244)
 bones/0/rotation = Quaternion(-0.33228782, -0.60665363, 0.3415914, 0.6362951)
 bones/1/rotation = Quaternion(0.009141773, 0.019975571, 0.36315382, 0.9314702)
@@ -53,7 +58,7 @@ bones/5/rotation = Quaternion(-0.38941607, 0.82507986, -0.39171666, 0.118981324)
 bones/6/position = Vector3(0.0065465984, 0.31794968, -0.3380103)
 bones/6/rotation = Quaternion(0.40791562, -0.037235424, 0.83611, -0.36488152)
 
-[node name="AnimationPlayer" parent="bichoTest" index="1" unique_id=543632760]
+[node name="AnimationPlayer" parent="bichoTest" index="1" unique_id=1817855600]
 autoplay = &"Idle"
 
 [node name="pataIzquierda" parent="." unique_id=1847736130 instance=ExtResource("3_jx17o")]
@@ -71,6 +76,34 @@ impulse = 2.0
 
 [node name="groundCheck" parent="pataDerecha" unique_id=996994009 instance=ExtResource("4_8dyog")]
 transform = Transform3D(0.9829627, 0.1830127, 0.017037123, -0.18301268, 0.9659258, 0.1830127, 0.017037094, -0.18301271, 0.9829627, -0.101380646, -0.1057328, -0.40087965)
+
+[node name="PataMedia5" parent="." unique_id=1569356421 instance=ExtResource("3_jx17o")]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, -0.079004586, 0)
+key_name = "A_key"
+impulse = 6.0
+
+[node name="groundCheck" parent="PataMedia5" unique_id=864696782 instance=ExtResource("4_8dyog")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2.6822243e-22, -2.40722e-08, -0.5507077)
+target_position = Vector3(0, -0.75, 0)
+debug_shape_thickness = 5
+
+[node name="SpringArmPivot" type="Node3D" parent="." unique_id=173823437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44, 0)
+script = ExtResource("5_a8j3b")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot" unique_id=2038479909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44, 0)
+top_level = true
+collision_mask = 4
+shape = SubResource("SphereShape3D_jx17o")
+spring_length = 6.0
+
+[node name="SpringPosition" type="Node3D" parent="SpringArmPivot/SpringArm3D" unique_id=576267581]
+
+[node name="Camera3D" type="Camera3D" parent="SpringArmPivot" unique_id=2000366296 node_paths=PackedStringArray("spring_position")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.6702688)
+script = ExtResource("6_jx17o")
+spring_position = NodePath("../SpringArm3D/SpringPosition")
 
 [connection signal="animation_finished" from="bichoTest/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
