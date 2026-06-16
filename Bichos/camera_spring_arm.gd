@@ -10,6 +10,9 @@ extends Node3D
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+func _process(delta: float) -> void:
+	global_position = $"..".global_position
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if(event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED):
