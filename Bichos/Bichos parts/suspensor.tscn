@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cq2kssntfbb2u"]
+
+[ext_resource type="Script" uid="uid://1e2gycscuujp" path="res://Bichos/Bichos parts/suspensor.gd" id="1_fepkb"]
+
+[sub_resource type="Curve" id="Curve_fepkb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="suspensor" type="RayCast3D" unique_id=1269889229]
+target_position = Vector3(0, -0.69, 0)
+collision_mask = 4
+debug_shape_custom_color = Color(0.42045352, 0.629684, 0.33374032, 1)
+script = ExtResource("1_fepkb")
+spring_max_compression = 0.6
+spring_stiffnes = 160.0
+spring_stiffness_curve = SubResource("Curve_fepkb")
+spring_damper = 40.0

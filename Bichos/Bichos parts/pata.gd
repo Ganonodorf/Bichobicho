@@ -10,6 +10,7 @@ class_name Pata
 var on_ground: bool = false
 var impulse_vector: Vector3
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
