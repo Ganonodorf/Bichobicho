@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dfqtxikwen3d"
-path="res://.godot/imported/ClimbAMummyBugLevel.blend-c96375229982f32deaafc4fd05a45ce4.scn"
+uid="uid://dmsri3fk2vcbj"
+path="res://.godot/imported/bichoTrompa.blend-385788a4d8b1f74e0ca0f46c21c4f42a.scn"
 
 [deps]
 
-source_file="res://Level/Level 3DModels/ClimbAMummyBugLevel.blend"
-dest_files=["res://.godot/imported/ClimbAMummyBugLevel.blend-c96375229982f32deaafc4fd05a45ce4.scn"]
+source_file="res://Bichos/3DModels/bichoTrompa.blend"
+dest_files=["res://.godot/imported/bichoTrompa.blend-385788a4d8b1f74e0ca0f46c21c4f42a.scn"]
 
 [params]
 

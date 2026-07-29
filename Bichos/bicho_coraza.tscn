@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cbiqq30n104ig"]
 
 [ext_resource type="Script" uid="uid://b8fn1y3nc1l1x" path="res://Bichos/bicho.gd" id="1_ddsum"]
-[ext_resource type="PackedScene" uid="uid://dkw2fw2jh0mv4" path="res://Bichos/Bichos 3DModels/bichoCoraza.blend" id="2_hrnkt"]
-[ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/Bichos parts/pata.tscn" id="3_h17ml"]
-[ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/Bichos parts/ground_check.tscn" id="4_x2hrt"]
-[ext_resource type="PackedScene" uid="uid://cq2kssntfbb2u" path="res://Bichos/Bichos parts/suspensor.tscn" id="5_x2hrt"]
+[ext_resource type="PackedScene" uid="uid://dkw2fw2jh0mv4" path="res://Bichos/3DModels/bichoCoraza.blend" id="2_hrnkt"]
+[ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/Parts/pata.tscn" id="3_h17ml"]
+[ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/Parts/ground_check.tscn" id="4_x2hrt"]
+[ext_resource type="PackedScene" uid="uid://cq2kssntfbb2u" path="res://Bichos/Parts/suspensor.tscn" id="5_x2hrt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h17ml"]
 friction = 0.35

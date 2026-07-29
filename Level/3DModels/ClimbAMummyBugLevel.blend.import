@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c8pk4utldjwrx"
-path="res://.godot/imported/BugLevelTest.blend-5a33bfca30ee76af2f7bdfef949ecb75.scn"
+uid="uid://dfqtxikwen3d"
+path="res://.godot/imported/ClimbAMummyBugLevel.blend-4bc5a043efa39e733810bf9519da7042.scn"
 
 [deps]
 
-source_file="res://Level/Level 3DModels/BugLevelTest.blend"
-dest_files=["res://.godot/imported/BugLevelTest.blend-5a33bfca30ee76af2f7bdfef949ecb75.scn"]
+source_file="res://Level/3DModels/ClimbAMummyBugLevel.blend"
+dest_files=["res://.godot/imported/ClimbAMummyBugLevel.blend-4bc5a043efa39e733810bf9519da7042.scn"]
 
 [params]
 
