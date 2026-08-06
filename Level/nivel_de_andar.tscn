@@ -1,3 +1,47 @@
 [gd_scene format=3 uid="uid://ct5c2c4dlykkl"]
 
+[ext_resource type="PackedScene" uid="uid://duh30gg6er3ue" path="res://Level/3DModels/churchCavePacked.blend" id="1_pu21s"]
+[ext_resource type="PackedScene" uid="uid://bb23bxd0ch2ed" path="res://Bichero/bichero.tscn" id="2_is2wt"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_ov0l8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ov0l8"]
+sky_top_color = Color(0.13274401, 0.21865496, 0.27486518, 1)
+sky_horizon_color = Color(0.31247067, 0.33180055, 0.34927815, 1)
+ground_bottom_color = Color(0.10499931, 0.09640781, 0.11010795, 1)
+ground_horizon_color = Color(0.31247067, 0.33180055, 0.34927815, 1)
+
+[sub_resource type="Sky" id="Sky_eo0uw"]
+sky_material = SubResource("ProceduralSkyMaterial_ov0l8")
+
+[sub_resource type="Environment" id="Environment_qnl6n"]
+background_mode = 2
+sky = SubResource("Sky_eo0uw")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+
 [node name="NivelDeAndar" type="Node3D" unique_id=1512371646]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=3466969]
+environment = SubResource("Environment_qnl6n")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=871340049]
+transform = Transform3D(0.91140336, -0.3086814, 0.27213925, 0, 0.66131186, 0.75011104, -0.41151425, -0.6836537, 0.60272187, 0, 0, 0)
+light_color = Color(0.8659327, 0.85835665, 0.811493, 1)
+shadow_enabled = true
+
+[node name="churchCavePacked" parent="." unique_id=624504104 instance=ExtResource("1_pu21s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8140907, -19.997696, -3.1971335)
+
+[node name="Bichero" parent="." unique_id=259036909 instance=ExtResource("2_is2wt")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=267235027]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=717994704]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_ov0l8")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
