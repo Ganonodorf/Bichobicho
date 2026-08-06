@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dkw2fw2jh0mv4"
-path="res://.godot/imported/bichoCoraza.blend-a39dc69d74d8e64424197168bf854ade.scn"
+path="res://.godot/imported/bichoCoraza.blend-dac0b17126c5494fd97602149e5d344c.scn"
 
 [deps]
 
-source_file="res://Bichos/Bichos 3DModels/bichoCoraza.blend"
-dest_files=["res://.godot/imported/bichoCoraza.blend-a39dc69d74d8e64424197168bf854ade.scn"]
+source_file="res://Bichos/3DModels/bichoCoraza.blend"
+dest_files=["res://.godot/imported/bichoCoraza.blend-dac0b17126c5494fd97602149e5d344c.scn"]
 
 [params]
 

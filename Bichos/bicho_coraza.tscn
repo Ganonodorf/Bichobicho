@@ -1,43 +1,36 @@
 [gd_scene format=3 uid="uid://cbiqq30n104ig"]
 
 [ext_resource type="Script" uid="uid://b8fn1y3nc1l1x" path="res://Bichos/bicho.gd" id="1_ddsum"]
-[ext_resource type="PackedScene" uid="uid://dkw2fw2jh0mv4" path="res://Bichos/Bichos 3DModels/bichoCoraza.blend" id="2_hrnkt"]
-[ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/Bichos parts/pata.tscn" id="3_h17ml"]
-[ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/Bichos parts/ground_check.tscn" id="4_x2hrt"]
+[ext_resource type="PackedScene" uid="uid://dkw2fw2jh0mv4" path="res://Bichos/3DModels/bichoCoraza.blend" id="2_hrnkt"]
+[ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/Parts/pata.tscn" id="3_h17ml"]
+[ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/Parts/ground_check.tscn" id="4_x2hrt"]
+[ext_resource type="PackedScene" uid="uid://cq2kssntfbb2u" path="res://Bichos/Parts/suspensor.tscn" id="5_x2hrt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h17ml"]
 friction = 0.35
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_hrnkt"]
-height = 0.5854492
-radius = 1.3134766
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_tkuur"]
-radius = 0.45875186
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h17ml"]
+points = PackedVector3Array(-0.9945336, 0.2707871, -0.6664835, 1.09931, 0.13686673, -0.5834546, 1.0335332, 0.18536007, -0.44976196, -0.090763584, 0.12640011, 1.0983295, 0.041961588, 0.7742731, 0.134323, -0.087592416, 0.0918678, -1.7755115, 0.043739114, 0.5303843, -1.4033626, -0.88621026, 0.09026149, 0.43403786, 0.88704, 0.09031328, 0.43390462, -0.47269833, 0.6585924, 0.2813035, 0.35091054, 0.4881161, 0.8627589, 0.6954719, 0.5742075, -0.6676921, 0.6602478, 0.092667684, -1.5513594, -0.52831614, 0.48864487, -1.2896916, -0.041990023, 0.017671531, 0.18905856, -1.1352737, 0.08262625, -0.8179494, -0.041217197, 0.77637625, -0.6141711, -0.35009137, 0.48815572, 0.86331403, 0.4734906, 0.65849125, 0.28105053, 0.30061927, 0.01463521, -0.7495102, -0.69523144, 0.5743918, -0.66801435, 0.5274644, 0.4443845, -1.3742795, 1.1362337, 0.082631215, -0.8179423, -0.62027127, 0.1788733, -1.6053121, 0.49825177, 0.21951297, 0.9482686, 0.08816466, 0.532149, 0.95299333, -0.2996981, 0.014562455, -0.74958295, 0.09140955, 0.12739675, -1.8210129, -0.93642664, 0.13284993, 0.3496806, -0.49764383, 0.21937852, 0.94924355, 0.87428564, 0.18213844, 0.42242557, -0.6143846, 0.093147025, -1.5935408)
 
 [node name="bichoCoraza" type="RigidBody3D" unique_id=2139795818 node_paths=PackedStringArray("animation_player")]
 collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_h17ml")
-linear_damp = 1.511
 angular_damp = 2.907
 script = ExtResource("1_ddsum")
 animation_player = NodePath("bichoCoraza/AnimationPlayer")
 
-[node name="bichoCoraza" parent="." unique_id=1549721281 instance=ExtResource("2_hrnkt")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1189936099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26081932)
+shape = SubResource("ConvexPolygonShape3D_h17ml")
+
+[node name="bichoCoraza" parent="." unique_id=440780018 instance=ExtResource("2_hrnkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26081932)
 
-[node name="AnimationPlayer" parent="bichoCoraza" index="2" unique_id=184079051]
+[node name="collider" parent="bichoCoraza" index="1" unique_id=547172851]
+visible = false
+
+[node name="AnimationPlayer" parent="bichoCoraza" index="2" unique_id=613756800]
 autoplay = &"Idle"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2023895932]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24455237, 0)
-visible = false
-shape = SubResource("CylinderShape3D_hrnkt")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1515634126]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45063174, 0)
-visible = false
-shape = SubResource("SphereShape3D_tkuur")
 
 [node name="Pata" parent="." unique_id=1847736130 instance=ExtResource("3_h17ml")]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 0.057079673, 1.0706131)
@@ -62,5 +55,17 @@ target_position = Vector3(0, -0.36, 0)
 [node name="groundCheck2" parent="Pata2/groundCheck" unique_id=1550541892 instance=ExtResource("4_x2hrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2478405)
 target_position = Vector3(0, -0.36, 0)
+
+[node name="suspensor" parent="." unique_id=1269889229 instance=ExtResource("5_x2hrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7680435, 0.1382792, 0.9512268)
+
+[node name="suspensor2" parent="." unique_id=1897320209 instance=ExtResource("5_x2hrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.768, 0.1382792, 0.95166063)
+
+[node name="suspensor3" parent="." unique_id=279816322 instance=ExtResource("5_x2hrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7680435, 0.1382792, -0.6755397)
+
+[node name="suspensor4" parent="." unique_id=697907191 instance=ExtResource("5_x2hrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.768, 0.1382792, -0.6751058)
 
 [editable path="bichoCoraza"]

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://7877fvcuji8h"
-path="res://.godot/imported/bichoTest.blend-f5dfc6391704dce7b884b93d6c9114fd.scn"
+path="res://.godot/imported/bichoTest.blend-d609b1758e05588eef18186dcaed4fef.scn"
 
 [deps]
 
-source_file="res://Bichos/Bichos 3DModels/bichoTest.blend"
-dest_files=["res://.godot/imported/bichoTest.blend-f5dfc6391704dce7b884b93d6c9114fd.scn"]
+source_file="res://Bichos/3DModels/bichoTest.blend"
+dest_files=["res://.godot/imported/bichoTest.blend-d609b1758e05588eef18186dcaed4fef.scn"]
 
 [params]
 

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c6ydis8d0bkpj"]
 
 [ext_resource type="Script" uid="uid://n8qpsdy32e1k" path="res://Bichos/bicho_bola.gd" id="1_d15ak"]
-[ext_resource type="PackedScene" uid="uid://7877fvcuji8h" path="res://Bichos/Bichos 3DModels/bichoTest.blend" id="2_a8j3b"]
-[ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/Bichos parts/pata.tscn" id="3_jx17o"]
-[ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/Bichos parts/ground_check.tscn" id="4_8dyog"]
-[ext_resource type="Script" path="res://Bichos/camera_spring_arm.gd" id="5_a8j3b"]
-[ext_resource type="Script" path="res://Bichos/camera_follow_spring_arm.gd" id="6_jx17o"]
+[ext_resource type="PackedScene" uid="uid://7877fvcuji8h" path="res://Bichos/3DModels/bichoTest.blend" id="2_a8j3b"]
+[ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/Parts/pata.tscn" id="3_jx17o"]
+[ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/Parts/ground_check.tscn" id="4_8dyog"]
+[ext_resource type="Script" uid="uid://c286hsmm61a6i" path="res://Bichos/camera_spring_arm.gd" id="5_a8j3b"]
+[ext_resource type="Script" uid="uid://jrjkyxpvuck6" path="res://Bichos/camera_follow_spring_arm.gd" id="6_jx17o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ai5s"]
 size = Vector3(1.3989258, 0.61035156, 1.0231934)
@@ -44,7 +44,7 @@ disabled = true
 [node name="bichoTest" parent="." unique_id=1629151449 instance=ExtResource("2_a8j3b")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Skeleton3D" parent="bichoTest/Armature" parent_id_path=PackedInt32Array(1629151449, 554008709) index="0" unique_id=1767292636]
+[node name="Skeleton3D" parent="bichoTest/Armature" parent_id_path=PackedInt32Array(1629151449, 1709234412) index="0" unique_id=1053529702]
 bones/0/position = Vector3(-0.015539359, 0.021632101, -0.0038724244)
 bones/0/rotation = Quaternion(-0.33228782, -0.60665363, 0.3415914, 0.6362951)
 bones/1/rotation = Quaternion(0.009141773, 0.019975571, 0.36315382, 0.9314702)
@@ -58,7 +58,7 @@ bones/5/rotation = Quaternion(-0.38941607, 0.82507986, -0.39171666, 0.118981324)
 bones/6/position = Vector3(0.0065465984, 0.31794968, -0.3380103)
 bones/6/rotation = Quaternion(0.40791562, -0.037235424, 0.83611, -0.36488152)
 
-[node name="AnimationPlayer" parent="bichoTest" index="1" unique_id=543632760]
+[node name="AnimationPlayer" parent="bichoTest" index="1" unique_id=1817855600]
 autoplay = &"Idle"
 
 [node name="pataIzquierda" parent="." unique_id=1847736130 instance=ExtResource("3_jx17o")]
@@ -89,7 +89,6 @@ debug_shape_thickness = 5
 
 [node name="SpringArmPivot" type="Node3D" parent="." unique_id=173823437]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44, 0)
-top_level = true
 script = ExtResource("5_a8j3b")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot" unique_id=2038479909]
