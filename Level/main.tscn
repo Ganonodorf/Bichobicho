@@ -49,7 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.306892, 1.4309549, -15.80
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1615831159]
 physics_interpolation_mode = 1
-transform = Transform3D(0.3315692, 0.23554039, -0.9135549, -7.450581e-09, 0.96833265, 0.24966362, 0.9434309, -0.08278074, 0.32106924, -58.975403, 12.056932, -21.229168)
+transform = Transform3D(-0.39032936, 0.040881723, -0.91976726, 3.7252903e-09, 0.99901366, 0.04440406, 0.9206754, 0.0173322, -0.38994431, -58.975403, 1.8408566, -21.229168)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=81195016]
@@ -59,10 +59,10 @@ script = ExtResource("3_oycwn")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1772517170 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.3315692, 0.23554024, -0.91355515, -7.450581e-09, 0.968332, 0.24966368, 0.9434309, -0.08278069, 0.32106933, -58.975403, 12.056932, -21.229168)
+transform = Transform3D(-0.39032942, 0.040881697, -0.9197675, 3.7252907e-09, 0.999013, 0.04440407, 0.9206755, 0.017332189, -0.3899444, -58.975403, 1.8408566, -21.229168)
 script = ExtResource("3_q3hbn")
 look_at_mode = 2
-look_at_target = NodePath("../BichoVolador")
+look_at_target = NodePath("../bichoCoraza")
 tween_resource = SubResource("Resource_y023f")
 align_transform_with_view = Callable()
 align_rotation_with_view = Callable()

@@ -1,7 +1,7 @@
 extends RayCast3D
 
 @export_category("Suspension")
-@onready var spring_rest_lenth: float
+@onready var spring_rest_lenth: float = 1.0
 @export var spring_max_compression: float
 @export var spring_stiffnes: float
 @export var spring_stiffness_curve: Curve
@@ -16,9 +16,9 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_colliding():
-		var local_suspension_force = -global_transform.basis.z * suspensionForce( global_transform.origin.distance_to(get_collision_point()) )
+		var local_suspension_force = suspensionForce( global_transform.origin.distance_to(get_collision_point()) )
 		get_parent().apply_force(local_suspension_force, global_position - get_parent().global_position)
 
 func suspensionForce(distanceToFloor: float):

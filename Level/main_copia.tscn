@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://chj3qlixevqu3"]
+
+[ext_resource type="PackedScene" uid="uid://ckc5o6ee3cxfo" path="res://Level/calle_fresno.tscn" id="1_52sil"]
+[ext_resource type="PackedScene" uid="uid://drlksdf76cbi" path="res://Bichos/bicho_test.tscn" id="2_c0rjk"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_b1gg5"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_e3hmw"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_cj8pe"]
+[ext_resource type="PackedScene" uid="uid://cbiqq30n104ig" path="res://Bichos/bicho_coraza.tscn" id="6_s0fhl"]
+[ext_resource type="PackedScene" uid="uid://dh38l4ltkbe4s" path="res://Bichos/bicho_volador.tscn" id="7_eha5a"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q3hbn"]
+sky_top_color = Color(0.2609106, 0.40177265, 0.48864365, 1)
+sky_horizon_color = Color(0.48920518, 0.5222728, 0.5474156, 1)
+ground_bottom_color = Color(0.10499931, 0.09640781, 0.11010795, 1)
+ground_horizon_color = Color(0.48920518, 0.5222728, 0.5474156, 1)
+
+[sub_resource type="Sky" id="Sky_oycwn"]
+sky_material = SubResource("ProceduralSkyMaterial_q3hbn")
+
+[sub_resource type="Environment" id="Environment_y023f"]
+background_mode = 2
+sky = SubResource("Sky_oycwn")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_y023f"]
+script = ExtResource("5_cj8pe")
+
+[node name="Main" type="Node3D" unique_id=381470861]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2097278584]
+environment = SubResource("Environment_y023f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=101961134]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.8659327, 0.85835665, 0.811493, 1)
+shadow_enabled = true
+
+[node name="CalleFresno" parent="." unique_id=227665597 instance=ExtResource("1_52sil")]
+
+[node name="BichoTest" parent="." unique_id=1702474466 instance=ExtResource("2_c0rjk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.306892, 1.4309549, -15.803219)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1615831159]
+physics_interpolation_mode = 1
+transform = Transform3D(-0.36895943, 0.54434663, -0.7533629, 0, 0.81055015, 0.5856686, 0.92944556, 0.21608773, -0.2990604, -58.975403, 12.056932, -21.229168)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=81195016]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_b1gg5")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1772517170]
+transform = Transform3D(-0.36895943, 0.54434663, -0.7533629, 0, 0.81055015, 0.5856686, 0.92944556, 0.21608773, -0.2990604, -58.975403, 12.056932, -21.229168)
+script = ExtResource("4_e3hmw")
+look_at_mode = 2
+tween_resource = SubResource("Resource_y023f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="bichoCoraza" parent="." unique_id=2139795818 groups=["Bichos"] instance=ExtResource("6_s0fhl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.11164, 1.3592691, -17)
+
+[node name="BichoVolador" parent="." unique_id=1326925755 groups=["Bichos"] instance=ExtResource("7_eha5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.423162, 2.8875074, -33.02111)
