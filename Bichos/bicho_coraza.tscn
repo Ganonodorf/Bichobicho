@@ -29,7 +29,7 @@ visible = false
 autoplay = &"Idle"
 
 [node name="Pata" parent="." unique_id=1847736130 instance=ExtResource("3_h17ml")]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 0.057079673, 1.0706131)
+transform = Transform3D(0.49999994, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, 0.49999994, 0, 0.057079673, 1.0706131)
 key_name = "E_key"
 
 [node name="groundCheck" parent="Pata" unique_id=102550460 instance=ExtResource("4_x2hrt")]
@@ -39,7 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26090527)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2478405)
 
 [node name="Pata2" parent="." unique_id=1404070798 instance=ExtResource("3_h17ml")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0.057079673, 1.0706131)
+transform = Transform3D(0.49999994, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, 0.49999994, 0, 0.057079673, 1.0706131)
 key_name = "Q_key"
 
 [node name="groundCheck" parent="Pata2" unique_id=1879932017 instance=ExtResource("4_x2hrt")]
@@ -50,14 +50,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2478405)
 
 [node name="suspensor" parent="." unique_id=1269889229 instance=ExtResource("5_x2hrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7680435, 0.1382792, 0.9512268)
+lateral_friction = 0.2
+longitudinal_friction = 0.2
 
 [node name="suspensor2" parent="." unique_id=1897320209 instance=ExtResource("5_x2hrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.768, 0.1382792, 0.95166063)
+lateral_friction = 0.2
+longitudinal_friction = 0.2
 
 [node name="suspensor3" parent="." unique_id=279816322 instance=ExtResource("5_x2hrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7680435, 0.1382792, -0.6755397)
+longitudinal_friction = 0.5
 
 [node name="suspensor4" parent="." unique_id=697907191 instance=ExtResource("5_x2hrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.768, 0.1382792, -0.6751058)
+longitudinal_friction = 0.5
+
+[node name="Pata3" parent="." unique_id=2093642614 instance=ExtResource("3_h17ml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09134376, 0.9211375, 0.23805887)
+key_name = "Z_key"
+impulse = 1.0
+vertical_impulse = 3.0
+
+[node name="Pata4" parent="." unique_id=1068382621 instance=ExtResource("3_h17ml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.091, 0.921, 0.238)
+key_name = "C_key"
+impulse = 1.0
+vertical_impulse = 3.0
 
 [editable path="bichoCoraza"]

@@ -1,11 +1,14 @@
 extends RayCast3D
 
 @export_category("Suspension")
-@onready var spring_rest_lenth: float = 1.0
+@export var spring_rest_lenth: float = 0.5
 @export var spring_max_compression: float
 @export var spring_stiffnes: float
 @export var spring_stiffness_curve: Curve
 @export var spring_damper: float
+
+@export var lateral_friction: float = 0.5   # sideways grip, higher = more grip
+@export var longitudinal_friction: float = 0.5  # forward/back rolling resistance
 
 var last_frame_spring_length: float
 
@@ -18,8 +21,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	if is_colliding():
+		var offset = global_position - get_parent().global_position
+		var contact_velocity  = get_parent().linear_velocity + get_parent().angular_velocity.cross(offset)
+		var local_friction_force = frictionForce(contact_velocity)
 		var local_suspension_force = suspensionForce( global_transform.origin.distance_to(get_collision_point()) )
-		get_parent().apply_force(local_suspension_force, global_position - get_parent().global_position)
+		get_parent().apply_force(local_suspension_force + local_friction_force, global_position - get_parent().global_position)
 
 func suspensionForce(distanceToFloor: float):
 
@@ -32,15 +38,14 @@ func suspensionForce(distanceToFloor: float):
 	
 	last_frame_spring_length = current_spring_length
 	
-	return (spring_force + damper_force) * Vector3.UP
+	return (spring_force + damper_force) * global_transform.basis.y
 
-func suspension(suspension_ray: RayCast3D):
-	if suspension_ray.is_colliding():
-		var contact := suspension_ray.get_collision_point()
-		var spring_up_dir := suspension_ray.global_transform.basis.y
-		var spring_length := suspension_ray.global_position.distance_to(contact)
-		var offset := spring_rest_lenth - spring_length
-		
-		var spring_force := spring_stiffnes * offset
-		var force_vector := spring_force * spring_up_dir
-		
+
+
+func frictionForce(contact_velocity: Vector3):
+	var forward = global_transform.basis.z
+	var sideways = global_transform.basis.x
+	var lateral_velocity = contact_velocity.dot(sideways) 
+	var longitudinal_velocity = contact_velocity.dot(forward)
+	var friction_force = (-sideways * lateral_velocity * lateral_friction) + (-forward * longitudinal_velocity * longitudinal_friction)
+	return friction_force
