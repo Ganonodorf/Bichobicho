@@ -12,12 +12,12 @@ sky_horizon_color = Color(0.31247067, 0.33180055, 0.34927815, 1)
 ground_bottom_color = Color(0.10499931, 0.09640781, 0.11010795, 1)
 ground_horizon_color = Color(0.31247067, 0.33180055, 0.34927815, 1)
 
-[sub_resource type="Sky" id="Sky_eo0uw"]
+[sub_resource type="Sky" id="Sky_qnl6n"]
 sky_material = SubResource("ProceduralSkyMaterial_ov0l8")
 
 [sub_resource type="Environment" id="Environment_qnl6n"]
 background_mode = 2
-sky = SubResource("Sky_eo0uw")
+sky = SubResource("Sky_qnl6n")
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
@@ -26,7 +26,7 @@ fog_enabled = true
 
 [node name="NivelDeAndar" type="Node3D" unique_id=1512371646 node_paths=PackedStringArray("level_triggers")]
 script = ExtResource("1_eo0uw")
-level_triggers = [NodePath("Nivel_de_bicho")]
+level_triggers = [NodePath("NivelDeAndar2")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=3466969]
 environment = SubResource("Environment_qnl6n")
@@ -52,12 +52,12 @@ process_physics_priority = 300
 script = ExtResource("3_ov0l8")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="Nivel_de_bicho" type="Area3D" parent="." unique_id=1339204069]
+[node name="NivelDeAndar2" type="Area3D" parent="." unique_id=1339204069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4640307, -1.7520558, -1.4308689)
 script = ExtResource("5_qnl6n")
-level_path = "res://Level/main.tscn"
+level_path = "res://Level/nivel_de_andar_2.tscn"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Nivel_de_bicho" unique_id=11307160]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NivelDeAndar2" unique_id=11307160]
 shape = SubResource("BoxShape3D_jypwj")
 
-[connection signal="body_entered" from="Nivel_de_bicho" to="Nivel_de_bicho" method="_on_body_entered"]
+[connection signal="body_entered" from="NivelDeAndar2" to="NivelDeAndar2" method="_on_body_entered"]
