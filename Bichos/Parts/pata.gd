@@ -4,8 +4,12 @@ class_name Pata
 
 @export_enum("Q_key", "A_key", "Z_key", "E_key", "D_key",  "C_key",) var key_name: String
 
+@export var groundcheck: Node3D
+@export var flutter_fuel_counter: Node3D
 @export var impulse: float = 3.0
 @export var vertical_impulse: float = 0
+@export var wing_impulse_always_horizontal: bool = false
+
 
 var on_ground: bool = false
 var impulse_vector: Vector3
@@ -21,15 +25,36 @@ func _process(_delta: float) -> void:
 	pass
 
 func applyImpulse():
-	if isPataGrounded():
-		impulse_vector = global_transform.basis.z * impulse + Vector3.UP * vertical_impulse
+	if isPataGrounded() && thereAreFluttersLeft():
+		var forward_dir: Vector3
+		
+		if wing_impulse_always_horizontal:
+			# Take the forward axis and flatten it onto the horizontal ground plane (y = 0)
+			var raw_forward = global_transform.basis.z
+			var flat_forward = Vector3(raw_forward.x, 0.0, raw_forward.z)
+			
+			forward_dir = flat_forward.normalized()
+			
+		else:
+			# Use the standard local basis forward direction
+			forward_dir = global_transform.basis.z
+			
+		impulse_vector = forward_dir * impulse + Vector3.UP * vertical_impulse
 		get_parent().apply_impulse(impulse_vector, global_position - get_parent().global_position)
 	pass
 
 func isPataGrounded():
-	for child in get_children():
-		if child is GroundCheck:
-			return child.isGrounded()
+	if groundcheck:
+		for child in groundcheck.get_children():
+			if child is GroundCheck:
+				return child.isGrounded()
+
+	return true
+
+func thereAreFluttersLeft():
+	if flutter_fuel_counter:
+		return flutter_fuel_counter.are_there_flutters_left()
+	
 	return true
 
 func getKey():
