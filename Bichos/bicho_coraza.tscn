@@ -23,6 +23,27 @@ shape = SubResource("ConvexPolygonShape3D_h17ml")
 [node name="bichoCoraza" parent="." unique_id=440780018 instance=ExtResource("2_hrnkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26081932)
 
+[node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(440780018, 376116452) index="0" unique_id=681048261]
+bones/0/position = Vector3(-0.0083938055, 0.0012270218, -0.01180705)
+bones/0/rotation = Quaternion(0.4223608, -0.003968726, -0.011186307, 0.90635)
+bones/1/rotation = Quaternion(0.33474886, 0.015020013, 0.01523514, 0.94206446)
+bones/2/rotation = Quaternion(0.94883645, 0.0018192773, -0.010339433, -0.31559336)
+bones/3/position = Vector3(0.48454472, 0.38714907, 0.24816875)
+bones/3/rotation = Quaternion(0.30822814, 0.10733842, -0.2372838, 0.91497016)
+bones/4/position = Vector3(0.75381184, -0.18556307, -0.24179763)
+bones/4/rotation = Quaternion(0.3052017, 0.25317946, -0.6925252, 0.6026284)
+bones/5/position = Vector3(0.6993685, -0.43066272, -0.388005)
+bones/5/rotation = Quaternion(-0.16544724, -0.37740195, 0.8981252, -0.15351269)
+bones/6/position = Vector3(-0.49891198, 0.38131744, 0.24173501)
+bones/6/rotation = Quaternion(0.33767033, -0.18935509, 0.20468539, 0.8990146)
+bones/7/position = Vector3(-0.7531527, -0.19686359, -0.25419432)
+bones/7/rotation = Quaternion(0.316697, -0.26178253, 0.65422577, 0.6349501)
+bones/8/position = Vector3(-0.6842424, -0.43287623, -0.39494154)
+bones/8/rotation = Quaternion(0.15127803, -0.4237951, 0.8802629, 0.15049882)
+
+[node name="body" parent="bichoCoraza/Armature/Skeleton3D" index="0" unique_id=1364374326]
+transform = Transform3D(0.9999742, -0.006658015, 0.0026968112, -0.003067581, -0.05632028, 0.9984078, -0.006495527, -0.9983905, -0.056339175, 0.0027561802, 0.42481062, 0.4926298)
+
 [node name="collider" parent="bichoCoraza" index="1" unique_id=2013750999]
 visible = false
 

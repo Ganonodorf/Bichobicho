@@ -10,6 +10,9 @@ class_name Pata
 @export var vertical_impulse: float = 0
 @export var wing_impulse_always_horizontal: bool = false
 
+@export_category("Animation")
+@export var animation_player: AnimationPlayer # <--- Drag and drop your AnimationPlayer here in the Inspector!
+@export var wing_animation_name: String = "" 
 
 var on_ground: bool = false
 var impulse_vector: Vector3
@@ -41,7 +44,12 @@ func applyImpulse():
 			
 		impulse_vector = forward_dir * impulse + Vector3.UP * vertical_impulse
 		get_parent().apply_impulse(impulse_vector, global_position - get_parent().global_position)
+		
+		# Instantly play/override the animation using our assigned player
+		if animation_player and wing_animation_name != "":
+			animation_player.play(wing_animation_name)
 	pass
+
 
 func isPataGrounded():
 	if groundcheck:
