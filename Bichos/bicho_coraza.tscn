@@ -10,19 +10,55 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h17ml"]
 points = PackedVector3Array(-0.9945336, 0.2707871, -0.6664835, 1.09931, 0.13686673, -0.5834546, 1.0335332, 0.18536007, -0.44976196, -0.090763584, 0.12640011, 1.0983295, 0.041961588, 0.7742731, 0.134323, -0.087592416, 0.0918678, -1.7755115, 0.043739114, 0.5303843, -1.4033626, -0.88621026, 0.09026149, 0.43403786, 0.88704, 0.09031328, 0.43390462, -0.47269833, 0.6585924, 0.2813035, 0.35091054, 0.4881161, 0.8627589, 0.6954719, 0.5742075, -0.6676921, 0.6602478, 0.092667684, -1.5513594, -0.52831614, 0.48864487, -1.2896916, -0.041990023, 0.017671531, 0.18905856, -1.1352737, 0.08262625, -0.8179494, -0.041217197, 0.77637625, -0.6141711, -0.35009137, 0.48815572, 0.86331403, 0.4734906, 0.65849125, 0.28105053, 0.30061927, 0.01463521, -0.7495102, -0.69523144, 0.5743918, -0.66801435, 0.5274644, 0.4443845, -1.3742795, 1.1362337, 0.082631215, -0.8179423, -0.62027127, 0.1788733, -1.6053121, 0.49825177, 0.21951297, 0.9482686, 0.08816466, 0.532149, 0.95299333, -0.2996981, 0.014562455, -0.74958295, 0.09140955, 0.12739675, -1.8210129, -0.93642664, 0.13284993, 0.3496806, -0.49764383, 0.21937852, 0.94924355, 0.87428564, 0.18213844, 0.42242557, -0.6143846, 0.093147025, -1.5935408)
 
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_be1o1"]
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_be1o1"]
 animation = &"IdleWingFlap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q0hl2"]
+animation = &"RightWingFlap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cykc5"]
+animation = &"LeftWingFlap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aji63"]
+animation = &"Move"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0os24"]
 animation = &"Idle"
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_hv3d3"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Wing.L"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_f1his"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_rkfku"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Wing.R"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_be1o1"]
-graph_offset = Vector2(-169.91983, 17.280048)
-nodes/output/position = Vector2(630, 160)
+graph_offset = Vector2(-368.1549, -10.906212)
+nodes/output/position = Vector2(1070, 200)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_0os24")
-nodes/Animation/position = Vector2(70, 110)
+nodes/Animation/position = Vector2(-380, 70)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_be1o1")
-"nodes/Animation 2/position" = Vector2(80, 290)
+"nodes/Animation 2/position" = Vector2(0, 370)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_be1o1")
+nodes/Add2/position = Vector2(220, 130)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_q0hl2")
+"nodes/Animation 3/position" = Vector2(360, 300)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_rkfku")
+nodes/OneShot/position = Vector2(540, 170)
+"nodes/OneShot 2/node" = SubResource("AnimationNodeOneShot_hv3d3")
+"nodes/OneShot 2/position" = Vector2(880, 190)
+"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_cykc5")
+"nodes/Animation 4/position" = Vector2(700, 320)
+"nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_aji63")
+"nodes/Animation 5/position" = Vector2(-210, 260)
+"nodes/OneShot 3/node" = SubResource("AnimationNodeOneShot_f1his")
+"nodes/OneShot 3/position" = Vector2(0, 60)
+node_connections = [&"output", 0, &"OneShot 2", &"Add2", 0, &"OneShot 3", &"Add2", 1, &"Animation 2", &"OneShot", 0, &"Add2", &"OneShot", 1, &"Animation 3", &"OneShot 2", 0, &"OneShot", &"OneShot 2", 1, &"Animation 4", &"OneShot 3", 0, &"Animation", &"OneShot 3", 1, &"Animation 5"]
 
 [node name="bichoCoraza" type="RigidBody3D" unique_id=2139795818 node_paths=PackedStringArray("animation_player")]
 collision_mask = 4
@@ -40,8 +76,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26081932)
 [node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(743835509, 1874287597) index="0" unique_id=125037033]
 bones/0/position = Vector3(-0.0083938055, 0.0012270218, -0.01180705)
 bones/0/rotation = Quaternion(0.4223608, -0.003968726, -0.011186307, 0.90635)
-bones/1/rotation = Quaternion(0.34642646, 0.0009301137, -0.016420629, 0.937933)
-bones/2/rotation = Quaternion(0.9396542, 0.0041928533, -0.023358645, -0.34130177)
+bones/1/rotation = Quaternion(0.32491034, 0.013485817, -0.0049706227, 0.9456357)
+bones/2/rotation = Quaternion(0.9433332, 0.00401184, -0.016580226, -0.33140835)
 bones/3/position = Vector3(-0.43382382, -0.010618976, 0.2489293)
 bones/3/rotation = Quaternion(9.295491e-09, 2.18278e-11, 3.6380052e-11, 1)
 bones/4/position = Vector3(0.43382394, -0.0106189, 0.24892908)
@@ -53,17 +89,17 @@ bones/6/position = Vector3(0.37180796, 0.16467933, 0.18496506)
 bones/6/rotation = Quaternion(-0.014960587, 1.890083e-07, -0.04213108, 0.9990001)
 bones/6/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/7/position = Vector3(0.48454472, 0.38714907, 0.24816875)
-bones/7/rotation = Quaternion(0.33444625, 0.1137647, -0.25289437, 0.90069294)
+bones/7/rotation = Quaternion(0.3180582, 0.15674849, -0.23762515, 0.9043247)
 bones/8/position = Vector3(0.75381184, -0.18556307, -0.24179763)
-bones/8/rotation = Quaternion(0.27785566, 0.2521281, -0.6627257, 0.64809144)
+bones/8/rotation = Quaternion(0.29835737, 0.26085496, -0.68423676, 0.61217463)
 bones/9/position = Vector3(0.6993685, -0.43066272, -0.388005)
-bones/9/rotation = Quaternion(-0.1558851, -0.39393514, 0.89440477, -0.14337067)
+bones/9/rotation = Quaternion(-0.16141509, -0.38441274, 0.8966054, -0.1492347)
 bones/10/position = Vector3(-0.49891198, 0.38131744, 0.24173501)
-bones/10/rotation = Quaternion(0.32176715, -0.15284753, 0.22121088, 0.90783775)
+bones/10/rotation = Quaternion(0.3437763, -0.13526389, 0.22530793, 0.9015308)
 bones/11/position = Vector3(-0.7531527, -0.19686359, -0.25419432)
-bones/11/rotation = Quaternion(0.3279568, -0.23960203, 0.6613467, 0.6305996)
+bones/11/rotation = Quaternion(0.32921916, -0.23929384, 0.6561704, 0.6354477)
 bones/12/position = Vector3(-0.6842424, -0.43287623, -0.39494154)
-bones/12/rotation = Quaternion(0.1986461, -0.3885661, 0.88295233, 0.1730649)
+bones/12/rotation = Quaternion(0.17949912, -0.40513563, 0.8808152, 0.1667625)
 
 [node name="collider" parent="bichoCoraza" index="1" unique_id=1061035421]
 visible = false
@@ -74,6 +110,16 @@ autoplay = &"Idle"
 [node name="AnimationTree" type="AnimationTree" parent="bichoCoraza" unique_id=961092399]
 tree_root = SubResource("AnimationNodeBlendTree_be1o1")
 anim_player = NodePath("../AnimationPlayer")
+parameters/Add2/add_amount = 0.0
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0
+"parameters/OneShot 2/active" = false
+"parameters/OneShot 2/internal_active" = false
+"parameters/OneShot 2/request" = 0
+"parameters/OneShot 3/active" = false
+"parameters/OneShot 3/internal_active" = false
+"parameters/OneShot 3/request" = 0
 
 [node name="PataE" parent="." unique_id=1847736130 node_paths=PackedStringArray("groundcheck") instance=ExtResource("3_h17ml")]
 transform = Transform3D(0.49999994, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, 0.49999994, 0, 0.057079673, 1.5842253)
