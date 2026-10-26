@@ -21,5 +21,5 @@ func add_observer(level: Level):
 func get_destination_position():
 	return destination_node.global_position
 
-func is_your_other_side(origin_level: String, destiny_level: String) -> bool:
-	return self.origin_level == origin_level && self.destiny_level == destiny_level
+func is_your_other_side(destiny_level: String, origin_level: String) -> bool:
+	return self.origin_level == destiny_level && self.destiny_level == origin_level
