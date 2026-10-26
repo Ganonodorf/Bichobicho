@@ -44,12 +44,12 @@ shadow_enabled = true
 
 [node name="CalleFresno" parent="." unique_id=227665597 instance=ExtResource("1_gqyk6")]
 
-[node name="BichoTest" parent="." unique_id=1702474466 groups=["bicho"] instance=ExtResource("2_r23e8")]
+[node name="BichoTest" parent="." unique_id=1702474466 instance=ExtResource("2_r23e8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.306892, 1.4309549, -15.803219)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1615831159]
 physics_interpolation_mode = 1
-transform = Transform3D(-0.39032936, 0.040881723, -0.91976726, 3.7252903e-09, 0.99901366, 0.04440406, 0.9206754, 0.0173322, -0.38994431, -58.975403, 1.8408566, -21.229168)
+transform = Transform3D(-0.39032924, 0.5608541, -0.73012733, -2.9802322e-08, 0.79303443, 0.60917675, 0.9206754, 0.23777948, -0.30954456, -58.975403, 9.6821785, -21.229168)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=81195016]
@@ -59,7 +59,7 @@ script = ExtResource("3_oycwn")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1772517170 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.3903295, 0.040881697, -0.9197675, 3.7252916e-09, 0.999013, 0.04440407, 0.92067575, 0.017332189, -0.3899444, -58.975403, 1.8408566, -21.229168)
+transform = Transform3D(-0.39032942, 0.5608537, -0.7301275, -2.9802337e-08, 0.7930339, 0.6091769, 0.9206758, 0.23777933, -0.30954462, -58.975403, 9.6821785, -21.229168)
 script = ExtResource("3_q3hbn")
 look_at_mode = 2
 look_at_target = NodePath("../bichoCoraza")
@@ -68,10 +68,10 @@ align_transform_with_view = Callable()
 align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="bichoCoraza" parent="." unique_id=2139795818 groups=["bicho"] instance=ExtResource("6_y023f")]
+[node name="bichoCoraza" parent="." unique_id=2139795818 instance=ExtResource("6_y023f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 1.3592691, -17)
 
-[node name="BichoVolador" parent="." unique_id=1326925755 groups=["bicho"] instance=ExtResource("7_76v5r")]
+[node name="BichoVolador" parent="." unique_id=1326925755 instance=ExtResource("7_76v5r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.423162, 2.8875074, -33.02111)
 
 [node name="Banner" parent="." unique_id=1973557918 instance=ExtResource("8_c8g86")]

@@ -4,7 +4,7 @@ class_name Bicho
 
 var patas: Array[Pata]
 
-@export var animation_player: AnimationPlayer
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,23 +18,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var move: bool = false
-	
+
 	if(Input):
 		for pata in patas:
 			if Input.is_action_just_pressed(pata.key_name):
 				pata.applyImpulse()
-				move = true
-	
-	if(move):
-		animation_player.stop()
-		animation_player.play("Move")
-		pass
-	
-	pass
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if(anim_name == "Move"):
-		animation_player.play("Idle")
-		
 	pass

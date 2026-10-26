@@ -2,6 +2,13 @@ extends Node3D
 
 class_name Pata
 
+signal animated_wing_pata_fired(is_right_side: bool)
+signal animated_ground_pata_fired()
+
+@export_category("Animation Settings")
+@export var is_winged_animated_pata: bool = false  # Check this for only ONE pata per group (e.g., right wing leader)
+@export var is_ground_animated_pata: bool = false
+
 @export_enum("Q_key", "A_key", "Z_key", "E_key", "D_key",  "C_key",) var key_name: String
 
 @export var groundcheck: Node3D
@@ -25,6 +32,13 @@ func applyImpulse() -> bool:
 		
 	var final_impulse = _calculate_impulse_vector()
 	get_parent().apply_impulse(final_impulse, global_position - get_parent().global_position)
+	
+	if is_winged_animated_pata:
+		var is_right_side = position.x < 0.0
+		animated_wing_pata_fired.emit(is_right_side)
+	
+	if is_ground_animated_pata:
+		animated_ground_pata_fired.emit()
 	return true
 
 func getKey() -> String:

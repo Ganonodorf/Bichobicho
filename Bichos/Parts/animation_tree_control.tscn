@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://yw063h8bapj4"]
+
+[ext_resource type="Script" uid="uid://dyanb8ewegf3a" path="res://Bichos/Parts/animation_tree_control.gd" id="1_kb8o3"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_be1o1"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_be1o1"]
+animation = &"IdleWingFlap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q0hl2"]
+animation = &"RightWingFlap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cykc5"]
+animation = &"LeftWingFlap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0os24"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_hv3d3"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Wing.L"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aji63"]
+animation = &"Move"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_f1his"]
+abort_on_reset = true
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_rkfku"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Wing.R"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_be1o1"]
+graph_offset = Vector2(-327.3322, -41.280777)
+nodes/output/position = Vector2(1070, 200)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_0os24")
+nodes/Idle/position = Vector2(-380, 70)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_be1o1")
+"nodes/Animation 2/position" = Vector2(0, 370)
+nodes/AddIddleWings/node = SubResource("AnimationNodeAdd2_be1o1")
+nodes/AddIddleWings/position = Vector2(220, 130)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_q0hl2")
+"nodes/Animation 3/position" = Vector2(360, 300)
+nodes/RightWingShot/node = SubResource("AnimationNodeOneShot_rkfku")
+nodes/RightWingShot/position = Vector2(540, 170)
+nodes/LeftWingShot/node = SubResource("AnimationNodeOneShot_hv3d3")
+nodes/LeftWingShot/position = Vector2(880, 190)
+"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_cykc5")
+"nodes/Animation 4/position" = Vector2(700, 320)
+nodes/Move/node = SubResource("AnimationNodeAnimation_aji63")
+nodes/Move/position = Vector2(-210, 260)
+nodes/MoveShot/node = SubResource("AnimationNodeOneShot_f1his")
+nodes/MoveShot/position = Vector2(0, 60)
+node_connections = [&"output", 0, &"LeftWingShot", &"AddIddleWings", 0, &"MoveShot", &"AddIddleWings", 1, &"Animation 2", &"RightWingShot", 0, &"AddIddleWings", &"RightWingShot", 1, &"Animation 3", &"LeftWingShot", 0, &"RightWingShot", &"LeftWingShot", 1, &"Animation 4", &"MoveShot", 0, &"Idle", &"MoveShot", 1, &"Move"]
+
+[node name="AnimationTreeControl" type="AnimationTree" unique_id=417517545]
+root_node = NodePath("../bichoCoraza")
+tree_root = SubResource("AnimationNodeBlendTree_be1o1")
+anim_player = NodePath("../bichoCoraza/AnimationPlayer")
+parameters/AddIddleWings/add_amount = 0.0
+parameters/RightWingShot/active = false
+parameters/RightWingShot/internal_active = false
+parameters/RightWingShot/request = 0
+parameters/LeftWingShot/active = false
+parameters/LeftWingShot/internal_active = false
+parameters/LeftWingShot/request = 0
+parameters/MoveShot/active = false
+parameters/MoveShot/internal_active = false
+parameters/MoveShot/request = 1
+script = ExtResource("1_kb8o3")

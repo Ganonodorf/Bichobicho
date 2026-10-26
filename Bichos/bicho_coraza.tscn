@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cbiqq30n104ig"]
 
 [ext_resource type="Script" uid="uid://b8fn1y3nc1l1x" path="res://Bichos/bicho.gd" id="1_ddsum"]
+[ext_resource type="PackedScene" uid="uid://yw063h8bapj4" path="res://Bichos/Parts/animation_tree_control.tscn" id="2_0os24"]
 [ext_resource type="PackedScene" uid="uid://dkw2fw2jh0mv4" path="res://Bichos/3DModels/bichoCoraza.blend" id="2_hrnkt"]
 [ext_resource type="PackedScene" uid="uid://deykxnu7y6hu5" path="res://Bichos/Parts/pata.tscn" id="3_h17ml"]
 [ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/Parts/ground_check.tscn" id="4_x2hrt"]
@@ -10,62 +11,10 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h17ml"]
 points = PackedVector3Array(-0.9945336, 0.2707871, -0.6664835, 1.09931, 0.13686673, -0.5834546, 1.0335332, 0.18536007, -0.44976196, -0.090763584, 0.12640011, 1.0983295, 0.041961588, 0.7742731, 0.134323, -0.087592416, 0.0918678, -1.7755115, 0.043739114, 0.5303843, -1.4033626, -0.88621026, 0.09026149, 0.43403786, 0.88704, 0.09031328, 0.43390462, -0.47269833, 0.6585924, 0.2813035, 0.35091054, 0.4881161, 0.8627589, 0.6954719, 0.5742075, -0.6676921, 0.6602478, 0.092667684, -1.5513594, -0.52831614, 0.48864487, -1.2896916, -0.041990023, 0.017671531, 0.18905856, -1.1352737, 0.08262625, -0.8179494, -0.041217197, 0.77637625, -0.6141711, -0.35009137, 0.48815572, 0.86331403, 0.4734906, 0.65849125, 0.28105053, 0.30061927, 0.01463521, -0.7495102, -0.69523144, 0.5743918, -0.66801435, 0.5274644, 0.4443845, -1.3742795, 1.1362337, 0.082631215, -0.8179423, -0.62027127, 0.1788733, -1.6053121, 0.49825177, 0.21951297, 0.9482686, 0.08816466, 0.532149, 0.95299333, -0.2996981, 0.014562455, -0.74958295, 0.09140955, 0.12739675, -1.8210129, -0.93642664, 0.13284993, 0.3496806, -0.49764383, 0.21937852, 0.94924355, 0.87428564, 0.18213844, 0.42242557, -0.6143846, 0.093147025, -1.5935408)
 
-[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_be1o1"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_be1o1"]
-animation = &"IdleWingFlap"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q0hl2"]
-animation = &"RightWingFlap"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cykc5"]
-animation = &"LeftWingFlap"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aji63"]
-animation = &"Move"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0os24"]
-animation = &"Idle"
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_hv3d3"]
-filter_enabled = true
-filters = ["Armature/Skeleton3D:Wing.L"]
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_f1his"]
-abort_on_reset = true
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_rkfku"]
-filter_enabled = true
-filters = ["Armature/Skeleton3D:Wing.R"]
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_be1o1"]
-graph_offset = Vector2(-378.87616, 16.029715)
-nodes/output/position = Vector2(1070, 200)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_0os24")
-nodes/Animation/position = Vector2(-380, 70)
-"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_be1o1")
-"nodes/Animation 2/position" = Vector2(0, 370)
-nodes/Add2/node = SubResource("AnimationNodeAdd2_be1o1")
-nodes/Add2/position = Vector2(220, 130)
-"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_q0hl2")
-"nodes/Animation 3/position" = Vector2(360, 300)
-nodes/OneShot/node = SubResource("AnimationNodeOneShot_rkfku")
-nodes/OneShot/position = Vector2(540, 170)
-"nodes/OneShot 2/node" = SubResource("AnimationNodeOneShot_hv3d3")
-"nodes/OneShot 2/position" = Vector2(880, 190)
-"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_cykc5")
-"nodes/Animation 4/position" = Vector2(700, 320)
-"nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_aji63")
-"nodes/Animation 5/position" = Vector2(-210, 260)
-"nodes/OneShot 3/node" = SubResource("AnimationNodeOneShot_f1his")
-"nodes/OneShot 3/position" = Vector2(0, 60)
-node_connections = [&"output", 0, &"OneShot 2", &"Add2", 0, &"OneShot 3", &"Add2", 1, &"Animation 2", &"OneShot", 0, &"Add2", &"OneShot", 1, &"Animation 3", &"OneShot 2", 0, &"OneShot", &"OneShot 2", 1, &"Animation 4", &"OneShot 3", 0, &"Animation", &"OneShot 3", 1, &"Animation 5"]
-
-[node name="bichoCoraza" type="RigidBody3D" unique_id=2139795818 node_paths=PackedStringArray("animation_player") groups=["bicho"]]
+[node name="bichoCoraza" type="RigidBody3D" unique_id=2139795818 groups=["bicho"]]
 collision_mask = 4
 angular_damp = 2.907
 script = ExtResource("1_ddsum")
-animation_player = NodePath("bichoCoraza/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1189936099]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26081932)
@@ -74,11 +23,11 @@ shape = SubResource("ConvexPolygonShape3D_h17ml")
 [node name="bichoCoraza" parent="." unique_id=743835509 instance=ExtResource("2_hrnkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26081932)
 
-[node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(743835509, 430416421) index="0" unique_id=610708783]
+[node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(743835509, 1285511020) index="0" unique_id=1258195312]
 bones/0/position = Vector3(-0.0083938055, 0.0012270218, -0.01180705)
 bones/0/rotation = Quaternion(0.4223608, -0.003968726, -0.011186307, 0.90635)
-bones/1/rotation = Quaternion(0.35063758, 0.014562873, 0.029056085, 0.9359471)
-bones/2/rotation = Quaternion(0.9503332, 0.0011795727, -0.010183946, -0.3110659)
+bones/1/rotation = Quaternion(0.3574864, 0.01302612, 0.027195849, 0.9334314)
+bones/2/rotation = Quaternion(0.95106924, 0.0022102052, -0.010192331, -0.3088019)
 bones/3/position = Vector3(-0.43382382, -0.010618976, 0.2489293)
 bones/3/rotation = Quaternion(9.295491e-09, 2.18278e-11, 3.6380052e-11, 1)
 bones/4/position = Vector3(0.43382394, -0.0106189, 0.24892908)
@@ -90,40 +39,27 @@ bones/6/position = Vector3(0.37180796, 0.16467933, 0.18496506)
 bones/6/rotation = Quaternion(-0.014960587, 1.890083e-07, -0.04213108, 0.9990001)
 bones/6/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/7/position = Vector3(0.48454472, 0.38714907, 0.24816875)
-bones/7/rotation = Quaternion(0.3082431, 0.119851395, -0.2688554, 0.9046207)
+bones/7/rotation = Quaternion(0.3122531, 0.11948532, -0.26739, 0.9037278)
 bones/8/position = Vector3(0.75381184, -0.18556307, -0.24179763)
-bones/8/rotation = Quaternion(0.30466783, 0.2510885, -0.69198596, 0.60439026)
+bones/8/rotation = Quaternion(0.30117702, 0.251177, -0.68840593, 0.6101639)
 bones/9/position = Vector3(0.6993685, -0.43066272, -0.388005)
-bones/9/rotation = Quaternion(-0.16475472, -0.37861013, 0.8978693, -0.15277784)
+bones/9/rotation = Quaternion(-0.16327384, -0.38118812, 0.89731485, -0.15120654)
 bones/10/position = Vector3(-0.49891198, 0.38131744, 0.24173501)
-bones/10/rotation = Quaternion(0.33005506, -0.185063, 0.207666, 0.9020478)
+bones/10/rotation = Quaternion(0.32797247, -0.18148138, 0.20941347, 0.9031305)
 bones/11/position = Vector3(-0.7531527, -0.19686359, -0.25419432)
-bones/11/rotation = Quaternion(0.30679208, -0.27874473, 0.6546044, 0.6321972)
+bones/11/rotation = Quaternion(0.30625945, -0.2791445, 0.656415, 0.6303989)
 bones/12/position = Vector3(-0.6842424, -0.43287623, -0.39494154)
-bones/12/rotation = Quaternion(0.1415947, -0.42912683, 0.8803403, 0.14422983)
+bones/12/rotation = Quaternion(0.14447077, -0.42361972, 0.88271934, 0.1431126)
 
-[node name="collider" parent="bichoCoraza" index="1" unique_id=1923555662]
+[node name="collider" parent="bichoCoraza" index="1" unique_id=786679735]
 visible = false
 
-[node name="AnimationPlayer" parent="bichoCoraza" index="2" unique_id=1144625917]
+[node name="AnimationPlayer" parent="bichoCoraza" index="2" unique_id=305771105]
 autoplay = &"Idle"
-
-[node name="AnimationTree" type="AnimationTree" parent="bichoCoraza" unique_id=961092399]
-tree_root = SubResource("AnimationNodeBlendTree_be1o1")
-anim_player = NodePath("../AnimationPlayer")
-parameters/Add2/add_amount = 0.0
-parameters/OneShot/active = false
-parameters/OneShot/internal_active = false
-parameters/OneShot/request = 0
-"parameters/OneShot 2/active" = false
-"parameters/OneShot 2/internal_active" = false
-"parameters/OneShot 2/request" = 0
-"parameters/OneShot 3/active" = false
-"parameters/OneShot 3/internal_active" = false
-"parameters/OneShot 3/request" = 0
 
 [node name="PataE" parent="." unique_id=1847736130 node_paths=PackedStringArray("groundcheck") instance=ExtResource("3_h17ml")]
 transform = Transform3D(0.49999994, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, 0.49999994, 0, 0.057079673, 1.5842253)
+is_ground_animated_pata = true
 key_name = "E_key"
 groundcheck = NodePath("../groundCheckE")
 
@@ -141,6 +77,7 @@ target_position = Vector3(0, -0.3, 0)
 
 [node name="PataQ" parent="." unique_id=1404070798 node_paths=PackedStringArray("groundcheck") instance=ExtResource("3_h17ml")]
 transform = Transform3D(0.49999994, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, 0.49999994, 0, 0.057079673, 1.5842253)
+is_ground_animated_pata = true
 key_name = "Q_key"
 groundcheck = NodePath("../groundCheckQ")
 
@@ -192,6 +129,7 @@ longitudinal_friction = 0.5
 
 [node name="PataAlaDerecha" parent="." unique_id=2093642614 instance=ExtResource("3_h17ml")]
 transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, -0.1, 0.421, 0.637)
+is_winged_animated_pata = true
 key_name = "A_key"
 impulse = 1.0
 vertical_impulse = 2.0
@@ -199,6 +137,7 @@ wing_impulse_always_horizontal = true
 
 [node name="PataAlaIzquierda" parent="." unique_id=1068382621 instance=ExtResource("3_h17ml")]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.1, 0.421, 0.637)
+is_winged_animated_pata = true
 key_name = "D_key"
 impulse = 1.0
 vertical_impulse = 2.0
@@ -218,5 +157,9 @@ wing_impulse_always_horizontal = true
 
 [node name="FlutterFuelCounter" parent="." unique_id=115663575 instance=ExtResource("6_be1o1")]
 max_flutters = 30
+infinite_flight = true
+
+[node name="AnimationTreeControl" parent="." unique_id=417517545 instance=ExtResource("2_0os24")]
+parameters/MoveShot/request = 0
 
 [editable path="bichoCoraza"]
