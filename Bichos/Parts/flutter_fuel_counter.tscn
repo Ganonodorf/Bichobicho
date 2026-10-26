@@ -4,9 +4,3 @@
 
 [node name="FlutterFuelCounter" type="Node3D" unique_id=115663575]
 script = ExtResource("1_kp468")
-time_grounded_to_reset = 5
-
-[node name="Timer" type="Timer" parent="." unique_id=951992018]
-one_shot = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
