@@ -61,7 +61,7 @@ nodes/OneShot/position = Vector2(540, 170)
 "nodes/OneShot 3/position" = Vector2(0, 60)
 node_connections = [&"output", 0, &"OneShot 2", &"Add2", 0, &"OneShot 3", &"Add2", 1, &"Animation 2", &"OneShot", 0, &"Add2", &"OneShot", 1, &"Animation 3", &"OneShot 2", 0, &"OneShot", &"OneShot 2", 1, &"Animation 4", &"OneShot 3", 0, &"Animation", &"OneShot 3", 1, &"Animation 5"]
 
-[node name="bichoCoraza" type="RigidBody3D" unique_id=2139795818 node_paths=PackedStringArray("animation_player")]
+[node name="bichoCoraza" type="RigidBody3D" unique_id=2139795818 node_paths=PackedStringArray("animation_player") groups=["bicho"]]
 collision_mask = 4
 angular_damp = 2.907
 script = ExtResource("1_ddsum")
@@ -74,7 +74,7 @@ shape = SubResource("ConvexPolygonShape3D_h17ml")
 [node name="bichoCoraza" parent="." unique_id=743835509 instance=ExtResource("2_hrnkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26081932)
 
-[node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(743835509, 1874287597) index="0" unique_id=125037033]
+[node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(743835509, 430416421) index="0" unique_id=610708783]
 bones/0/position = Vector3(-0.0083938055, 0.0012270218, -0.01180705)
 bones/0/rotation = Quaternion(0.4223608, -0.003968726, -0.011186307, 0.90635)
 bones/1/rotation = Quaternion(0.35063758, 0.014562873, 0.029056085, 0.9359471)
@@ -102,10 +102,10 @@ bones/11/rotation = Quaternion(0.30679208, -0.27874473, 0.6546044, 0.6321972)
 bones/12/position = Vector3(-0.6842424, -0.43287623, -0.39494154)
 bones/12/rotation = Quaternion(0.1415947, -0.42912683, 0.8803403, 0.14422983)
 
-[node name="collider" parent="bichoCoraza" index="1" unique_id=1061035421]
+[node name="collider" parent="bichoCoraza" index="1" unique_id=1923555662]
 visible = false
 
-[node name="AnimationPlayer" parent="bichoCoraza" index="2" unique_id=190617189]
+[node name="AnimationPlayer" parent="bichoCoraza" index="2" unique_id=1144625917]
 autoplay = &"Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="bichoCoraza" unique_id=961092399]

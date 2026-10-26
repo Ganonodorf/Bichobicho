@@ -31,8 +31,9 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 
-Bichos=""
-Bichero="El bichero"
+bichero="El bichero"
+bicho=""
+door=""
 
 [input]
 

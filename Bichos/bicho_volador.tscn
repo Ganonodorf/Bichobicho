@@ -12,7 +12,7 @@ size = Vector3(1.3989258, 0.61035156, 1.0231934)
 radius = 0.31884766
 height = 1.9238281
 
-[node name="BichoVolador" type="RigidBody3D" unique_id=1702474466 node_paths=PackedStringArray("animation_player")]
+[node name="BichoVolador" type="RigidBody3D" unique_id=1702474466 node_paths=PackedStringArray("animation_player") groups=["bicho"]]
 collision_mask = 4
 script = ExtResource("1_jredg")
 animation_player = NodePath("bichoTest/AnimationPlayer")
@@ -28,7 +28,7 @@ shape = SubResource("CapsuleShape3D_4d45s")
 [node name="bichoTest" parent="." unique_id=1629151449 instance=ExtResource("2_76g5e")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Skeleton3D" parent="bichoTest/Armature" parent_id_path=PackedInt32Array(1629151449, 1677277965) index="0" unique_id=127099683]
+[node name="Skeleton3D" parent="bichoTest/Armature" parent_id_path=PackedInt32Array(1629151449, 1756553035) index="0" unique_id=89839982]
 bones/0/position = Vector3(-0.015539359, 0.021632101, -0.0038724244)
 bones/0/rotation = Quaternion(-0.33228782, -0.60665363, 0.3415914, 0.6362951)
 bones/1/rotation = Quaternion(0.009141773, 0.019975571, 0.36315382, 0.9314702)
@@ -42,7 +42,7 @@ bones/5/rotation = Quaternion(-0.38941607, 0.82507986, -0.39171666, 0.118981324)
 bones/6/position = Vector3(0.0065465984, 0.31794968, -0.3380103)
 bones/6/rotation = Quaternion(0.40791562, -0.037235424, 0.83611, -0.36488152)
 
-[node name="AnimationPlayer" parent="bichoTest" index="1" unique_id=87582072]
+[node name="AnimationPlayer" parent="bichoTest" index="1" unique_id=224659155]
 autoplay = &"Idle"
 
 [node name="PataAlante" parent="." unique_id=1847736130 instance=ExtResource("3_ac0pl")]
@@ -59,13 +59,13 @@ key_name = "D_key"
 
 [node name="PataMedia2" parent="." unique_id=868965978 instance=ExtResource("3_ac0pl")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.5, 0.601, -0.345)
-impulse = 5.0
 key_name = "D_key"
+impulse = 5.0
 
 [node name="PataMedia3" parent="." unique_id=2125375384 instance=ExtResource("3_ac0pl")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.5, 0.601, 0.345)
-impulse = 5.0
 key_name = "D_key"
+impulse = 5.0
 
 [node name="PataMedia4" parent="." unique_id=524885592 instance=ExtResource("3_ac0pl")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6124295, 0.601, 0.345)
@@ -73,8 +73,8 @@ key_name = "D_key"
 
 [node name="PataMedia5" parent="." unique_id=910117143 instance=ExtResource("3_ac0pl")]
 transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, -0.079004586, 0)
-impulse = 6.0
 key_name = "A_key"
+impulse = 6.0
 
 [node name="groundCheck" parent="PataMedia5" unique_id=102550460 instance=ExtResource("4_76g5e")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2.6822243e-22, -2.40722e-08, -0.5507077)

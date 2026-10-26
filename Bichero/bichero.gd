@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 @onready var phantom_camera_3d: PhantomCamera3D = $PhantomCamera3D
 
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
@@ -39,3 +38,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func move_to_position(position: Vector3):
+	self.global_position.x = position.x
+	self.global_position.y = position.y
+	self.global_position.z = position.z
