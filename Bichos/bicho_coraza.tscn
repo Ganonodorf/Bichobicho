@@ -26,8 +26,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26081932)
 [node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(743835509, 1285511020) index="0" unique_id=1258195312]
 bones/0/position = Vector3(-0.0083938055, 0.0012270218, -0.01180705)
 bones/0/rotation = Quaternion(0.4223608, -0.003968726, -0.011186307, 0.90635)
-bones/1/rotation = Quaternion(0.3574864, 0.01302612, 0.027195849, 0.9334314)
-bones/2/rotation = Quaternion(0.95106924, 0.0022102052, -0.010192331, -0.3088019)
+bones/1/rotation = Quaternion(0.3621395, 0.007832671, 0.017681018, 0.93192333)
+bones/2/rotation = Quaternion(0.9514485, 0.0030007467, -0.010576407, -0.30761182)
 bones/3/position = Vector3(-0.43382382, -0.010618976, 0.2489293)
 bones/3/rotation = Quaternion(9.295491e-09, 2.18278e-11, 3.6380052e-11, 1)
 bones/4/position = Vector3(0.43382394, -0.0106189, 0.24892908)
@@ -39,17 +39,17 @@ bones/6/position = Vector3(0.37180796, 0.16467933, 0.18496506)
 bones/6/rotation = Quaternion(-0.014960587, 1.890083e-07, -0.04213108, 0.9990001)
 bones/6/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/7/position = Vector3(0.48454472, 0.38714907, 0.24816875)
-bones/7/rotation = Quaternion(0.3122531, 0.11948532, -0.26739, 0.9037278)
+bones/7/rotation = Quaternion(0.31535405, 0.11859204, -0.26588482, 0.90321267)
 bones/8/position = Vector3(0.75381184, -0.18556307, -0.24179763)
-bones/8/rotation = Quaternion(0.30117702, 0.251177, -0.68840593, 0.6101639)
+bones/8/rotation = Quaternion(0.29800686, 0.2513049, -0.685039, 0.6154343)
 bones/9/position = Vector3(0.6993685, -0.43066272, -0.388005)
-bones/9/rotation = Quaternion(-0.16327384, -0.38118812, 0.89731485, -0.15120654)
+bones/9/rotation = Quaternion(-0.16204138, -0.3833275, 0.89684606, -0.14989904)
 bones/10/position = Vector3(-0.49891198, 0.38131744, 0.24173501)
-bones/10/rotation = Quaternion(0.32797247, -0.18148138, 0.20941347, 0.9031305)
+bones/10/rotation = Quaternion(0.32669702, -0.17852026, 0.21077052, 0.90386695)
 bones/11/position = Vector3(-0.7531527, -0.19686359, -0.25419432)
-bones/11/rotation = Quaternion(0.30625945, -0.2791445, 0.656415, 0.6303989)
+bones/11/rotation = Quaternion(0.30799726, -0.27520138, 0.65900207, 0.62858427)
 bones/12/position = Vector3(-0.6842424, -0.43287623, -0.39494154)
-bones/12/rotation = Quaternion(0.14447077, -0.42361972, 0.88271934, 0.1431126)
+bones/12/rotation = Quaternion(0.14806606, -0.41779867, 0.8850088, 0.14240861)
 
 [node name="collider" parent="bichoCoraza" index="1" unique_id=786679735]
 visible = false
@@ -65,15 +65,15 @@ groundcheck = NodePath("../groundCheckE")
 
 [node name="groundCheckE" parent="." unique_id=102550460 instance=ExtResource("4_x2hrt")]
 transform = Transform3D(0.4999999, 0, -0.86602545, 0.3761045, 0.90077406, 0.21714401, 0.78009313, -0.43428802, 0.450387, -0.22595055, 0.057079673, 1.2010658)
-target_position = Vector3(0, -0.3, 0)
+target_position = Vector3(0, -0.45, 0)
 
 [node name="groundCheck2" parent="groundCheckE" unique_id=384196225 instance=ExtResource("4_x2hrt")]
 transform = Transform3D(0.9168468, 0.39634237, -0.04800847, -0.39634234, 0.8891291, -0.2288283, -0.04800856, 0.22882828, 0.9722823, 0.093922615, 0.22494563, -1.1936144)
-target_position = Vector3(0, -0.3, 0)
+target_position = Vector3(0, -0.45, 0)
 
 [node name="groundCheck3" parent="groundCheckE/groundCheck2" unique_id=695370047 instance=ExtResource("4_x2hrt")]
 transform = Transform3D(1, 5.5879354e-09, 0, -1.8626451e-09, 1.0000001, -9.313226e-10, 2.9802322e-08, -1.3038516e-08, 1, -1.1696725, -0.03527288, -0.6753106)
-target_position = Vector3(0, -0.3, 0)
+target_position = Vector3(0, -0.45, 0)
 
 [node name="PataQ" parent="." unique_id=1404070798 node_paths=PackedStringArray("groundcheck") instance=ExtResource("3_h17ml")]
 transform = Transform3D(0.49999994, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, 0.49999994, 0, 0.057079673, 1.5842253)
@@ -83,15 +83,15 @@ groundcheck = NodePath("../groundCheckQ")
 
 [node name="groundCheckQ" parent="." unique_id=1879932017 instance=ExtResource("4_x2hrt")]
 transform = Transform3D(0.4999999, 0, 0.86602545, -0.3761045, 0.90077406, 0.21714401, -0.78009313, -0.43428802, 0.450387, 0.22595055, 0.057079673, 1.2010658)
-target_position = Vector3(0, -0.3, 0)
+target_position = Vector3(0, -0.45, 0)
 
 [node name="groundCheck2" parent="groundCheckQ" unique_id=1550541892 instance=ExtResource("4_x2hrt")]
 transform = Transform3D(0.9168468, -0.39634237, 0.04800847, 0.39634234, 0.8891291, -0.2288283, 0.04800856, 0.22882828, 0.9722823, -0.093922615, 0.22494563, -1.1936144)
-target_position = Vector3(0, -0.3, 0)
+target_position = Vector3(0, -0.45, 0)
 
 [node name="groundCheck3" parent="groundCheckQ/groundCheck2" unique_id=1356958562 instance=ExtResource("4_x2hrt")]
 transform = Transform3D(1, -5.5879354e-09, 0, 1.8626451e-09, 1.0000001, -9.313226e-10, -2.9802322e-08, -1.3038516e-08, 1, 1.1696725, -0.03527288, -0.6753106)
-target_position = Vector3(0, -0.3, 0)
+target_position = Vector3(0, -0.45, 0)
 
 [node name="suspensor" parent="." unique_id=1269889229 instance=ExtResource("5_x2hrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7680435, 0.1382792, 0.9512268)

@@ -49,7 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.306892, 1.4309549, -15.80
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1615831159]
 physics_interpolation_mode = 1
-transform = Transform3D(-0.39032924, 0.5608541, -0.73012733, -2.9802322e-08, 0.79303443, 0.60917675, 0.9206754, 0.23777948, -0.30954456, -58.975403, 9.6821785, -21.229168)
+transform = Transform3D(-1, 0, 0, 0, 0.86453044, 0.5025804, 0, 0.5025804, -0.86453056, -49, 5.7192693, -24.5)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=81195016]
@@ -59,11 +59,13 @@ script = ExtResource("3_oycwn")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1772517170 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.39032942, 0.5608537, -0.7301275, -2.9802337e-08, 0.7930339, 0.6091769, 0.9206758, 0.23777933, -0.30954462, -58.975403, 9.6821785, -21.229168)
+transform = Transform3D(-1, 0, 0, 0, 0.86453044, 0.5025804, 0, 0.5025804, -0.86453056, -49, 5.7192693, -24.5)
 script = ExtResource("3_q3hbn")
+follow_mode = 6
 look_at_mode = 2
 look_at_target = NodePath("../bichoCoraza")
 tween_resource = SubResource("Resource_y023f")
+follow_offset = Vector3(0, 4.36, -8.5)
 align_transform_with_view = Callable()
 align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
