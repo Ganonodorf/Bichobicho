@@ -32,13 +32,14 @@ filter_enabled = true
 filters = ["Armature/Skeleton3D:Wing.L"]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_f1his"]
+abort_on_reset = true
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_rkfku"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Wing.R"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_be1o1"]
-graph_offset = Vector2(-368.1549, -10.906212)
+graph_offset = Vector2(-378.87616, 16.029715)
 nodes/output/position = Vector2(1070, 200)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_0os24")
 nodes/Animation/position = Vector2(-380, 70)
@@ -76,8 +77,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.26081932)
 [node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(743835509, 430416421) index="0" unique_id=610708783]
 bones/0/position = Vector3(-0.0083938055, 0.0012270218, -0.01180705)
 bones/0/rotation = Quaternion(0.4223608, -0.003968726, -0.011186307, 0.90635)
-bones/1/rotation = Quaternion(0.35077623, 0.0145605225, 0.029092886, 0.9358941)
-bones/2/rotation = Quaternion(0.9503494, 0.0011980999, -0.010180415, -0.31101617)
+bones/1/rotation = Quaternion(0.35063758, 0.014562873, 0.029056085, 0.9359471)
+bones/2/rotation = Quaternion(0.9503332, 0.0011795727, -0.010183946, -0.3110659)
 bones/3/position = Vector3(-0.43382382, -0.010618976, 0.2489293)
 bones/3/rotation = Quaternion(9.295491e-09, 2.18278e-11, 3.6380052e-11, 1)
 bones/4/position = Vector3(0.43382394, -0.0106189, 0.24892908)
@@ -89,17 +90,17 @@ bones/6/position = Vector3(0.37180796, 0.16467933, 0.18496506)
 bones/6/rotation = Quaternion(-0.014960587, 1.890083e-07, -0.04213108, 0.9990001)
 bones/6/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/7/position = Vector3(0.48454472, 0.38714907, 0.24816875)
-bones/7/rotation = Quaternion(0.30832, 0.11985642, -0.2688337, 0.90460026)
+bones/7/rotation = Quaternion(0.3082431, 0.119851395, -0.2688554, 0.9046207)
 bones/8/position = Vector3(0.75381184, -0.18556307, -0.24179763)
-bones/8/rotation = Quaternion(0.30460978, 0.25108892, -0.69192845, 0.6044852)
+bones/8/rotation = Quaternion(0.30466783, 0.2510885, -0.69198596, 0.60439026)
 bones/9/position = Vector3(0.6993685, -0.43066272, -0.388005)
-bones/9/rotation = Quaternion(-0.16472793, -0.3786569, 0.89785933, -0.15274939)
+bones/9/rotation = Quaternion(-0.16475472, -0.37861013, 0.8978693, -0.15277784)
 bones/10/position = Vector3(-0.49891198, 0.38131744, 0.24173501)
-bones/10/rotation = Quaternion(0.33000875, -0.18499647, 0.20769984, 0.9020705)
+bones/10/rotation = Quaternion(0.33005506, -0.185063, 0.207666, 0.9020478)
 bones/11/position = Vector3(-0.7531527, -0.19686359, -0.25419432)
-bones/11/rotation = Quaternion(0.30675632, -0.2788009, 0.6546269, 0.63216645)
+bones/11/rotation = Quaternion(0.30679208, -0.27874473, 0.6546044, 0.6321972)
 bones/12/position = Vector3(-0.6842424, -0.43287623, -0.39494154)
-bones/12/rotation = Quaternion(0.14162941, -0.42905477, 0.88037264, 0.14421272)
+bones/12/rotation = Quaternion(0.1415947, -0.42912683, 0.8803403, 0.14422983)
 
 [node name="collider" parent="bichoCoraza" index="1" unique_id=1923555662]
 visible = false
@@ -189,33 +190,29 @@ spring_max_compression = 0.5
 spring_stiffnes = 8.06
 longitudinal_friction = 0.5
 
-[node name="PataAlaDerecha" parent="." unique_id=2093642614 node_paths=PackedStringArray("flutter_fuel_counter") instance=ExtResource("3_h17ml")]
+[node name="PataAlaDerecha" parent="." unique_id=2093642614 instance=ExtResource("3_h17ml")]
 transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, -0.1, 0.421, 0.637)
 key_name = "A_key"
-flutter_fuel_counter = NodePath("../FlutterFuelCounter")
 impulse = 1.0
 vertical_impulse = 2.0
 wing_impulse_always_horizontal = true
 
-[node name="PataAlaIzquierda" parent="." unique_id=1068382621 node_paths=PackedStringArray("flutter_fuel_counter") instance=ExtResource("3_h17ml")]
+[node name="PataAlaIzquierda" parent="." unique_id=1068382621 instance=ExtResource("3_h17ml")]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.1, 0.421, 0.637)
 key_name = "D_key"
-flutter_fuel_counter = NodePath("../FlutterFuelCounter")
 impulse = 1.0
 vertical_impulse = 2.0
 wing_impulse_always_horizontal = true
 
-[node name="PataGiroAlaDerecha" parent="." unique_id=2066564345 node_paths=PackedStringArray("flutter_fuel_counter") instance=ExtResource("3_h17ml")]
+[node name="PataGiroAlaDerecha" parent="." unique_id=2066564345 instance=ExtResource("3_h17ml")]
 transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, -0.1, 0.421, 1.9594395)
 key_name = "A_key"
-flutter_fuel_counter = NodePath("../FlutterFuelCounter")
 impulse = 1.0
 wing_impulse_always_horizontal = true
 
-[node name="PataGiroAlaIzquierda" parent="." unique_id=1364874155 node_paths=PackedStringArray("flutter_fuel_counter") instance=ExtResource("3_h17ml")]
+[node name="PataGiroAlaIzquierda" parent="." unique_id=1364874155 instance=ExtResource("3_h17ml")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.1, 0.421, 1.9594395)
 key_name = "D_key"
-flutter_fuel_counter = NodePath("../FlutterFuelCounter")
 impulse = 1.0
 wing_impulse_always_horizontal = true
 
