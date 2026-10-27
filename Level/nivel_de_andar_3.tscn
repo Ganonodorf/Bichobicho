@@ -26,7 +26,7 @@ albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_usu4d"]
 
-[node name="NivelDeAndar2" type="Node3D" unique_id=1865975331]
+[node name="NivelDeAndar3" type="Node3D" unique_id=1865975331]
 script = ExtResource("1_i66cp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=289959150]
