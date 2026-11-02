@@ -30,12 +30,40 @@ shadow_enabled = true
 
 [node name="VehicleBody3D" parent="." unique_id=853644568 instance=ExtResource("1_e6dxd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5660684, 0)
+center_of_mass_mode = 0
+center_of_mass = Vector3(0, 0, 0)
+maximum_rpm = 600
+maximum_torque = 500
+turn_speed = 12
+turn_amount = 0.6
+
+[node name="WheelFrontLeft" parent="VehicleBody3D" index="3" unique_id=324687353]
+wheel_friction_slip = 1.0
+suspension_travel = 0.3
+suspension_stiffness = 25.0
+damping_compression = 5.0
+damping_relaxation = 7.0
+
+[node name="WheelFrontRight" parent="VehicleBody3D" index="4" unique_id=461314840]
+wheel_friction_slip = 1.0
+suspension_travel = 0.3
+suspension_stiffness = 25.0
+damping_compression = 5.0
+damping_relaxation = 7.0
 
 [node name="WheelRearLeft" parent="VehicleBody3D" index="5" unique_id=132920293]
-wheel_friction_slip = 0.5
+wheel_friction_slip = 1.0
+suspension_travel = 0.3
+suspension_stiffness = 25.0
+damping_compression = 5.0
+damping_relaxation = 7.0
 
 [node name="WheelRearRight" parent="VehicleBody3D" index="6" unique_id=394637707]
-wheel_friction_slip = 0.5
+wheel_friction_slip = 1.0
+suspension_travel = 0.3
+suspension_stiffness = 25.0
+damping_compression = 5.0
+damping_relaxation = 7.0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=63381274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.797546, -8.043213, -26.411377)

@@ -2,8 +2,15 @@ extends VehicleBody3D
 
 @export var maximum_rpm = 450
 @export var maximum_torque = 300
+@export var slide_rpm = 300
 @export var turn_speed = 3
 @export var turn_amount = 0.3
+
+var wheels: Array[VehicleWheel3D]
+
+func _ready() -> void:
+	wheels.append($WheelRearLeft)
+	wheels.append($WheelRearRight)
 
 func _physics_process(delta: float) -> void:
 	$SpringArm3D.position = position
@@ -22,3 +29,12 @@ func _physics_process(delta: float) -> void:
 	
 	if dir == 0:
 		brake = 2
+	
+	print(RPM)
+	
+	if(RPM > slide_rpm):
+		for wheel in wheels:
+			wheel.wheel_friction_slip = 0.0
+	else:
+		for wheel in wheels:
+			wheel.wheel_friction_slip = 1.0
