@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c2qe71hbxfle4"]
+
+[ext_resource type="Script" uid="uid://b6yubwjialrna" path="res://Level/coche.gd" id="1_rdfa1"]
+[ext_resource type="Script" uid="uid://bl3qs6pnyfnbo" path="res://Level/carcam.gd" id="2_3ufon"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1fdk3"]
+size = Vector3(1, 0.7, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpsmh"]
+size = Vector3(1, 0.7, 2)
+
+[node name="Coche" type="RigidBody3D" unique_id=421845847]
+visible = false
+mass = 240.0
+script = ExtResource("1_rdfa1")
+spring_strength = 100.0
+suspension_rest_distance = 1.0
+
+[node name="Carroceria" type="MeshInstance3D" parent="." unique_id=292501938]
+mesh = SubResource("BoxMesh_1fdk3")
+
+[node name="Colision" type="CollisionShape3D" parent="." unique_id=2039065212]
+shape = SubResource("BoxShape3D_mpsmh")
+
+[node name="WheelFrontLeft" type="RayCast3D" parent="." unique_id=743310232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.1, 0.7)
+collision_mask = 2
+hit_back_faces = false
+
+[node name="WheelFrontRight" type="RayCast3D" parent="." unique_id=1265780976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.1, 0.7)
+collision_mask = 2
+hit_back_faces = false
+
+[node name="WheelRearLeft" type="RayCast3D" parent="." unique_id=1095106456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.1, -0.7)
+collision_mask = 2
+hit_back_faces = false
+
+[node name="WheelRearRight" type="RayCast3D" parent="." unique_id=400755005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.1, -0.7)
+collision_mask = 2
+hit_back_faces = false
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=221807372]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 0)
+collision_mask = 0
+spring_length = 4.0
+script = ExtResource("2_3ufon")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=529023583]

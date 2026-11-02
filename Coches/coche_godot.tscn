@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://c86am2ri3bq8w"]
+
+[ext_resource type="Script" uid="uid://b6n5aa0ut1jw2" path="res://Level/car.gd" id="1_er1x3"]
+[ext_resource type="Script" uid="uid://bl3qs6pnyfnbo" path="res://Level/carcam.gd" id="2_1wgsp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1fdk3"]
+size = Vector3(1, 0.7, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sksxl"]
+size = Vector3(1, 0.697168, 0.6114502)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_13e5b"]
+size = Vector3(1, 0.6918869, 1.3793335)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tkfgy"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.1
+
+[node name="VehicleBody3D" type="VehicleBody3D" unique_id=853644568]
+mass = 240.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0, 0.2)
+script = ExtResource("1_er1x3")
+turn_speed = 10
+
+[node name="Carroceria" type="MeshInstance3D" parent="." unique_id=885797519]
+mesh = SubResource("BoxMesh_1fdk3")
+
+[node name="ColisionFront" type="CollisionShape3D" parent="." unique_id=341636454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0021972656, 0.6942749)
+shape = SubResource("BoxShape3D_sksxl")
+
+[node name="CollisionBack" type="CollisionShape3D" parent="." unique_id=364746166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0035438538, -0.31185913)
+shape = SubResource("BoxShape3D_13e5b")
+
+[node name="WheelFrontLeft" type="VehicleWheel3D" parent="." unique_id=324687353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.40808353, 0.7)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.25
+suspension_travel = 10.0
+suspension_stiffness = 40.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelFrontLeft" unique_id=1747134727]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_tkfgy")
+
+[node name="WheelFrontRight" type="VehicleWheel3D" parent="." unique_id=461314840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.40808353, 0.7)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.25
+suspension_travel = 10.0
+suspension_stiffness = 40.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelFrontRight" unique_id=821971383]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_tkfgy")
+
+[node name="WheelRearLeft" type="VehicleWheel3D" parent="." unique_id=132920293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.40808353, -0.7)
+use_as_traction = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.25
+wheel_friction_slip = 2.0
+suspension_travel = 10.0
+suspension_stiffness = 40.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelRearLeft" unique_id=645079446]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_tkfgy")
+
+[node name="WheelRearRight" type="VehicleWheel3D" parent="." unique_id=394637707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.40808353, -0.7)
+use_as_traction = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.25
+wheel_friction_slip = 2.0
+suspension_travel = 10.0
+suspension_stiffness = 40.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WheelRearRight" unique_id=201101545]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_tkfgy")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=685210222]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 0)
+collision_mask = 0
+spring_length = 4.0
+script = ExtResource("2_1wgsp")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=350357054]
+current = true
