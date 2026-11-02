@@ -1,8 +1,10 @@
 extends VehicleBody3D
 
-@export var maximum_rpm = 450
-@export var maximum_torque = 300
+@export var maximum_rpm = 600
+@export var maximum_torque = 500
 @export var slide_rpm = 300
+@export var normal_rpm = 50
+@export var nitro = 2
 @export var turn_speed = 3
 @export var turn_amount = 0.3
 
@@ -24,17 +26,19 @@ func _physics_process(delta: float) -> void:
 	
 	var torque = dir * maximum_torque * (1.0 - RPM / maximum_rpm)
 	
+	if(Input.get_action_strength("nitro")):
+		torque = torque * nitro
+	
 	engine_force = torque
 	steering = lerp(steering, steering_dir * turn_amount, turn_speed * delta)
 	
 	if dir == 0:
 		brake = 2
 	
-	print(RPM)
-	
 	if(RPM > slide_rpm):
 		for wheel in wheels:
-			wheel.wheel_friction_slip = 0.0
-	else:
+			wheel.wheel_friction_slip = 0.8
+	
+	if(RPM < 0):
 		for wheel in wheels:
 			wheel.wheel_friction_slip = 1.0

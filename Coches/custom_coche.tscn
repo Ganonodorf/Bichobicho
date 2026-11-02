@@ -7,13 +7,12 @@
 size = Vector3(1, 0.7, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mpsmh"]
-size = Vector3(1, 0.7, 2)
+size = Vector3(1, 0.7, 4.4975586)
 
 [node name="Coche" type="RigidBody3D" unique_id=421845847]
 visible = false
 mass = 240.0
 script = ExtResource("1_rdfa1")
-spring_strength = 100.0
 suspension_rest_distance = 1.0
 
 [node name="Carroceria" type="MeshInstance3D" parent="." unique_id=292501938]

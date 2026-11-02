@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bkf2ivxoo7y23"]
 
+[ext_resource type="Script" uid="uid://b6yubwjialrna" path="res://Level/coche.gd" id="1_5pykn"]
 [ext_resource type="PackedScene" uid="uid://c86am2ri3bq8w" path="res://Coches/coche_godot.tscn" id="1_e6dxd"]
+[ext_resource type="Script" uid="uid://bl3qs6pnyfnbo" path="res://Level/carcam.gd" id="2_7qvid"]
+[ext_resource type="PackedScene" uid="uid://cm6d33iv7xve5" path="res://Coches/3DModels/Carmen.blend" id="3_7qvid"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_13e5b"]
 sky_top_color = Color(0.13274401, 0.21865496, 0.27486518, 1)
@@ -18,6 +21,20 @@ tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jl04g"]
+points = PackedVector3Array(-185.34816, 105.9111, -89.7617, -168.98325, 220.29797, 48.197678, -168.5478, 257.61066, 46.200363, -170.1081, 263.21722, 9.930298, -184.9853, 106.29776, -94.07474, -168.72923, -268.24677, -3.8482666, -168.62038, -273.14447, 57.57637, -163.32265, 218.55804, 70.37074, -162.95978, 249.7486, 69.61815, -164.01207, 106.42667, 71.18126, -151.6386, 274.75256, 69.29973, -151.23946, 283.388, 50.77391, -152.9086, 282.48578, 15.401215, -139.66426, 277.52368, -36.44211, -183.35243, 101.8512, -100.645615, -152.11032, -269.3423, -77.19888, -149.0623, -300.5973, -50.97328, -156.53719, -299.88843, -10.650711, -157.2992, -302.7884, 54.971176, -163.83064, -273.08002, 71.55757, -160.49234, 106.42667, 77.69423, -156.46461, 246.71973, 73.12068, -163.83064, -263.4135, 71.55757, -147.42944, 264.31274, 72.39702, -82.3689, 300.8521, 69.64708, -82.3689, 303.42987, 63.74199, -82.40518, 306.78094, 55.955368, -82.40518, 309.2942, 50.050247, -140.49884, 289.05902, 14.011765, -125.87564, 288.41455, -27.64235, -141.15198, 244.91534, -57.283646, -80.37317, 302.9143, -35.515823, -82.94947, 282.09912, -57.74678, -176.96613, 104.75113, -107.15859, -111.43387, 46.494385, -195.3009, -117.85646, 15.754913, -189.28003, -115.35274, -98.88974, -198.97713, -116.29617, -225.13419, -195.53249, -126.7465, -222.1698, -176.3988, -141.6237, -230.6763, -133.61575, -133.60452, -308.97495, -94.94314, -142.27684, -326.24573, -14.529556, -153.23517, -298.7929, 68.74974, -132.73367, -331.01456, 44.781967, -157.98862, -262.5113, 74.191696, -160.49234, -114.09836, 76.970566, 160.45607, 106.42667, 77.69423, -0.0362854, 289.76788, 72.68648, -80.772316, 289.63898, 72.628586, -122.35591, -254.907, 76.970566, -94.74237, -270.2445, 76.970566, -0.0362854, 300.98102, 69.67604, -0.0362854, 309.4231, 50.16603, -76.490585, 313.16083, 10.567123, -104.97498, 56.805298, -196.40088, -117.02189, 58.60971, -185.89328, 80.3369, 302.9143, -35.515823, -0.0362854, 302.07654, -37.744705, -0.0362854, 283.96796, -60.03357, -54.682785, 75.81607, -195.53249, -101.16497, 58.674164, -196.19826, -102.94298, 42.821106, -202.76913, -104.64841, -97.21422, -210.2663, -106.13613, -222.36313, -203.14543, -112.48615, -233.12515, -192.84045, -126.02078, -306.46164, -107.882256, -81.89718, -322.89468, -103.077126, -81.24403, -345.19208, -14.963745, -129.61308, -319.6081, 64.78407, -81.0626, -318.577, 68.74974, -130.99194, -296.7307, 70.63127, -81.49803, -342.2921, 44.434616, 163.97581, 106.42667, 71.18126, 163.28636, 218.55804, 70.37074, 162.92351, 249.7486, 69.61815, 156.42833, 246.71973, 73.12068, 80.73604, 289.63898, 72.628586, 94.7061, -270.2445, 76.970566, 122.319626, -254.907, 76.970566, 160.45607, -114.09836, 76.970566, 163.79436, -273.08002, 71.55757, 163.79436, -263.4135, 71.55757, 82.33263, 300.8521, 69.64708, -0.0362854, -318.51254, 69.01027, 82.33263, 303.42987, 63.74199, 82.36891, 306.78094, 55.955368, 82.36891, 309.2942, 50.050247, 76.4543, 313.16083, 10.567123, -86.03377, 35.023468, -209.05054, 125.83937, 288.41455, -27.64235, 139.62798, 277.52368, -36.44211, 82.91319, 282.09912, -57.74678, 54.646515, 75.81607, -195.53249, -0.0362854, 39.147827, -209.05054, -98.87896, 39.470062, -204.88223, -101.01982, -92.83206, -212.11887, -54.682785, -243.62943, -195.53249, -86.75948, -247.1738, -186.53009, -101.63668, -220.2365, -204.91118, -86.03377, -216.69211, -209.05054, -106.57156, -256.1314, -172.02786, -100.838394, -308.0083, -122.87658, -115.062454, -289.25528, -135.35255, -72.39028, -318.51254, -118.21618, -0.0362854, -319.4792, -118.21618, 81.20775, -345.19208, -14.963745, -0.0362854, -345.19208, -14.876907, -0.0362854, -342.2277, 44.753036, 81.46175, -342.2921, 44.434616, 168.94698, 220.29797, 48.197678, 168.58409, -273.14447, 57.57637, 168.51152, 257.61066, 46.200363, 151.60231, 274.75256, 69.29973, 147.39317, 264.31274, 72.39702, 157.95235, -262.5113, 74.191696, 81.02632, -318.577, 68.74974, 130.95567, -296.7307, 70.63127, 153.1989, -298.7929, 68.74974, 157.26292, -302.7884, 54.971176, 151.20317, 283.388, 50.77391, 140.46257, 289.05902, 14.011765, -86.03377, -83.93887, -218.02397, 152.87233, 282.48578, 15.401215, 170.07182, 263.21722, 9.930298, 184.94902, 106.29776, -94.07474, 183.31618, 101.8512, -100.645615, 141.1157, 244.91534, -57.283646, 104.938705, 56.805298, -196.40088, 101.12871, 58.674164, -196.19826, 85.99748, 35.023468, -209.05054, 85.99748, -83.93887, -218.02397, 54.646515, -243.62943, -195.53249, -54.79164, -252.00705, -188.26689, -0.0362854, -221.65425, -209.05054, 72.35402, -318.51254, -118.21618, 81.860916, -322.89468, -103.077126, 54.75537, -252.00705, -188.26689, 133.56825, -308.97495, -94.94314, 142.24059, -326.24573, -14.529556, 132.6974, -331.01456, 44.781967, 129.5768, -319.6081, 64.78407, 185.31187, 105.9111, -89.7617, 156.5009, -299.88843, -10.650711, 168.69295, -268.24677, -3.8482666, 176.92986, 104.75113, -107.15859, 152.07405, -269.3423, -77.19888, 141.58742, -230.6763, -133.61575, 126.71022, -222.1698, -176.3988, 116.2599, -225.13419, -195.53249, 115.31645, -98.88974, -198.97713, 117.820175, 15.754913, -189.28003, 111.3976, 46.494385, -195.3009, 116.98561, 58.60971, -185.89328, 102.90669, 42.821106, -202.76913, 98.8427, 39.470062, -204.88223, 100.983536, -92.83206, -212.11887, 101.60042, -220.2365, -204.91118, 85.99748, -216.69211, -209.05054, 86.72322, -247.1738, -186.53009, 106.09987, -222.36313, -203.14543, 100.80211, -308.0083, -122.87658, 125.98451, -306.46164, -107.882256, 149.02602, -300.5973, -50.97328, 112.449875, -233.12515, -192.84045, 104.61214, -97.21422, -210.2663, 106.53529, -256.1314, -172.02786, 115.02617, -289.25528, -135.35255)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4jpuk"]
+top_radius = 0.45
+bottom_radius = 0.45
+height = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwg23"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6dxd"]
+albedo_color = Color(0.7713467, 0.30125976, 8.374751e-06, 1)
+
 [node name="NivelDeConducir2" type="Node3D" unique_id=644890190]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=955349072]
@@ -29,46 +46,155 @@ light_color = Color(0.8659327, 0.85835665, 0.811493, 1)
 shadow_enabled = true
 
 [node name="VehicleBody3D" parent="." unique_id=853644568 instance=ExtResource("1_e6dxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5660684, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5660684, -4.94409)
+visible = false
 center_of_mass_mode = 0
 center_of_mass = Vector3(0, 0, 0)
-maximum_rpm = 600
-maximum_torque = 500
 turn_speed = 12
 turn_amount = 0.6
 
 [node name="WheelFrontLeft" parent="VehicleBody3D" index="3" unique_id=324687353]
 wheel_friction_slip = 1.0
 suspension_travel = 0.3
-suspension_stiffness = 25.0
+suspension_stiffness = 50.0
 damping_compression = 5.0
 damping_relaxation = 7.0
 
 [node name="WheelFrontRight" parent="VehicleBody3D" index="4" unique_id=461314840]
 wheel_friction_slip = 1.0
 suspension_travel = 0.3
-suspension_stiffness = 25.0
+suspension_stiffness = 50.0
 damping_compression = 5.0
 damping_relaxation = 7.0
 
 [node name="WheelRearLeft" parent="VehicleBody3D" index="5" unique_id=132920293]
+use_as_traction = false
 wheel_friction_slip = 1.0
 suspension_travel = 0.3
-suspension_stiffness = 25.0
+suspension_stiffness = 50.0
 damping_compression = 5.0
 damping_relaxation = 7.0
 
 [node name="WheelRearRight" parent="VehicleBody3D" index="6" unique_id=394637707]
+use_as_traction = false
 wheel_friction_slip = 1.0
 suspension_travel = 0.3
-suspension_stiffness = 25.0
+suspension_stiffness = 50.0
 damping_compression = 5.0
 damping_relaxation = 7.0
 
+[node name="Coche" type="RigidBody3D" parent="." unique_id=421845847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6725106, 0)
+mass = 50.0
+script = ExtResource("1_5pykn")
+spring_strength = 5000.0
+spring_damping = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Coche" unique_id=214872693]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_jl04g")
+
+[node name="Carmen" parent="Coche" unique_id=1186002387 instance=ExtResource("3_7qvid")]
+
+[node name="Skeleton3D" parent="Coche/Carmen/Armature_Interior" parent_id_path=PackedInt32Array(1186002387, 103836878) index="0" unique_id=215342701]
+bones/0/position = Vector3(0.559149, 0.85446453, 0.4521923)
+bones/0/rotation = Quaternion(-0.149317, 0.79521585, 0.21750277, 0.54592013)
+bones/2/position = Vector3(-0.045148373, 0.04023215, -0.45775968)
+bones/2/rotation = Quaternion(-0.033002287, -0.03993932, -0.05267895, 0.9972666)
+bones/3/rotation = Quaternion(0.14503329, 0.15457487, 0.25005788, 0.944745)
+bones/4/rotation = Quaternion(-0.05811333, -0.04570402, -0.0677649, 0.99495834)
+bones/5/rotation = Quaternion(-0.02026621, 0.005434503, 0.0012662278, 0.99977905)
+bones/6/rotation = Quaternion(-0.07647654, -0.03568107, -0.10912306, 0.99043953)
+bones/7/rotation = Quaternion(-0.14815448, -0.053779446, -0.23047648, 0.9602284)
+bones/8/rotation = Quaternion(-0.08068976, -0.1212251, -0.18969202, 0.9709844)
+bones/10/rotation = Quaternion(-0.10730876, 0.08865729, -0.3392594, 0.9303375)
+bones/11/rotation = Quaternion(0.008573178, 0.15043525, 0.28375116, 0.9469853)
+bones/12/rotation = Quaternion(-0.12891205, 0.19240944, 0.20888168, 0.95012045)
+bones/13/rotation = Quaternion(-0.107317716, 0.0503588, 0.014722021, 0.99283946)
+bones/14/rotation = Quaternion(0.23843162, -0.18196572, -0.16456637, 0.93965787)
+bones/15/rotation = Quaternion(0.09426358, -0.123942666, -0.32541755, 0.9326607)
+bones/16/rotation = Quaternion(0.1959661, -0.06351679, -0.12753478, 0.97020507)
+bones/18/position = Vector3(1.0300034, 0.75268924, -0.6306136)
+bones/18/rotation = Quaternion(-0.63262403, 0.7170423, 0.038876783, -0.29004446)
+bones/19/rotation = Quaternion(0.058029324, 0.24891606, -0.04149708, 0.9658941)
+bones/20/rotation = Quaternion(0.104889005, 0.22674899, -0.14822052, 0.95687723)
+bones/21/rotation = Quaternion(0.098705485, 0.03905028, -0.11279797, 0.9879317)
+bones/22/rotation = Quaternion(0.08197573, -0.039762598, 0.079198614, 0.99268657)
+bones/23/rotation = Quaternion(-0.28816372, -0.18513781, 0.32753992, 0.8805699)
+bones/24/rotation = Quaternion(-0.07579587, -0.109477095, 0.25484306, 0.9577708)
+bones/26/rotation = Quaternion(-0.0036890535, -0.021635372, -0.020531267, 0.9995483)
+bones/27/rotation = Quaternion(0.029553777, 0.015187689, 0.061152007, 0.9975752)
+bones/28/rotation = Quaternion(-0.035408482, -0.049640726, -0.04072562, 0.99730814)
+bones/29/rotation = Quaternion(0.056699816, 0.09490034, 0.12083535, 0.9864978)
+bones/30/rotation = Quaternion(-0.11608678, -0.09686936, -0.18125086, 0.97174495)
+bones/31/rotation = Quaternion(-0.040110193, 0.07640127, 0.0073982505, 0.99624264)
+bones/32/rotation = Quaternion(0.091696516, 0.055325296, 0.19059353, 0.97580993)
+bones/34/position = Vector3(-1.0504804, 0.8902196, -0.3637876)
+bones/34/rotation = Quaternion(-0.007784199, -0.32590637, -0.55908686, 0.7623295)
+bones/35/rotation = Quaternion(0.104791455, 0.1061086, 0.17578633, 0.9730668)
+bones/36/rotation = Quaternion(0.038792077, 0.013922354, 0.043802295, 0.9981897)
+bones/37/rotation = Quaternion(-0.06484825, -0.077290304, -0.11412425, 0.9883302)
+bones/38/rotation = Quaternion(-0.05284308, -0.081784554, -0.15188885, 0.98358977)
+bones/39/rotation = Quaternion(-0.13194944, -0.048745397, -0.21588992, 0.96623236)
+bones/40/rotation = Quaternion(0.033512108, 0.015831644, 0.13870008, 0.98964065)
+bones/42/position = Vector3(-1.0252035, 0.79828954, -0.25647813)
+bones/42/rotation = Quaternion(0.002588548, -0.22707044, -0.5424122, 0.80883956)
+bones/43/rotation = Quaternion(0.122007824, 0.0200818, 0.0575092, 0.9906581)
+bones/44/rotation = Quaternion(0.055380624, -0.066975236, -0.021282345, 0.99598914)
+bones/45/rotation = Quaternion(-0.041027322, -0.15498787, -0.162257, 0.97363657)
+bones/46/rotation = Quaternion(-0.014107379, -0.11097827, -0.14386612, 0.9832534)
+bones/47/rotation = Quaternion(-0.09925019, -0.14739029, -0.349927, 0.91976994)
+bones/48/rotation = Quaternion(0.075631335, -0.20871122, -0.34663224, 0.9113538)
+
+[node name="WheelFrontLeft" type="RayCast3D" parent="Coche" unique_id=743310232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, -0.16697207, 1.6029215)
+hit_back_faces = false
+
+[node name="Wheel" type="MeshInstance3D" parent="Coche/WheelFrontLeft" unique_id=1353404771]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_4jpuk")
+surface_material_override/0 = SubResource("StandardMaterial3D_lwg23")
+
+[node name="WheelFrontRight" type="RayCast3D" parent="Coche" unique_id=1265780976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, -0.16697207, 1.6029215)
+hit_back_faces = false
+
+[node name="Wheel" type="MeshInstance3D" parent="Coche/WheelFrontRight" unique_id=710745323]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_4jpuk")
+surface_material_override/0 = SubResource("StandardMaterial3D_lwg23")
+
+[node name="WheelRearLeft" type="RayCast3D" parent="Coche" unique_id=1095106456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, -0.16697207, -1.65)
+hit_back_faces = false
+
+[node name="Wheel" type="MeshInstance3D" parent="Coche/WheelRearLeft" unique_id=571561568]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_4jpuk")
+surface_material_override/0 = SubResource("StandardMaterial3D_lwg23")
+
+[node name="WheelRearRight" type="RayCast3D" parent="Coche" unique_id=400755005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, -0.16697207, -1.65)
+hit_back_faces = false
+
+[node name="Wheel" type="MeshInstance3D" parent="Coche/WheelRearRight" unique_id=1837515555]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_4jpuk")
+surface_material_override/0 = SubResource("StandardMaterial3D_lwg23")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Coche" unique_id=221807372]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 0)
+collision_mask = 0
+spring_length = 4.0
+script = ExtResource("2_7qvid")
+
+[node name="Camera3D" type="Camera3D" parent="Coche/SpringArm3D" unique_id=529023583]
+current = true
+
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=63381274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.797546, -8.043213, -26.411377)
+material_override = SubResource("StandardMaterial3D_e6dxd")
 use_collision = true
-collision_layer = 3
 size = Vector3(221.99182, 17.086426, 210.58545)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=837403158]
@@ -201,4 +327,25 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.2
 use_collision = true
 height = 9.84375
 
+[node name="CSGBox3D16" type="CSGBox3D" parent="." unique_id=99837871]
+transform = Transform3D(-0.20497437, -0.97876734, 0, 0.97876734, -0.20497437, 0, 0, 0, 1, 56.088406, 2.7628734, 1.1766167)
+use_collision = true
+size = Vector3(11.833862, 0.1932373, 11.6796875)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="." unique_id=934586996]
+transform = Transform3D(-0.25233957, -0.79201305, 0.5559136, 0.9676388, -0.20654014, 0.14497043, 0, 0.5745053, 0.8185008, 80.743164, 2.5676029, -92.70866)
+use_collision = true
+size = Vector3(11.833862, 0.1932373, 11.6796875)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="." unique_id=742267332]
+transform = Transform3D(-0.25233957, 0.63756406, 0.72789896, 0.9676389, 0.16626306, 0.18982054, 1.4901161e-08, 0.75224245, -0.65888643, -40.082817, 0.5035846, -92.37506)
+use_collision = true
+size = Vector3(11.833862, 0.1932373, 11.6796875)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="." unique_id=1692012565]
+transform = Transform3D(-0.2523396, 0.88140804, -0.39930516, 0.96763897, 0.22985241, -0.10413024, 4.317614e-09, -0.41265935, -0.91088545, -43.48893, -0.3846588, 28.550858)
+use_collision = true
+size = Vector3(11.833862, 0.1932373, 11.6796875)
+
 [editable path="VehicleBody3D"]
+[editable path="Coche/Carmen"]
