@@ -6,10 +6,34 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_ifcqr"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_n0q71"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f4tas"]
+sky_top_color = Color(0.3904536, 0.5667054, 0.66068953, 1)
+sky_horizon_color = Color(1.0596659, 1.1763453, 1.2391026, 1)
+ground_bottom_color = Color(0.2911526, 0.58161837, 0.7386634, 1)
+ground_horizon_color = Color(1.0596659, 1.1763453, 1.2391026, 1)
+energy_multiplier = 1.6
+
+[sub_resource type="Sky" id="Sky_ifcqr"]
+sky_material = SubResource("ProceduralSkyMaterial_f4tas")
+
+[sub_resource type="Environment" id="Environment_n0q71"]
+background_mode = 2
+sky = SubResource("Sky_ifcqr")
+tonemap_mode = 2
+glow_enabled = true
+
 [sub_resource type="Resource" id="Resource_m35px"]
 script = ExtResource("5_n0q71")
 
 [node name="NivelDeConducir" type="Node3D" unique_id=644890190]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1521196604]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.81332195, 0.80193454, 0.4682852, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1642840026]
+environment = SubResource("Environment_n0q71")
 
 [node name="mundo_coche" parent="." unique_id=1050644605 instance=ExtResource("1_tkfgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9677558, 0)

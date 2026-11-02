@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://4b085oihse23"]
 
+[ext_resource type="Script" uid="uid://dj8wxt63yslr0" path="res://Coches/manumanu_coche.gd" id="1_h4qtc"]
 [ext_resource type="PackedScene" uid="uid://cxnxt527xsc2w" path="res://Coches/3DModels/manumanuCoche.blend" id="1_ns8ey"]
+[ext_resource type="Script" path="res://Level/carcam.gd" id="3_yneq7"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ns8ey"]
 points = PackedVector3Array(1.0577751, 0.21469206, -0.21908987, 1.0101463, 0.56469065, -0.124210835, 0.9602395, 0.20815426, 2.1273892, 0.92400014, -0.055274658, 2.1587365, 1.0215358, -0.04873684, -0.22912109, 0.94512236, -0.06350329, -1.8362125, 0.9548553, 0.1999256, -1.870486, 0.9877814, 0.5779917, -1.3634894, 0.70925593, 1.0272975, -0.22201562, 0.6829566, 1.0350752, 0.46219993, 0.92400014, 0.47147042, 2.1587365, 0.8840332, 0.16644749, 2.2368968, 0.8564913, -0.021796532, 2.2302096, 0.5663694, -0.025854483, 2.2527797, 0.51666963, -0.06711036, 2.1520493, -0.9453298, -0.06350329, -1.8362125, -1.1920929e-07, -0.06012166, -1.8863689, 0.46427786, -0.060347103, -1.8826071, 0.5572578, -0.032843184, -1.9858456, 0.88237655, -0.035435766, -1.9465564, 0.8890033, 0.14277609, -1.9703807, 0.9442941, 0.46222728, -1.8190758, 0.6833707, 0.97228974, -1.1921221, 0.41602778, 1.0830944, -0.14051163, 0.3423065, 1.0312428, -1.3233644, 0.39221334, 1.0649464, 0.5320008, 0.51646256, 0.5288454, 2.1449435, 0.5812793, 0.16250226, 2.2590492, -1.1920929e-07, 0.1691528, 2.259885, -1.1920929e-07, -0.01942939, 2.253198, -0.5665767, -0.025854483, 2.2527797, -0.516877, -0.06711036, 2.1520493, -0.9550627, 0.1999256, -1.870486, -0.8892106, 0.14277609, -1.9703807, -0.882584, -0.035435766, -1.9465564, -0.5574651, -0.032843184, -1.9858456, -0.46448523, -0.060347103, -1.8826071, -0.92420745, -0.055274658, 2.1587365, -1.021743, -0.04873684, -0.22912109, -1.0577754, 0.21469206, -0.21908987, 0.56077814, 0.1454814, -2.0100877, 0.4640708, 0.5279436, -1.8863689, -1.1920929e-07, 1.0411623, -1.3242004, -1.1920929e-07, 1.0844471, -0.14134765, -1.1920929e-07, 1.0661862, 0.5583327, -0.5166699, 0.5288454, 2.1449435, -0.5814866, 0.16250226, 2.2590492, -0.8842406, 0.16644749, 2.2368968, -0.8566987, -0.021796532, 2.2302096, -0.9879887, 0.5779917, -1.3634894, -0.94450146, 0.46222728, -1.8190758, -0.46427816, 0.5279436, -1.8863689, -0.56098545, 0.1454814, -2.0100877, -0.96044683, 0.20815426, 2.1273892, -1.0103536, 0.56469065, -0.124210835, -0.34251386, 1.0312428, -1.3233644, -0.4162351, 1.0830944, -0.14051163, -0.39242065, 1.0649464, 0.5320008, -0.92420745, 0.47147042, 2.1587365, -0.70946336, 1.0272975, -0.22201562, -0.6835781, 0.97228974, -1.1921221, -0.6831639, 1.0350752, 0.46219993)
 
 [node name="manumanuCoche" type="VehicleBody3D" unique_id=1389530946]
 mass = 240.0
+script = ExtResource("1_h4qtc")
 
 [node name="manumanuCoche" parent="." unique_id=1727724831 instance=ExtResource("1_ns8ey")]
 
@@ -17,36 +20,51 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00060272217, 0)
 shape = SubResource("ConvexPolygonShape3D_ns8ey")
 
-[node name="FrontRight" type="VehicleWheel3D" parent="." unique_id=1699694418]
+[node name="WheelFrontRight" type="VehicleWheel3D" parent="." unique_id=1699694418]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9606099, 0, 1.3099527)
 use_as_traction = true
+use_as_steering = true
 wheel_roll_influence = 0.0
 wheel_radius = 0.3
+wheel_friction_slip = 1.0
 suspension_travel = 10.0
 suspension_stiffness = 23.27
 
-[node name="FrontLeft" type="VehicleWheel3D" parent="." unique_id=868419055]
+[node name="WheelFrontLeft" type="VehicleWheel3D" parent="." unique_id=868419055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.961, 0, 1.3099527)
 use_as_traction = true
+use_as_steering = true
 wheel_roll_influence = 0.0
 wheel_radius = 0.3
+wheel_friction_slip = 1.0
 suspension_travel = 10.0
 suspension_stiffness = 23.27
 
-[node name="RearRight" type="VehicleWheel3D" parent="." unique_id=1669084744]
+[node name="WheelRearRight" type="VehicleWheel3D" parent="." unique_id=1669084744]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9606099, 0, -1.1891724)
 use_as_traction = true
 wheel_roll_influence = 0.0
 wheel_radius = 0.3
+wheel_friction_slip = 1.0
 suspension_travel = 10.0
 suspension_stiffness = 23.27
 
-[node name="RearLeft" type="VehicleWheel3D" parent="." unique_id=1166480646]
+[node name="WheelRearLeft" type="VehicleWheel3D" parent="." unique_id=1166480646]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.961, 0, -1.1891724)
 use_as_traction = true
 wheel_roll_influence = 0.0
 wheel_radius = 0.3
+wheel_friction_slip = 1.0
 suspension_travel = 10.0
 suspension_stiffness = 23.27
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=436771530]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 0)
+collision_mask = 0
+spring_length = 4.0
+script = ExtResource("3_yneq7")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1248508150]
+current = true
 
 [editable path="manumanuCoche"]
