@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://duh30gg6er3ue" path="res://Level/3DModels/churchCavePacked.blend" id="1_pu21s"]
 [ext_resource type="PackedScene" uid="uid://bb23bxd0ch2ed" path="res://Bichero/bichero.tscn" id="2_is2wt"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_ov0l8"]
-[ext_resource type="Script" uid="uid://qik2hg72ijug" path="res://Level/door.gd" id="5_qnl6n"]
+[ext_resource type="Script" path="res://Level/level_trigger.gd" id="5_qnl6n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ov0l8"]
 sky_top_color = Color(0.13274401, 0.21865496, 0.27486518, 1)
@@ -37,6 +37,7 @@ shadow_enabled = true
 
 [node name="churchCavePacked" parent="." unique_id=624504104 instance=ExtResource("1_pu21s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8140907, -19.997696, -3.1971335)
+metadata/_edit_lock_ = true
 
 [node name="Bichero" parent="." unique_id=259036909 instance=ExtResource("2_is2wt")]
 transform = Transform3D(-0.087294996, 0, 0.99618256, 0, 1, 0, -0.99618256, 0, -0.087294996, 4.7813854, -2.557135, 0.7583587)
@@ -55,8 +56,6 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="NivelDeAndar2" type="Area3D" parent="." unique_id=1339204069 groups=["door"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4640307, -1.7520558, -1.4308689)
 script = ExtResource("5_qnl6n")
-origin_level = "res://Level/nivel_de_andar.tscn"
-destiny_level = "res://Level/nivel_de_andar_2.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NivelDeAndar2" unique_id=11307160]
 shape = SubResource("BoxShape3D_jypwj")
@@ -67,8 +66,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48900664, 2)
 [node name="NivelDeAndar3" type="Area3D" parent="." unique_id=1616748194 groups=["door"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.553589, -1.7041814, 5.510381)
 script = ExtResource("5_qnl6n")
-origin_level = "res://Level/nivel_de_andar.tscn"
-destiny_level = "res://Level/nivel_de_andar_3.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NivelDeAndar3" unique_id=1799028665]
 shape = SubResource("BoxShape3D_jypwj")
