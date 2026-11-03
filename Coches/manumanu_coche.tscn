@@ -10,6 +10,8 @@ points = PackedVector3Array(1.0577751, 0.21469206, -0.21908987, 1.0101463, 0.564
 [node name="manumanuCoche" type="VehicleBody3D" unique_id=1389530946]
 mass = 240.0
 script = ExtResource("1_h4qtc")
+slide_rpm = 1000
+nitro = 0
 
 [node name="manumanuCoche" parent="." unique_id=1727724831 instance=ExtResource("1_ns8ey")]
 
@@ -61,7 +63,7 @@ suspension_stiffness = 23.27
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=436771530]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 0)
 collision_mask = 0
-spring_length = 4.0
+spring_length = 8.24
 script = ExtResource("3_yneq7")
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1248508150]

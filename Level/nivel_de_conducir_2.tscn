@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6yubwjialrna" path="res://Level/raycast_car.gd" id="1_5pykn"]
 [ext_resource type="PackedScene" uid="uid://c86am2ri3bq8w" path="res://Coches/coche_godot.tscn" id="1_e6dxd"]
-[ext_resource type="Script" uid="uid://bl3qs6pnyfnbo" path="res://Level/carcam.gd" id="2_7qvid"]
+[ext_resource type="Script" path="res://Level/carcam.gd" id="2_7qvid"]
 [ext_resource type="PackedScene" uid="uid://cm6d33iv7xve5" path="res://Coches/3DModels/Carmen.blend" id="3_7qvid"]
 [ext_resource type="Script" uid="uid://dtad64phd0x5s" path="res://Level/raycast_wheel.gd" id="4_jl04g"]
 
@@ -95,7 +95,7 @@ shape = SubResource("ConvexPolygonShape3D_jl04g")
 
 [node name="Carmen" parent="Coche" unique_id=1186002387 instance=ExtResource("3_7qvid")]
 
-[node name="Skeleton3D" parent="Coche/Carmen/Armature_Interior" parent_id_path=PackedInt32Array(1186002387, 103836878) index="0" unique_id=215342701]
+[node name="Skeleton3D" parent="Coche/Carmen/Armature_Interior" parent_id_path=PackedInt32Array(1186002387, 221776449) index="0" unique_id=1447450315]
 bones/0/position = Vector3(0.559149, 0.85446453, 0.4521923)
 bones/0/rotation = Quaternion(-0.149317, 0.79521585, 0.21750277, 0.54592013)
 bones/2/position = Vector3(-0.045148373, 0.04023215, -0.45775968)
