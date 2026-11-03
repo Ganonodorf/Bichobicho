@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c2qe71hbxfle4"]
 
-[ext_resource type="Script" uid="uid://b6yubwjialrna" path="res://Level/coche.gd" id="1_rdfa1"]
+[ext_resource type="Script" uid="uid://b6yubwjialrna" path="res://Level/raycast_car.gd" id="1_rdfa1"]
 [ext_resource type="Script" uid="uid://bl3qs6pnyfnbo" path="res://Level/carcam.gd" id="2_3ufon"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1fdk3"]

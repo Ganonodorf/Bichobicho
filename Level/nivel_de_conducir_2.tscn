@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bkf2ivxoo7y23"]
 
-[ext_resource type="Script" uid="uid://b6yubwjialrna" path="res://Level/coche.gd" id="1_5pykn"]
+[ext_resource type="Script" uid="uid://b6yubwjialrna" path="res://Level/raycast_car.gd" id="1_5pykn"]
 [ext_resource type="PackedScene" uid="uid://c86am2ri3bq8w" path="res://Coches/coche_godot.tscn" id="1_e6dxd"]
 [ext_resource type="Script" uid="uid://bl3qs6pnyfnbo" path="res://Level/carcam.gd" id="2_7qvid"]
 [ext_resource type="PackedScene" uid="uid://cm6d33iv7xve5" path="res://Coches/3DModels/Carmen.blend" id="3_7qvid"]
+[ext_resource type="Script" uid="uid://dtad64phd0x5s" path="res://Level/raycast_wheel.gd" id="4_jl04g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_13e5b"]
 sky_top_color = Color(0.13274401, 0.21865496, 0.27486518, 1)
@@ -87,8 +88,6 @@ damping_relaxation = 7.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6725106, 0)
 mass = 50.0
 script = ExtResource("1_5pykn")
-spring_strength = 5000.0
-spring_damping = 100.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Coche" unique_id=214872693]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
@@ -149,6 +148,9 @@ bones/48/rotation = Quaternion(0.075631335, -0.20871122, -0.34663224, 0.9113538)
 [node name="WheelFrontLeft" type="RayCast3D" parent="Coche" unique_id=743310232]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, -0.16697207, 1.6029215)
 hit_back_faces = false
+script = ExtResource("4_jl04g")
+spring_strength = 5000.0
+spring_damping = 120.0
 
 [node name="Wheel" type="MeshInstance3D" parent="Coche/WheelFrontLeft" unique_id=1353404771]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
@@ -158,6 +160,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lwg23")
 [node name="WheelFrontRight" type="RayCast3D" parent="Coche" unique_id=1265780976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, -0.16697207, 1.6029215)
 hit_back_faces = false
+script = ExtResource("4_jl04g")
+spring_strength = 5000.0
+spring_damping = 120.0
 
 [node name="Wheel" type="MeshInstance3D" parent="Coche/WheelFrontRight" unique_id=710745323]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
@@ -167,6 +172,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lwg23")
 [node name="WheelRearLeft" type="RayCast3D" parent="Coche" unique_id=1095106456]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, -0.16697207, -1.65)
 hit_back_faces = false
+script = ExtResource("4_jl04g")
+spring_strength = 5000.0
+spring_damping = 120.0
 
 [node name="Wheel" type="MeshInstance3D" parent="Coche/WheelRearLeft" unique_id=571561568]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
@@ -176,6 +184,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lwg23")
 [node name="WheelRearRight" type="RayCast3D" parent="Coche" unique_id=400755005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, -0.16697207, -1.65)
 hit_back_faces = false
+script = ExtResource("4_jl04g")
+spring_strength = 5000.0
+spring_damping = 120.0
 
 [node name="Wheel" type="MeshInstance3D" parent="Coche/WheelRearRight" unique_id=1837515555]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
