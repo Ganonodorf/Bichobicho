@@ -54,7 +54,7 @@ script = ExtResource("3_f4tas")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=2024199071 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.6383851, 0.0049314676, 0.7697012, 0, 0.9999792, -0.0064068586, -0.76971704, -0.0040900423, -0.63837194, -10.581569, 5.7192693, -3.7773294)
+transform = Transform3D(-0.6383851, 0.0049314676, 0.7697012, 0, 0.9999792, -0.0064068586, -0.7697171, -0.0040900423, -0.63837194, -10.581569, 5.7192693, -3.7773294)
 script = ExtResource("4_ifcqr")
 follow_mode = 6
 look_at_mode = 2
