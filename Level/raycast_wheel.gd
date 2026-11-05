@@ -76,9 +76,9 @@ func apply_wheel_acceleration(acceleration: float, motor_input: int, max_speed: 
 			self.get_parent().apply_force(force_vector, force_position)
 	
 	#Para que desacelere él
-	elif(abs(car_velocity) > motor_deceleration_threshold and !motor_input):
-		var drag_force_vector = global_basis.z * deceleration * signf(car_velocity)
-		self.get_parent().apply_force(drag_force_vector, force_position)
+	#elif(abs(car_velocity) > motor_deceleration_threshold and !motor_input):
+		#var drag_force_vector = global_basis.z * deceleration * signf(car_velocity)
+		#self.get_parent().apply_force(drag_force_vector, force_position)
 
 func steering_rotation(delta: float, turn_input: float):
 	var turn_value = turn_input * tire_turn_speed
