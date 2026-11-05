@@ -19,6 +19,9 @@ class_name RaycastWheel
 
 @onready var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func _ready() -> void:
+	self.enabled = false
+
 func apply_suspension_force():
 	if(!self.is_colliding()):
 		return
@@ -29,7 +32,7 @@ func apply_suspension_force():
 	self.target_position.y = -(self.suspension_rest_distance + self.wheel_radius + self.over_extend)
 	
 	var collision_point = self.get_collision_point()
-	var spring_direction_up: Vector3 = self.global_transform.basis.y
+	var spring_direction_up = self.global_transform.basis.y
 	var spring_length = self.global_position.distance_to(collision_point) - self.wheel_radius
 	var offset = self.suspension_rest_distance - spring_length
 	
@@ -44,14 +47,14 @@ func apply_suspension_force():
 	var force_vector = (spring_force - spring_damping_force) * self.get_collision_normal()
 	
 	var force_apply_point = self.wheel_mesh.global_position
-	var force_position_offset = collision_point - self.get_parent().global_position
+	var force_position_offset = force_apply_point - self.get_parent().global_position
 	
 	self.get_parent().apply_force(force_vector, force_position_offset)
 
 func apply_wheel_acceleration(acceleration: float, motor_input: int, max_speed: float, acceleration_curve: Curve):
 	var forward_direction = -self.global_basis.z
 	var car_velocity = forward_direction.dot(self.get_parent().linear_velocity)
-	self.wheel_mesh.rotate_x((-car_velocity * get_process_delta_time()) / self.wheel_radius)
+	self.wheel_mesh.rotate_x((-car_velocity * self.get_parent().get_process_delta_time()) / self.wheel_radius)
 	
 	if(!self.is_colliding()):
 		return
@@ -72,7 +75,7 @@ func apply_wheel_acceleration(acceleration: float, motor_input: int, max_speed: 
 	
 	#Para que desacelere él
 	elif(abs(car_velocity) > motor_deceleration_threshold and !motor_input):
-		var drag_force_vector = -global_basis.z * deceleration * signf(car_velocity)
+		var drag_force_vector = global_basis.z * deceleration * signf(car_velocity)
 		self.get_parent().apply_force(drag_force_vector, force_position)
 
 func steering_rotation(delta: float, turn_input: float):

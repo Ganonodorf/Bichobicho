@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		wheel.force_raycast_update()
 		wheel.apply_suspension_force()
 		wheel.apply_wheel_acceleration(acceleration, motor_input, max_speed, acceleration_curve)
-		#wheel.apply_wheel_traction(_wheel_number())
+		wheel.apply_wheel_traction(_wheel_number())
 	
 	# Se puede poner esto para bajar el centro de gravedad si lo queremos cuando el coche esté
 	# en el aire, así previenes que vuelque
