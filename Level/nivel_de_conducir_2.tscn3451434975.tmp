@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://bt1aykgfj5ntv"]
+
+[ext_resource type="Script" uid="uid://b6yubwjialrna" path="res://Level/raycast_car.gd" id="1_5pykn"]
+[ext_resource type="PackedScene" uid="uid://cm6d33iv7xve5" path="res://Coches/3DModels/Carmen.blend" id="3_7qvid"]
+[ext_resource type="Script" uid="uid://dtad64phd0x5s" path="res://Level/raycast_wheel.gd" id="4_jl04g"]
+[ext_resource type="Curve" uid="uid://qhtlajt212gl" path="res://Coches/acceleration_curve.tres" id="4_lwg23"]
+[ext_resource type="Curve" uid="uid://de4yjlq12jwsx" path="res://Coches/grip_curve.tres" id="6_lwg23"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_13e5b"]
+sky_top_color = Color(0.13274401, 0.21865496, 0.27486518, 1)
+sky_horizon_color = Color(0.31247067, 0.33180055, 0.34927815, 1)
+ground_bottom_color = Color(0.10499931, 0.09640781, 0.11010795, 1)
+ground_horizon_color = Color(0.31247067, 0.33180055, 0.34927815, 1)
+
+[sub_resource type="Sky" id="Sky_eo0uw"]
+sky_material = SubResource("ProceduralSkyMaterial_13e5b")
+
+[sub_resource type="Environment" id="Environment_sksxl"]
+background_mode = 2
+sky = SubResource("Sky_eo0uw")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qvid"]
+size = Vector3(2.8410645, 1.2781372, 5.693062)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7qvid"]
+top_radius = 0.45
+bottom_radius = 0.45
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jl04g"]
+albedo_color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6dxd"]
+albedo_color = Color(0.7713467, 0.30125976, 8.374751e-06, 1)
+
+[node name="NivelDeConducir2" type="Node3D" unique_id=644890190]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=955349072]
+environment = SubResource("Environment_sksxl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=56512192]
+transform = Transform3D(0.91140336, -0.30868137, 0.27213925, 0, 0.66131186, 0.75011104, -0.41151425, -0.6836537, 0.60272187, 0, 0, 0)
+light_color = Color(0.8659327, 0.85835665, 0.811493, 1)
+shadow_enabled = true
+
+[node name="Coche" type="RigidBody3D" parent="." unique_id=570806792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.993, 0)
+mass = 50.0
+script = ExtResource("1_5pykn")
+acceleration = 800.0
+acceleration_curve = ExtResource("4_lwg23")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Coche" unique_id=1500471572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05090332, 0.1177063, 0.20051193)
+shape = SubResource("BoxShape3D_7qvid")
+
+[node name="Carmen" parent="Coche" unique_id=1186002387 instance=ExtResource("3_7qvid")]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 0)
+
+[node name="WheelFrontRight" type="RayCast3D" parent="Coche" unique_id=1846315574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6308062, -0.13029766, -1.5886459)
+script = ExtResource("4_jl04g")
+is_motor = true
+is_rotate = true
+grip_curve = ExtResource("6_lwg23")
+
+[node name="Wheel" type="MeshInstance3D" parent="Coche/WheelFrontRight" unique_id=209535049]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_7qvid")
+surface_material_override/0 = SubResource("StandardMaterial3D_jl04g")
+
+[node name="WheelFrontLeft" type="RayCast3D" parent="Coche" unique_id=2119327435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.631, -0.13, -1.589)
+script = ExtResource("4_jl04g")
+is_motor = true
+is_rotate = true
+grip_curve = ExtResource("6_lwg23")
+
+[node name="Wheel" type="MeshInstance3D" parent="Coche/WheelFrontLeft" unique_id=148108935]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_7qvid")
+surface_material_override/0 = SubResource("StandardMaterial3D_jl04g")
+
+[node name="WheelRearLeft" type="RayCast3D" parent="Coche" unique_id=1281870349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6308062, -0.13029766, 1.7197194)
+script = ExtResource("4_jl04g")
+grip_curve = ExtResource("6_lwg23")
+
+[node name="Wheel" type="MeshInstance3D" parent="Coche/WheelRearLeft" unique_id=1138895717]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_7qvid")
+surface_material_override/0 = SubResource("StandardMaterial3D_jl04g")
+
+[node name="WheelRearRight" type="RayCast3D" parent="Coche" unique_id=1451279332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.631, -0.13, 1.72)
+script = ExtResource("4_jl04g")
+grip_curve = ExtResource("6_lwg23")
+
+[node name="Wheel" type="MeshInstance3D" parent="Coche/WheelRearRight" unique_id=1261960851]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_7qvid")
+surface_material_override/0 = SubResource("StandardMaterial3D_jl04g")
+
+[node name="Camera3D" type="Camera3D" parent="Coche" unique_id=1824849357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0191345, 6.993587)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=63381274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.797546, -8.043213, -26.411377)
+material_override = SubResource("StandardMaterial3D_e6dxd")
+use_collision = true
+size = Vector3(221.99182, 17.086426, 210.58545)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=837403158]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -23.605213, 0.16625701, -0.28222656)
+use_collision = true
+height = 9.84375
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=865676732]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -26.186127, 0.16625701, -0.28222656)
+use_collision = true
+height = 9.84375
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=963481656]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -29.993006, 0.16625701, -0.28222656)
+use_collision = true
+height = 9.84375
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=1412416579]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -33.45038, 0.16625701, -0.28222656)
+use_collision = true
+height = 9.84375
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="." unique_id=1268992325]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -20.808828, 0.16625701, -0.28222656)
+use_collision = true
+height = 9.84375
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="." unique_id=74006746]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -37.279404, 0.16625701, -0.2822256)
+use_collision = true
+height = 9.84375
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="." unique_id=1423990626]
+transform = Transform3D(-0.9980725, -0.023380207, 0.05748638, 0, 0.92631847, 0.37674174, -0.062058996, 0.37601554, -0.924533, -0.9741821, 1.9325092, -42.582935)
+use_collision = true
+size = Vector3(11.833862, 0.1932373, 11.6796875)
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="." unique_id=1755888182]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 16.156847, 0.16625892, -19.139503)
+use_collision = true
+height = 9.84375
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="." unique_id=1564140611]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 13.575933, 0.16625892, -19.139503)
+use_collision = true
+height = 9.84375
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="." unique_id=1098441555]
+transform = Transform3D(0.8737043, -0.48645735, -2.1263727e-08, 0, -4.371139e-08, 1, -0.48645735, -0.8737043, -3.819083e-08, 15.950465, 0.16625892, -17.934715)
+use_collision = true
+height = 9.84375
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="." unique_id=452484694]
+transform = Transform3D(-0.6296323, 0.7768933, 3.3959086e-08, 0, -4.371139e-08, 1, 0.7768933, 0.6296323, 2.7522102e-08, 16.532967, 0.16625892, -22.297195)
+use_collision = true
+height = 9.84375
+
+[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="." unique_id=568340864]
+transform = Transform3D(0.6310414, 0.77574915, 3.390907e-08, 0, -4.371139e-08, 1, 0.77574915, -0.6310414, -2.7583695e-08, 14.950207, 0.16625892, -17.754915)
+use_collision = true
+height = 9.84375
+
+[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="." unique_id=1177934128]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.296401, 0.16625892, -20.906832)
+use_collision = true
+height = 9.84375
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="." unique_id=99837871]
+transform = Transform3D(-0.20497437, -0.97876734, 0, 0.97876734, -0.20497437, 0, 0, 0, 1, 56.088406, 2.7628734, 1.1766167)
+use_collision = true
+size = Vector3(11.833862, 0.1932373, 11.6796875)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="." unique_id=934586996]
+transform = Transform3D(-0.25233957, -0.79201305, 0.5559136, 0.9676388, -0.20654014, 0.14497043, 0, 0.5745053, 0.8185008, 80.743164, 2.5676029, -92.70866)
+use_collision = true
+size = Vector3(11.833862, 0.1932373, 11.6796875)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="." unique_id=742267332]
+transform = Transform3D(-0.25233957, 0.63756406, 0.72789896, 0.9676389, 0.16626306, 0.18982054, 1.4901161e-08, 0.75224245, -0.65888643, -40.082817, 0.5035846, -92.37506)
+use_collision = true
+size = Vector3(11.833862, 0.1932373, 11.6796875)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="." unique_id=1692012565]
+transform = Transform3D(-0.2523396, 0.88140804, -0.39930516, 0.96763897, 0.22985241, -0.10413024, 4.317614e-09, -0.41265935, -0.91088545, -43.48893, -0.3846588, 28.550858)
+use_collision = true
+size = Vector3(11.833862, 0.1932373, 11.6796875)

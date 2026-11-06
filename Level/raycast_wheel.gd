@@ -12,9 +12,10 @@ class_name RaycastWheel
 @export var motor_deceleration_threshold: float = 0.1
 @export var tire_turn_speed: float = 2.0
 @export var tire_max_turn_degrees: float = 25.0
-@export var x_traction: float = 1.0
 @export var z_traction: float = 0.05
 @export var use_projected_vector: bool = false
+@export var grip_curve: Curve
+@export var hand_brake_x_factor: float = 0.1
 
 @onready var wheel_mesh: Node3D = get_child(0)
 var gravity: float
@@ -83,11 +84,12 @@ func apply_wheel_acceleration(acceleration: float, motor_input: int, max_speed: 
 func steering_rotation(delta: float, turn_input: float):
 	var turn_value = turn_input * tire_turn_speed
 	if(turn_value):
-		self.rotation.y = clampf(self.rotation.y + turn_value * delta, deg_to_rad(-tire_max_turn_degrees), deg_to_rad(tire_max_turn_degrees))
+		self.rotation.y = clampf(self.rotation.y + turn_value * delta, deg_to_rad(-tire_max_turn_degrees),
+			deg_to_rad(tire_max_turn_degrees))
 	else:
 		self.rotation.y = move_toward(self.rotation.y, 0, tire_turn_speed * delta)
 
-func apply_wheel_traction(wheel_number: int):
+func apply_wheel_traction(wheel_number: int, hand_brake: bool):
 	if(!self.is_colliding()):
 		return
 	
@@ -95,14 +97,21 @@ func apply_wheel_traction(wheel_number: int):
 	var tire_velocity = _get_point_velocity(self.wheel_mesh.global_position)
 	var steering_x_velocity = steer_side_direction.dot(tire_velocity)
 	
+	var grip_factor = absf(steering_x_velocity/tire_velocity.length())
+	var x_traction = self.grip_curve.sample_baked(grip_factor)
+	
+	if(hand_brake):
+		x_traction = hand_brake_x_factor
+	
 	var x_force = -steer_side_direction * steering_x_velocity * x_traction * ((self.get_parent().mass * gravity)/wheel_number)
 	
 	var local_forward_velocity = -self.global_basis.z.dot(tire_velocity)
 	var z_force = self.get_parent().global_basis.z * local_forward_velocity * z_traction * ((self.get_parent().mass * gravity)/wheel_number)
 	
 	var force_position = self.wheel_mesh.global_position - global_position
+
 	self.get_parent().apply_force(x_force, force_position)
 	self.get_parent().apply_force(z_force, force_position)
 	
-func _get_point_velocity(point: Vector3):
+func _get_point_velocity(point: Vector3) -> Vector3:
 	return self.get_parent().linear_velocity + self.get_parent().angular_velocity.cross(point - self.get_parent().global_position)

@@ -8,6 +8,7 @@ class_name RaycastCar
 var wheels: Array[RaycastWheel]
 
 var motor_input: int = 0
+var hand_break: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("car_accelerate"):
@@ -19,6 +20,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		motor_input = -1
 	elif event.is_action_released("car_brake"):
 		motor_input = 0
+	
+	if event.is_action_pressed("hand_break"):
+		hand_break = true
+	elif event.is_action_released("hand_break"):
+		hand_break = false
 
 func _ready() -> void:
 	wheels.append($WheelFrontLeft)
@@ -40,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		wheel.force_raycast_update()
 		wheel.apply_suspension_force()
 		wheel.apply_wheel_acceleration(acceleration, motor_input, max_speed, acceleration_curve)
-		wheel.apply_wheel_traction(_wheel_number())
+		wheel.apply_wheel_traction(_wheel_number(), hand_break)
 	
 	# Se puede poner esto para bajar el centro de gravedad si lo queremos cuando el coche esté
 	# en el aire, así previenes que vuelque
