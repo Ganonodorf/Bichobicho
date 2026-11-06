@@ -77,9 +77,9 @@ func apply_wheel_acceleration(acceleration: float, motor_input: int, max_speed: 
 			self.get_parent().apply_force(force_vector, force_position)
 	
 	#Para que desacelere él
-	#elif(abs(car_velocity) > motor_deceleration_threshold and !motor_input):
-		#var drag_force_vector = global_basis.z * deceleration * signf(car_velocity)
-		#self.get_parent().apply_force(drag_force_vector, force_position)
+	elif(abs(car_velocity) > motor_deceleration_threshold and !motor_input):
+		var drag_force_vector = global_basis.z * deceleration * signf(car_velocity)
+		self.get_parent().apply_force(drag_force_vector, force_position)
 
 func steering_rotation(delta: float, turn_input: float):
 	var turn_value = turn_input * tire_turn_speed
@@ -108,10 +108,10 @@ func apply_wheel_traction(wheel_number: int, hand_brake: bool):
 	var local_forward_velocity = -self.global_basis.z.dot(tire_velocity)
 	var z_force = self.get_parent().global_basis.z * local_forward_velocity * z_traction * ((self.get_parent().mass * gravity)/wheel_number)
 	
-	var force_position = self.wheel_mesh.global_position - global_position
+	var force_position = self.wheel_mesh.global_position - self.get_parent().global_position
 
 	self.get_parent().apply_force(x_force, force_position)
 	self.get_parent().apply_force(z_force, force_position)
-	
+
 func _get_point_velocity(point: Vector3) -> Vector3:
 	return self.get_parent().linear_velocity + self.get_parent().angular_velocity.cross(point - self.get_parent().global_position)
