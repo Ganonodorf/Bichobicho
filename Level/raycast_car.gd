@@ -1,9 +1,17 @@
 extends RigidBody3D
 class_name RaycastCar
 
+@export_group("Engine")
 @export var acceleration: float = 600.0
 @export var acceleration_curve: Curve
 @export var max_speed: float = 20.0
+
+@export_group("Camera")
+@export var mouse_sensitivity: float = 0.05
+@export var min_pitch: float = -40.0
+@export var max_pitch: float = 20.0
+
+@onready var pcam: PhantomCamera3D = get_node_or_null("../PhantomCamera3D")
 
 var wheels: Array[RaycastWheel]
 
@@ -11,6 +19,15 @@ var motor_input: int = 0
 var hand_break: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
+	# For the phantom camera
+	if event is InputEventMouseMotion and pcam:
+		var rot = pcam.get_third_person_rotation_degrees()
+		rot.x -= event.relative.y * mouse_sensitivity
+		rot.x = clampf(rot.x, min_pitch, max_pitch)
+		rot.y -= event.relative.x * mouse_sensitivity
+		rot.y = wrapf(rot.y, 0.0, 360.0)
+		pcam.set_third_person_rotation_degrees(rot)
+
 	if event.is_action_pressed("car_accelerate"):
 		motor_input = 1
 	elif event.is_action_released("car_accelerate"):
@@ -31,6 +48,7 @@ func _ready() -> void:
 	wheels.append($WheelFrontRight)
 	wheels.append($WheelRearLeft)
 	wheels.append($WheelRearRight)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
 	var grounded: bool = false

@@ -15,7 +15,7 @@ func _ready() -> void:
 	wheels.append($WheelRearRight)
 
 func _physics_process(delta: float) -> void:
-	$SpringArm3D.position = position
+	#$SpringArm3D.position = position
 	
 	var dir = Input.get_action_strength("bichero_up") - Input.get_action_strength("bichero_down")
 	var steering_dir = Input.get_action_strength("bichero_left") - Input.get_action_strength("bichero_right")

@@ -5,6 +5,11 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_f4tas"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_ifcqr"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_n0q71"]
+[ext_resource type="Script" uid="uid://b6yubwjialrna" path="res://Level/raycast_car.gd" id="6_3rqy4"]
+[ext_resource type="Curve" uid="uid://qhtlajt212gl" path="res://Coches/acceleration_curve.tres" id="7_bggpk"]
+[ext_resource type="PackedScene" uid="uid://cm6d33iv7xve5" path="res://Coches/3DModels/Carmen.blend" id="8_y2775"]
+[ext_resource type="Script" uid="uid://dtad64phd0x5s" path="res://Level/raycast_wheel.gd" id="9_6m603"]
+[ext_resource type="Curve" uid="uid://de4yjlq12jwsx" path="res://Coches/grip_curve.tres" id="10_4ylre"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f4tas"]
 sky_top_color = Color(0.3904536, 0.5667054, 0.66068953, 1)
@@ -25,6 +30,17 @@ glow_enabled = true
 [sub_resource type="Resource" id="Resource_m35px"]
 script = ExtResource("5_n0q71")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8fjah"]
+size = Vector3(2.8410645, 1.2781372, 5.693062)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_265ye"]
+top_radius = 0.45
+bottom_radius = 0.45
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7k0s"]
+albedo_color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+
 [node name="NivelDeConducir" type="Node3D" unique_id=644890190]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1521196604]
@@ -35,7 +51,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1642840026]
 environment = SubResource("Environment_n0q71")
 
-[node name="mundo_coche" parent="." unique_id=546653756 instance=ExtResource("1_tkfgy")]
+[node name="mundo_coche" parent="." unique_id=2075412781 instance=ExtResource("1_tkfgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9677558, 0)
 
 [node name="manumanuCoche" parent="." unique_id=1389530946 instance=ExtResource("2_mpsmh")]
@@ -44,7 +60,7 @@ turn_amount = 0.6
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=168886965]
 physics_interpolation_mode = 1
-transform = Transform3D(-0.6383852, 0.004931469, 0.7697013, 0, 0.9999795, -0.0064068595, -0.76971716, -0.0040900437, -0.63837206, -10.581569, 5.7192693, -3.7773294)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -218.24269, 8.624822, 184.91675)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1177923607]
@@ -53,14 +69,74 @@ process_physics_priority = 300
 script = ExtResource("3_f4tas")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=2024199071 node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.6383851, 0.0049314676, 0.7697012, 0, 0.9999792, -0.0064068586, -0.7697171, -0.0040900423, -0.63837194, -10.581569, 5.7192693, -3.7773294)
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=2024199071 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -218.24269, 8.624822, 184.91675)
 script = ExtResource("4_ifcqr")
 follow_mode = 6
-look_at_mode = 2
-look_at_target = NodePath("../manumanuCoche")
+follow_target = NodePath("../PruebaCocheJuanma")
 tween_resource = SubResource("Resource_m35px")
-follow_offset = Vector3(0, 4.36, -8.5)
+follow_damping = true
+follow_distance = 20.62
+spring_length = 20.62
 align_transform_with_view = Callable()
+align_position_with_view = Callable()
 align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="PruebaCocheJuanma" type="RigidBody3D" parent="." unique_id=603469467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -218.24269, 8.624822, 164.29675)
+mass = 50.0
+script = ExtResource("6_3rqy4")
+acceleration = 800.0
+acceleration_curve = ExtResource("7_bggpk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PruebaCocheJuanma" unique_id=9969578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05090332, 0.1177063, 0.20051193)
+shape = SubResource("BoxShape3D_8fjah")
+
+[node name="Carmen" parent="PruebaCocheJuanma" unique_id=1017877524 instance=ExtResource("8_y2775")]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 0)
+
+[node name="WheelFrontRight" type="RayCast3D" parent="PruebaCocheJuanma" unique_id=232008830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6308062, -0.13029766, -1.5886459)
+script = ExtResource("9_6m603")
+is_motor = true
+is_rotate = true
+grip_curve = ExtResource("10_4ylre")
+
+[node name="Wheel" type="MeshInstance3D" parent="PruebaCocheJuanma/WheelFrontRight" unique_id=42764096]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_265ye")
+surface_material_override/0 = SubResource("StandardMaterial3D_o7k0s")
+
+[node name="WheelFrontLeft" type="RayCast3D" parent="PruebaCocheJuanma" unique_id=1822915577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.631, -0.13, -1.589)
+script = ExtResource("9_6m603")
+is_motor = true
+is_rotate = true
+grip_curve = ExtResource("10_4ylre")
+
+[node name="Wheel" type="MeshInstance3D" parent="PruebaCocheJuanma/WheelFrontLeft" unique_id=532395874]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_265ye")
+surface_material_override/0 = SubResource("StandardMaterial3D_o7k0s")
+
+[node name="WheelRearLeft" type="RayCast3D" parent="PruebaCocheJuanma" unique_id=1464030068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6308062, -0.13029766, 1.7197194)
+script = ExtResource("9_6m603")
+grip_curve = ExtResource("10_4ylre")
+
+[node name="Wheel" type="MeshInstance3D" parent="PruebaCocheJuanma/WheelRearLeft" unique_id=392129087]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_265ye")
+surface_material_override/0 = SubResource("StandardMaterial3D_o7k0s")
+
+[node name="WheelRearRight" type="RayCast3D" parent="PruebaCocheJuanma" unique_id=476335975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.631, -0.13, 1.72)
+script = ExtResource("9_6m603")
+grip_curve = ExtResource("10_4ylre")
+
+[node name="Wheel" type="MeshInstance3D" parent="PruebaCocheJuanma/WheelRearRight" unique_id=1963525555]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_265ye")
+surface_material_override/0 = SubResource("StandardMaterial3D_o7k0s")
