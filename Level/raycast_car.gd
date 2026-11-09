@@ -1,6 +1,8 @@
 extends RigidBody3D
 class_name RaycastCar
 
+@export_group("Car")
+@export var center_of_mass_on_air = Vector3.DOWN * 0.5
 @export_group("Engine")
 @export var acceleration_value: float = 600.0
 @export var acceleration_curve: Curve
@@ -35,6 +37,7 @@ func _ready() -> void:
 	wheels.append($WheelRearLeft)
 	wheels.append($WheelRearRight)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
 
 func _physics_process(delta: float) -> void:
 	var grounded: bool = false
@@ -56,12 +59,10 @@ func _physics_process(delta: float) -> void:
 	
 	# Se puede poner esto para bajar el centro de gravedad si lo queremos cuando el coche esté
 	# en el aire, así previenes que vuelque
-	if grounded:
-		self.center_of_mass = Vector3.ZERO
-	else:
-		center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
-		center_of_mass = Vector3.DOWN * 0.5
-		
+	if grounded && center_of_mass != Vector3.ZERO:
+		center_of_mass = Vector3.ZERO
+	elif !grounded && center_of_mass != center_of_mass_on_air:
+		center_of_mass = center_of_mass_on_air
 
 func _unhandled_input(event: InputEvent) -> void:
 	# For the phantom camera
