@@ -52,7 +52,14 @@ func _physics_process(delta: float) -> void:
 			wheels[i].update_steering_rotation(delta, turn_input)
 		
 		wheels[i].force_raycast_update()
-		wheels[i].apply_suspension_force()
+		
+		if(wheels[i].is_colliding()):
+			var world_velocity = _get_point_velocity(wheels[i].get_collision_point())
+			var suspension_local_force = wheels[i].calculate_suspension_force(world_velocity)
+			var suspension_global_force_position = suspension_local_force.get_position() - global_position
+			apply_force(suspension_local_force.get_force(), suspension_global_force_position)
+
+		#wheels[i].apply_suspension_force()
 		wheels[i].apply_wheel_acceleration(acceleration_value, motor_input, max_speed, acceleration_curve)
 		wheels[i].apply_wheel_traction(hand_brake, _wheel_number(), skid_marks[i])
 	
@@ -90,3 +97,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _wheel_number() -> int:
 	return wheels.size()
+
+func _get_point_velocity(point: Vector3) -> Vector3:
+	return linear_velocity + angular_velocity.cross(point - global_position)

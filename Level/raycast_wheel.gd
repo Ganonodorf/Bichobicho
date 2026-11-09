@@ -40,6 +40,30 @@ func _ready() -> void:
 	gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	current_x_traction = not_hand_brake_x_traction
 
+func calculate_suspension_force(world_velocity: Vector3) -> LocalForce:
+	if(!is_colliding()):
+		return LocalForce.new()
+	
+	target_position.y = -(suspension_rest_distance + wheel_radius + over_extend)
+	
+	var collision_point = get_collision_point()
+	var spring_direction_up = global_transform.basis.y
+	var spring_length = global_position.distance_to(collision_point) - wheel_radius
+	var offset = suspension_rest_distance - spring_length
+	
+	mesh.position.y = -spring_length
+	
+	var spring_force = spring_strength * offset
+	
+	var relative_velocity = spring_direction_up.dot(world_velocity)
+	var spring_damping_force = spring_damping * relative_velocity
+	
+	var force_vector = (spring_force - spring_damping_force) * get_collision_normal()
+	
+	var force_apply_point = mesh.global_position
+	
+	return LocalForce.new(force_vector, force_apply_point)
+
 func apply_suspension_force():
 	if(!is_colliding()):
 		return
