@@ -86,11 +86,12 @@ func apply_wheel_acceleration(acceleration: float, motor_input: int, max_speed: 
 
 func update_steering_rotation(delta: float, turn_input: float):
 	var turn_value = turn_input * tire_turn_speed
+	
 	if(turn_value):
-		self.rotation.y = clampf(self.rotation.y + turn_value * delta, deg_to_rad(-tire_max_turn_degrees),
+		rotation.y = clampf(rotation.y + turn_value * delta, deg_to_rad(-tire_max_turn_degrees),
 			deg_to_rad(tire_max_turn_degrees))
 	else:
-		self.rotation.y = move_toward(self.rotation.y, 0, tire_turn_speed * delta)
+		rotation.y = move_toward(rotation.y, 0, tire_turn_speed * delta)
 
 func apply_wheel_traction(hand_brake:bool, wheel_number: int, skid_mark: GPUParticles3D):
 	if(!self.is_colliding()):
