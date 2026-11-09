@@ -40,13 +40,13 @@ func _ready() -> void:
 	center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
 
 func _physics_process(delta: float) -> void:
-	var grounded: bool = false
+	var is_grounded: bool = false
 	var turn_input = Input.get_axis(right, left)
 	var count: int = 0
 	
 	for wheel: RaycastWheel in wheels:
-		if(wheel.is_colliding() && grounded != true):
-			grounded = true
+		if(wheel.is_colliding() && is_grounded != true):
+			is_grounded = true
 		
 		if(wheel.is_rotate):
 			wheel.steering_rotation(delta, turn_input)
@@ -57,11 +57,14 @@ func _physics_process(delta: float) -> void:
 		wheel.apply_wheel_traction(hand_brake, _wheel_number(), skid_marks[count])
 		count = count + 1
 	
+	_update_center_of_mass(is_grounded)
+
+func _update_center_of_mass(is_grounded: bool):
 	# Se puede poner esto para bajar el centro de gravedad si lo queremos cuando el coche esté
 	# en el aire, así previenes que vuelque
-	if grounded && center_of_mass != Vector3.ZERO:
+	if is_grounded && center_of_mass != Vector3.ZERO:
 		center_of_mass = Vector3.ZERO
-	elif !grounded && center_of_mass != center_of_mass_on_air:
+	elif !is_grounded && center_of_mass != center_of_mass_on_air:
 		center_of_mass = center_of_mass_on_air
 
 func _unhandled_input(event: InputEvent) -> void:
