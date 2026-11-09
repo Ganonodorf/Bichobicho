@@ -44,9 +44,6 @@ func apply_suspension_force():
 	if(!self.is_colliding()):
 		return
 	
-	#esto hace que la pulling force del car se vaya, así solo trabaja en valores negativos
-	#creo que si quitamos esto, el coche hace que se pueda pegar a las paredes
-	#el over_extend es para que el coche se pegue un poquito al suelo
 	self.target_position.y = -(self.suspension_rest_distance + self.wheel_radius + self.over_extend)
 	
 	var collision_point = self.get_collision_point()
