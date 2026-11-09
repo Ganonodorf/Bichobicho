@@ -26,6 +26,7 @@ class_name RaycastCar
 var wheels: Array[RaycastWheel]
 
 var motor_input: int = 0
+var turn_input: float = 0
 var hand_brake: bool = false
 
 func _ready() -> void:
@@ -41,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	var count: int = 0
 	
 	for wheel: RaycastWheel in wheels:
-		if(wheel.is_colliding()):
+		if(wheel.is_colliding() && grounded != true):
 			grounded = true
 		
 		if(wheel.is_rotate):
