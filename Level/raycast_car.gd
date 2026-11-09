@@ -29,9 +29,6 @@ var motor_input: int = 0
 var hand_brake: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("release_camera"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
 	# For the phantom camera
 	if event is InputEventMouseMotion and pcam:
 		var rot = pcam.get_third_person_rotation_degrees()

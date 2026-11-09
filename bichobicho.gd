@@ -6,6 +6,10 @@ var current_scene = null
 func _ready() -> void:
 	current_scene = get_tree().root.get_child(-1)
 
+func _unhandled_input(event: InputEvent) -> void:		
+	if event.is_action_pressed("release_camera"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 func goto_scene(destiny_level: String, origin_level: String):
 	_deferred_goto_scene.call_deferred(destiny_level, origin_level)
 
