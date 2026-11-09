@@ -29,15 +29,16 @@ class_name RaycastWheel
 @export var hand_brake_x_traction: float = 0.01
 @export var not_hand_brake_x_traction: float = 0.1
 
-@onready var wheel_mesh: Node3D = get_child(0)
+var wheel_mesh: Node3D
 var gravity: float
 var is_slipping: bool = false
-var current_x_traction: float = not_hand_brake_x_traction
-
+var current_x_traction: float
 
 func _ready() -> void:
-	self.enabled = false
+	enabled = false
+	wheel_mesh = get_child(0)
 	gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+	current_x_traction = not_hand_brake_x_traction
 
 func apply_suspension_force():
 	if(!self.is_colliding()):
