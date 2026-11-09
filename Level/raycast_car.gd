@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		if wheels[i].is_colliding() && is_grounded != true:
 			is_grounded = true
 		
-		if wheels[i].is_steering_wheel():
+		if wheels[i].is_steering():
 			wheels[i].steering_rotation(delta, turn_input)
 		
 		wheels[i].force_raycast_update()

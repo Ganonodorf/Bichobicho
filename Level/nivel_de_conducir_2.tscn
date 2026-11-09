@@ -115,7 +115,7 @@ transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6308062, -0.13029766, -1.5886459)
 script = ExtResource("4_jl04g")
 is_motor = true
-is_steering = true
+steering = true
 grip_curve = ExtResource("6_lwg23")
 
 [node name="Wheel" type="MeshInstance3D" parent="Coche/WheelFrontRight" unique_id=209535049]
@@ -127,7 +127,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jl04g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.631, -0.13, -1.589)
 script = ExtResource("4_jl04g")
 is_motor = true
-is_steering = true
+steering = true
 grip_curve = ExtResource("6_lwg23")
 
 [node name="Wheel" type="MeshInstance3D" parent="Coche/WheelFrontLeft" unique_id=148108935]
