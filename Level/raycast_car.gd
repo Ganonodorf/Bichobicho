@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 			is_grounded = true
 		
 		if wheels[i].is_steering():
-			wheels[i].steering_rotation(delta, turn_input)
+			wheels[i].update_steering_rotation(delta, turn_input)
 		
 		wheels[i].force_raycast_update()
 		wheels[i].apply_suspension_force()
@@ -59,15 +59,12 @@ func _physics_process(delta: float) -> void:
 	_update_center_of_mass(is_grounded)
 
 func _update_center_of_mass(is_grounded: bool):
-	# Se puede poner esto para bajar el centro de gravedad si lo queremos cuando el coche esté
-	# en el aire, así previenes que vuelque
 	if is_grounded && center_of_mass != Vector3.ZERO:
 		center_of_mass = Vector3.ZERO
 	elif !is_grounded && center_of_mass != center_of_mass_on_air:
 		center_of_mass = center_of_mass_on_air
 
 func _unhandled_input(event: InputEvent) -> void:
-	# For the phantom camera
 	if event is InputEventMouseMotion and phantom_camera:
 		var rot = phantom_camera.get_third_person_rotation_degrees()
 		rot.x -= event.relative.y * mouse_sensitivity

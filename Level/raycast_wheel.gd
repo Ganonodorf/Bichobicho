@@ -84,7 +84,7 @@ func apply_wheel_acceleration(acceleration: float, motor_input: int, max_speed: 
 		var drag_force_vector = global_basis.z * deceleration * signf(car_velocity)
 		self.get_parent().apply_force(drag_force_vector, force_position)
 
-func steering_rotation(delta: float, turn_input: float):
+func update_steering_rotation(delta: float, turn_input: float):
 	var turn_value = turn_input * tire_turn_speed
 	if(turn_value):
 		self.rotation.y = clampf(self.rotation.y + turn_value * delta, deg_to_rad(-tire_max_turn_degrees),
