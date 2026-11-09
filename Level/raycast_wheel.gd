@@ -15,10 +15,13 @@ class_name RaycastWheel
 @export var z_traction: float = 0.05
 @export var use_projected_vector: bool = false
 @export var grip_curve: Curve
-@export var hand_brake_x_factor: float = 0.1
+@export var hand_brake_x_traction: float = 0.01
+@export var not_hand_brake_x_traction: float = 0.1
 
 @onready var wheel_mesh: Node3D = get_child(0)
 var gravity: float
+var is_slipping: bool = false
+var current_x_traction: float = not_hand_brake_x_traction
 
 
 func _ready() -> void:
@@ -89,8 +92,26 @@ func steering_rotation(delta: float, turn_input: float):
 	else:
 		self.rotation.y = move_toward(self.rotation.y, 0, tire_turn_speed * delta)
 
-func apply_wheel_traction(wheel_number: int, hand_brake: bool):
+func calculate_x_traction(hand_brake: bool):
+	if hand_brake:
+		is_slipping = true
+		current_x_traction = hand_brake_x_traction
+	elif !hand_brake && is_slipping:
+		current_x_traction = not_hand_brake_x_traction
+
+func apply_skid_mark(hand_brake:bool, skid_mark: GPUParticles3D):
+	skid_mark.global_position = self.get_collision_point() + Vector3.UP * 0.01
+	skid_mark.look_at(skid_mark.global_position + self.get_parent().global_basis.z)
+	
+	if(is_slipping && !skid_mark.emitting):
+		skid_mark.emitting = true
+	elif(!is_slipping && skid_mark.emitting):
+		skid_mark.emitting = false
+
+func apply_wheel_traction(hand_brake:bool, wheel_number: int, skid_mark: GPUParticles3D):
 	if(!self.is_colliding()):
+		if skid_mark.emitting:
+			skid_mark.emitting = false
 		return
 	
 	var steer_side_direction = self.global_basis.x
@@ -100,8 +121,20 @@ func apply_wheel_traction(wheel_number: int, hand_brake: bool):
 	var grip_factor = absf(steering_x_velocity/tire_velocity.length())
 	var x_traction = self.grip_curve.sample_baked(grip_factor)
 	
-	if(hand_brake):
-		x_traction = hand_brake_x_factor
+	skid_mark.global_position = self.get_collision_point() + Vector3.UP * 0.01
+	skid_mark.look_at(skid_mark.global_position + self.get_parent().global_basis.z)
+	
+	if !hand_brake && grip_factor < 0.2:
+		is_slipping = false
+		skid_mark.emitting = false
+	
+	if hand_brake:
+		is_slipping = true
+		x_traction = hand_brake_x_traction
+		if !skid_mark.emitting:
+			skid_mark.emitting = true
+	elif is_slipping:
+		x_traction = not_hand_brake_x_traction
 	
 	var x_force = -steer_side_direction * steering_x_velocity * x_traction * ((self.get_parent().mass * gravity)/wheel_number)
 	
@@ -109,7 +142,7 @@ func apply_wheel_traction(wheel_number: int, hand_brake: bool):
 	var z_force = self.get_parent().global_basis.z * local_forward_velocity * z_traction * ((self.get_parent().mass * gravity)/wheel_number)
 	
 	var force_position = self.wheel_mesh.global_position - self.get_parent().global_position
-
+	
 	self.get_parent().apply_force(x_force, force_position)
 	self.get_parent().apply_force(z_force, force_position)
 

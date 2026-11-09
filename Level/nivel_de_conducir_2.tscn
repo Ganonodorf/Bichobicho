@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bt1aykgfj5ntv"]
 
 [ext_resource type="Script" uid="uid://b6yubwjialrna" path="res://Level/raycast_car.gd" id="1_5pykn"]
-[ext_resource type="Script" uid="uid://bl3qs6pnyfnbo" path="res://Level/carcam.gd" id="2_7qvid"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_s6sym"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_lsxe8"]
 [ext_resource type="PackedScene" uid="uid://cm6d33iv7xve5" path="res://Coches/3DModels/Carmen.blend" id="3_7qvid"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_64ub7"]
 [ext_resource type="Script" uid="uid://dtad64phd0x5s" path="res://Level/raycast_wheel.gd" id="4_jl04g"]
 [ext_resource type="Curve" uid="uid://qhtlajt212gl" path="res://Coches/acceleration_curve.tres" id="4_lwg23"]
 [ext_resource type="Curve" uid="uid://de4yjlq12jwsx" path="res://Coches/grip_curve.tres" id="6_lwg23"]
@@ -23,6 +25,9 @@ tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 
+[sub_resource type="Resource" id="Resource_yyskt"]
+script = ExtResource("3_64ub7")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_7qvid"]
 size = Vector3(2.8410645, 1.2781372, 5.693062)
 
@@ -34,7 +39,23 @@ height = 0.1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jl04g"]
 albedo_color = Color(0.25565878, 0.25565878, 0.25565878, 1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_jl04g"]
+[sub_resource type="Gradient" id="Gradient_plwxe"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.3764706)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_plwxe"]
+gradient = SubResource("Gradient_plwxe")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lsxe8"]
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_plwxe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6sym"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_yyskt"]
+material = SubResource("StandardMaterial3D_s6sym")
+orientation = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6dxd"]
 albedo_color = Color(0.7713467, 0.30125976, 8.374751e-06, 1)
@@ -49,12 +70,39 @@ transform = Transform3D(0.91140336, -0.30868137, 0.27213925, 0, 0.66131186, 0.75
 light_color = Color(0.8659327, 0.85835665, 0.811493, 1)
 shadow_enabled = true
 
-[node name="Coche" type="RigidBody3D" parent="." unique_id=570806792]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1042265272]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.993, 10)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1442787652]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_s6sym")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=2017749859 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.993, 10)
+script = ExtResource("2_lsxe8")
+follow_mode = 6
+follow_target = NodePath("../Coche")
+tween_resource = SubResource("Resource_yyskt")
+follow_damping = true
+follow_distance = 10.0
+spring_length = 10.0
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Coche" type="RigidBody3D" parent="." unique_id=570806792 node_paths=PackedStringArray("skid_marks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.993, 0)
 mass = 50.0
 script = ExtResource("1_5pykn")
-acceleration = 800.0
+acceleration = 700.0
 acceleration_curve = ExtResource("4_lwg23")
+max_speed = 35.0
+skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Coche" unique_id=1500471572]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05090332, 0.1177063, 0.20051193)
@@ -107,19 +155,49 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -
 mesh = SubResource("CylinderMesh_7qvid")
 surface_material_override/0 = SubResource("StandardMaterial3D_jl04g")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="Coche" unique_id=90792979]
-shape = SubResource("SphereShape3D_jl04g")
-spring_length = 4.0
-script = ExtResource("2_7qvid")
+[node name="SkidMarks" type="Node3D" parent="Coche" unique_id=831165871]
 
-[node name="Camera3D" type="Camera3D" parent="Coche/SpringArm3D" unique_id=1928029152]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.135, 5)
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Coche/SkidMarks" unique_id=691490884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9809937, 0, -5.436889)
+emitting = false
+amount = 100
+lifetime = 1.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_lsxe8")
+draw_pass_1 = SubResource("QuadMesh_yyskt")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="Coche/SkidMarks" unique_id=710279799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9809937, 0, -5.436889)
+emitting = false
+amount = 100
+lifetime = 1.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_lsxe8")
+draw_pass_1 = SubResource("QuadMesh_yyskt")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="Coche/SkidMarks" unique_id=841517947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9809937, 0, -5.436889)
+emitting = false
+amount = 100
+lifetime = 1.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_lsxe8")
+draw_pass_1 = SubResource("QuadMesh_yyskt")
+
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="Coche/SkidMarks" unique_id=899052088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9809937, 0, -5.436889)
+emitting = false
+amount = 100
+lifetime = 1.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_lsxe8")
+draw_pass_1 = SubResource("QuadMesh_yyskt")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=63381274]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.797546, -8.043213, -26.411377)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.517639, -8.043213, -97.83026)
 material_override = SubResource("StandardMaterial3D_e6dxd")
 use_collision = true
-size = Vector3(221.99182, 17.086426, 210.58545)
+size = Vector3(609.78955, 17.086426, 533.4901)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=837403158]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -23.605213, 0.16625701, -0.28222656)

@@ -11,14 +11,20 @@ class_name RaycastCar
 @export var min_pitch: float = -40.0
 @export var max_pitch: float = 20.0
 
+@export_group("Skid marks")
+@export var skid_marks: Array[GPUParticles3D]
+
 @onready var pcam: PhantomCamera3D = get_node_or_null("../PhantomCamera3D")
 
 var wheels: Array[RaycastWheel]
 
 var motor_input: int = 0
-var hand_break: bool = false
+var hand_brake: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("release_camera"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
 	# For the phantom camera
 	if event is InputEventMouseMotion and pcam:
 		var rot = pcam.get_third_person_rotation_degrees()
@@ -38,10 +44,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_released("car_brake"):
 		motor_input = 0
 	
-	if event.is_action_pressed("hand_break"):
-		hand_break = true
-	elif event.is_action_released("hand_break"):
-		hand_break = false
+	if event.is_action_pressed("hand_brake"):
+		hand_brake = true
+	elif event.is_action_released("hand_brake"):
+		hand_brake = false
 
 func _ready() -> void:
 	wheels.append($WheelFrontLeft)
@@ -53,6 +59,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var grounded: bool = false
 	var turn_input = Input.get_axis("car_right", "car_left")
+	var count: int = 0
 	
 	for wheel: RaycastWheel in wheels:
 		if(wheel.is_colliding()):
@@ -64,7 +71,10 @@ func _physics_process(delta: float) -> void:
 		wheel.force_raycast_update()
 		wheel.apply_suspension_force()
 		wheel.apply_wheel_acceleration(acceleration, motor_input, max_speed, acceleration_curve)
-		wheel.apply_wheel_traction(_wheel_number(), hand_break)
+		#wheel.calculate_x_traction(hand_brake)
+		#wheel.apply_skid_mark(hand_brake, skid_marks[count])
+		wheel.apply_wheel_traction(hand_brake, _wheel_number(), skid_marks[count])
+		count = count + 1
 	
 	# Se puede poner esto para bajar el centro de gravedad si lo queremos cuando el coche esté
 	# en el aire, así previenes que vuelque
