@@ -1,19 +1,30 @@
 extends RayCast3D
 class_name RaycastWheel
 
+@export_group("Suspension")
 @export var spring_strength: float = 5000.0
 @export var spring_damping: float = 200.0
 @export var suspension_rest_distance: float = 0.5
+
+@export_group("Forces towards ground")
 @export var over_extend: float = 0.2
+
+@export_group("Wheel data")
 @export var wheel_radius: float = 0.45
 @export var is_motor: bool = false
 @export var steering: bool = false
-@export var deceleration: float = 200
-@export var motor_deceleration_threshold: float = 0.1
 @export var tire_turn_speed: float = 2.0
 @export var tire_max_turn_degrees: float = 25.0
-@export var z_traction: float = 0.05
+
+@export_group("Deceleration")
+@export var deceleration: float = 200
+@export var motor_deceleration_threshold: float = 0.1
+
+@export_group("Forward traction")
 @export var use_projected_vector: bool = false
+@export var z_traction: float = 0.05
+
+@export_group("Side traction")
 @export var grip_curve: Curve
 @export var hand_brake_x_traction: float = 0.01
 @export var not_hand_brake_x_traction: float = 0.1
