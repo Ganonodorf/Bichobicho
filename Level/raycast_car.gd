@@ -19,7 +19,7 @@ class_name RaycastCar
 
 @export_group("Input names")
 @export var acceleration: String = "car_accelerate"
-@export var decceleration: String = "car_brake"
+@export var deceleration: String = "car_brake"
 @export var brake: String = "hand_brake"
 @export var right: String = "car_right"
 @export var left: String = "car_left"
@@ -78,9 +78,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_released(acceleration):
 		motor_input = 0
 	
-	if event.is_action_pressed(decceleration):
+	if event.is_action_pressed(deceleration):
 		motor_input = -1
-	elif event.is_action_released(decceleration):
+	elif event.is_action_released(deceleration):
 		motor_input = 0
 	
 	if event.is_action_pressed(brake):
