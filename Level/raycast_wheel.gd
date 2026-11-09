@@ -29,69 +29,69 @@ class_name RaycastWheel
 @export var hand_brake_x_traction: float = 0.01
 @export var not_hand_brake_x_traction: float = 0.1
 
-var wheel_mesh: Node3D
+var mesh: Node3D
 var gravity: float
 var is_slipping: bool = false
 var current_x_traction: float
 
 func _ready() -> void:
 	enabled = false
-	wheel_mesh = get_child(0)
+	mesh = get_child(0)
 	gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	current_x_traction = not_hand_brake_x_traction
 
 func apply_suspension_force():
-	if(!self.is_colliding()):
+	if(!is_colliding()):
 		return
 	
-	self.target_position.y = -(self.suspension_rest_distance + self.wheel_radius + self.over_extend)
+	target_position.y = -(suspension_rest_distance + wheel_radius + over_extend)
 	
-	var collision_point = self.get_collision_point()
-	var spring_direction_up = self.global_transform.basis.y
-	var spring_length = self.global_position.distance_to(collision_point) - self.wheel_radius
-	var offset = self.suspension_rest_distance - spring_length
+	var collision_point = get_collision_point()
+	var spring_direction_up = global_transform.basis.y
+	var spring_length = global_position.distance_to(collision_point) - wheel_radius
+	var offset = suspension_rest_distance - spring_length
 	
-	self.wheel_mesh.position.y = -spring_length
+	mesh.position.y = -spring_length
 	
-	var spring_force = self.spring_strength * offset
+	var spring_force = spring_strength * offset
 	
 	var world_velocity = _get_point_velocity(collision_point)
 	var relative_velocity = spring_direction_up.dot(world_velocity)
-	var spring_damping_force = self.spring_damping * relative_velocity
+	var spring_damping_force = spring_damping * relative_velocity
 	
-	var force_vector = (spring_force - spring_damping_force) * self.get_collision_normal()
+	var force_vector = (spring_force - spring_damping_force) * get_collision_normal()
 	
-	var force_apply_point = self.wheel_mesh.global_position
-	var force_position_offset = force_apply_point - self.get_parent().global_position
+	var force_apply_point = mesh.global_position
+	var force_position_offset = force_apply_point - get_parent().global_position
 	
-	self.get_parent().apply_force(force_vector, force_position_offset)
+	get_parent().apply_force(force_vector, force_position_offset)
 
 func apply_wheel_acceleration(acceleration: float, motor_input: int, max_speed: float, acceleration_curve: Curve):
-	var forward_direction = -self.global_basis.z
-	var car_velocity = forward_direction.dot(self.get_parent().linear_velocity)
-	self.wheel_mesh.rotate_x((-car_velocity * self.get_parent().get_process_delta_time()) / self.wheel_radius)
+	var forward_direction = -global_basis.z
+	var car_velocity = forward_direction.dot(get_parent().linear_velocity)
+	mesh.rotate_x((-car_velocity * get_parent().get_process_delta_time()) / wheel_radius)
 	
-	if(!self.is_colliding()):
+	if(!is_colliding()):
 		return
 	
-	var force_apply_point = self.wheel_mesh.global_position
-	var force_position = force_apply_point - self.get_parent().global_position
+	var force_apply_point = mesh.global_position
+	var force_position = force_apply_point - get_parent().global_position
 	
 	if(is_motor and motor_input):
 		var speed_ratio = car_velocity / max_speed
 		var acceleration_curve_ratio = acceleration_curve.sample_baked(speed_ratio)
 		var force_vector = forward_direction * acceleration * motor_input * acceleration_curve_ratio
-		var projected_vector: Vector3 = (force_vector - self.get_collision_normal() * force_vector.dot(self.get_collision_normal()))
+		var projected_vector: Vector3 = (force_vector - get_collision_normal() * force_vector.dot(get_collision_normal()))
 		
 		if(use_projected_vector):
-			self.get_parent().apply_force(projected_vector, force_position)
+			get_parent().apply_force(projected_vector, force_position)
 		else:
-			self.get_parent().apply_force(force_vector, force_position)
+			get_parent().apply_force(force_vector, force_position)
 	
 	#Para que desacelere él
 	elif(abs(car_velocity) > motor_deceleration_threshold and !motor_input):
 		var drag_force_vector = global_basis.z * deceleration * signf(car_velocity)
-		self.get_parent().apply_force(drag_force_vector, force_position)
+		get_parent().apply_force(drag_force_vector, force_position)
 
 func update_steering_rotation(delta: float, turn_input: float):
 	var turn_value = turn_input * tire_turn_speed
@@ -103,20 +103,20 @@ func update_steering_rotation(delta: float, turn_input: float):
 		rotation.y = move_toward(rotation.y, 0, tire_turn_speed * delta)
 
 func apply_wheel_traction(hand_brake:bool, wheel_number: int, skid_mark: GPUParticles3D):
-	if(!self.is_colliding()):
+	if(!is_colliding()):
 		if skid_mark.emitting:
 			skid_mark.emitting = false
 		return
 	
-	var steer_side_direction = self.global_basis.x
-	var tire_velocity = _get_point_velocity(self.wheel_mesh.global_position)
+	var steer_side_direction = global_basis.x
+	var tire_velocity = _get_point_velocity(mesh.global_position)
 	var steering_x_velocity = steer_side_direction.dot(tire_velocity)
 	
 	var grip_factor = absf(steering_x_velocity/tire_velocity.length())
-	var x_traction = self.grip_curve.sample_baked(grip_factor)
+	var x_traction = grip_curve.sample_baked(grip_factor)
 	
-	skid_mark.global_position = self.get_collision_point() + Vector3.UP * 0.01
-	skid_mark.look_at(skid_mark.global_position + self.get_parent().global_basis.z)
+	skid_mark.global_position = get_collision_point() + Vector3.UP * 0.01
+	skid_mark.look_at(skid_mark.global_position + get_parent().global_basis.z)
 	
 	if !hand_brake && grip_factor < 0.2:
 		is_slipping = false
@@ -130,18 +130,18 @@ func apply_wheel_traction(hand_brake:bool, wheel_number: int, skid_mark: GPUPart
 	elif is_slipping:
 		x_traction = not_hand_brake_x_traction
 	
-	var x_force = -steer_side_direction * steering_x_velocity * x_traction * ((self.get_parent().mass * gravity)/wheel_number)
+	var x_force = -steer_side_direction * steering_x_velocity * x_traction * ((get_parent().mass * gravity)/wheel_number)
 	
-	var local_forward_velocity = -self.global_basis.z.dot(tire_velocity)
-	var z_force = self.get_parent().global_basis.z * local_forward_velocity * z_traction * ((self.get_parent().mass * gravity)/wheel_number)
+	var local_forward_velocity = -global_basis.z.dot(tire_velocity)
+	var z_force = get_parent().global_basis.z * local_forward_velocity * z_traction * ((get_parent().mass * gravity)/wheel_number)
 	
-	var force_position = self.wheel_mesh.global_position - self.get_parent().global_position
+	var force_position = mesh.global_position - get_parent().global_position
 	
-	self.get_parent().apply_force(x_force, force_position)
-	self.get_parent().apply_force(z_force, force_position)
+	get_parent().apply_force(x_force, force_position)
+	get_parent().apply_force(z_force, force_position)
 
 func _get_point_velocity(point: Vector3) -> Vector3:
-	return self.get_parent().linear_velocity + self.get_parent().angular_velocity.cross(point - self.get_parent().global_position)
+	return get_parent().linear_velocity + get_parent().angular_velocity.cross(point - get_parent().global_position)
 
 func is_steering() -> bool:
 	return steering
