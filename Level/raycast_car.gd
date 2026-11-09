@@ -71,8 +71,6 @@ func _physics_process(delta: float) -> void:
 		wheel.force_raycast_update()
 		wheel.apply_suspension_force()
 		wheel.apply_wheel_acceleration(acceleration, motor_input, max_speed, acceleration_curve)
-		#wheel.calculate_x_traction(hand_brake)
-		#wheel.apply_skid_mark(hand_brake, skid_marks[count])
 		wheel.apply_wheel_traction(hand_brake, _wheel_number(), skid_marks[count])
 		count = count + 1
 	

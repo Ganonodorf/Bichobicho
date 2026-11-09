@@ -92,22 +92,6 @@ func steering_rotation(delta: float, turn_input: float):
 	else:
 		self.rotation.y = move_toward(self.rotation.y, 0, tire_turn_speed * delta)
 
-func calculate_x_traction(hand_brake: bool):
-	if hand_brake:
-		is_slipping = true
-		current_x_traction = hand_brake_x_traction
-	elif !hand_brake && is_slipping:
-		current_x_traction = not_hand_brake_x_traction
-
-func apply_skid_mark(hand_brake:bool, skid_mark: GPUParticles3D):
-	skid_mark.global_position = self.get_collision_point() + Vector3.UP * 0.01
-	skid_mark.look_at(skid_mark.global_position + self.get_parent().global_basis.z)
-	
-	if(is_slipping && !skid_mark.emitting):
-		skid_mark.emitting = true
-	elif(!is_slipping && skid_mark.emitting):
-		skid_mark.emitting = false
-
 func apply_wheel_traction(hand_brake:bool, wheel_number: int, skid_mark: GPUParticles3D):
 	if(!self.is_colliding()):
 		if skid_mark.emitting:
