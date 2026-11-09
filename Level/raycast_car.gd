@@ -42,20 +42,18 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var is_grounded: bool = false
 	var turn_input = Input.get_axis(right, left)
-	var count: int = 0
 	
-	for wheel: RaycastWheel in wheels:
-		if(wheel.is_colliding() && is_grounded != true):
+	for i in wheels.size():
+		if wheels[i].is_colliding() && is_grounded != true:
 			is_grounded = true
 		
-		if(wheel.is_rotate):
-			wheel.steering_rotation(delta, turn_input)
+		if wheels[i].is_rotate:
+			wheels[i].steering_rotation(delta, turn_input)
 		
-		wheel.force_raycast_update()
-		wheel.apply_suspension_force()
-		wheel.apply_wheel_acceleration(acceleration_value, motor_input, max_speed, acceleration_curve)
-		wheel.apply_wheel_traction(hand_brake, _wheel_number(), skid_marks[count])
-		count = count + 1
+		wheels[i].force_raycast_update()
+		wheels[i].apply_suspension_force()
+		wheels[i].apply_wheel_acceleration(acceleration_value, motor_input, max_speed, acceleration_curve)
+		wheels[i].apply_wheel_traction(hand_brake, _wheel_number(), skid_marks[i])
 	
 	_update_center_of_mass(is_grounded)
 
