@@ -100,7 +100,6 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.993, 0)
 mass = 50.0
 script = ExtResource("1_5pykn")
-acceleration = 700.0
 acceleration_curve = ExtResource("4_lwg23")
 max_speed = 35.0
 skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
