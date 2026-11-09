@@ -3,6 +3,7 @@ class_name RaycastCar
 
 @export_group("Car")
 @export var center_of_mass_on_air = Vector3.DOWN * 0.5
+
 @export_group("Engine")
 @export var acceleration_value: float = 600.0
 @export var acceleration_curve: Curve
@@ -47,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		if wheels[i].is_colliding() && is_grounded != true:
 			is_grounded = true
 		
-		if wheels[i].is_rotate:
+		if wheels[i].is_steering_wheel():
 			wheels[i].steering_rotation(delta, turn_input)
 		
 		wheels[i].force_raycast_update()

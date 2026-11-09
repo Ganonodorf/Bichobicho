@@ -7,7 +7,7 @@ class_name RaycastWheel
 @export var over_extend: float = 0.2
 @export var wheel_radius: float = 0.45
 @export var is_motor: bool = false
-@export var is_rotate: bool = false
+@export var is_steering: bool = false
 @export var deceleration: float = 200
 @export var motor_deceleration_threshold: float = 0.1
 @export var tire_turn_speed: float = 2.0
@@ -132,3 +132,6 @@ func apply_wheel_traction(hand_brake:bool, wheel_number: int, skid_mark: GPUPart
 
 func _get_point_velocity(point: Vector3) -> Vector3:
 	return self.get_parent().linear_velocity + self.get_parent().angular_velocity.cross(point - self.get_parent().global_position)
+
+func is_steering_wheel() -> bool:
+	return is_steering
