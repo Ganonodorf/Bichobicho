@@ -70,6 +70,7 @@ environment = SubResource("Environment_n0q71")
 
 [node name="mundo_coche_juanjo" parent="." unique_id=306939741 instance=ExtResource("1_sm4p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36914825, -0.8834839, -0.6296997)
+metadata/_edit_lock_ = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1751586387]
 physics_interpolation_mode = 1
@@ -100,7 +101,6 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 transform = Transform3D(-0.69346476, 0, -0.7204906, 0, 1, 0, 0.7204906, 0, -0.69346476, 1.1952782, 51.493294, -262.43408)
 mass = 50.0
 script = ExtResource("6_1vdju")
-acceleration = 700.0
 acceleration_curve = ExtResource("7_5evay")
 max_speed = 35.0
 skid_marks = [NodePath("SkidMarks/GPUParticles3D"), NodePath("SkidMarks/GPUParticles3D2"), NodePath("SkidMarks/GPUParticles3D3"), NodePath("SkidMarks/GPUParticles3D4")]
@@ -116,7 +116,7 @@ transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6308062, -0.13029766, -1.5886459)
 script = ExtResource("9_jiqmt")
 is_motor = true
-is_rotate = true
+steering = true
 grip_curve = ExtResource("10_y6r66")
 
 [node name="Wheel" type="MeshInstance3D" parent="Coche/WheelFrontRight" unique_id=1989315449]
@@ -128,7 +128,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fxdnp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.631, -0.13, -1.589)
 script = ExtResource("9_jiqmt")
 is_motor = true
-is_rotate = true
+steering = true
 grip_curve = ExtResource("10_y6r66")
 
 [node name="Wheel" type="MeshInstance3D" parent="Coche/WheelFrontLeft" unique_id=1911792460]
