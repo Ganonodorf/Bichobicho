@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dm2473avdnbeb"]
+
+[ext_resource type="Script" uid="uid://d2c4prs43hca5" path="res://Level/components/spawn_point.gd" id="1_oq1dj"]
+[ext_resource type="PackedScene" uid="uid://d4jsogjfjqctu" path="res://Level/components/spawnpoint.blend" id="2_rb1k0"]
+[ext_resource type="Script" uid="uid://deyhdfd3elnql" path="res://Level/components/spawnpointVisualizer.gd" id="3_n753h"]
+
+[node name="SpawnPoint" type="Node3D" unique_id=437112311]
+script = ExtResource("1_oq1dj")
+
+[node name="spawnpointVisualizer" parent="." unique_id=593258506 instance=ExtResource("2_rb1k0")]
+script = ExtResource("3_n753h")

@@ -1,6 +1,7 @@
 extends Node3D
 
 var current_scene = null
+var _spawnpoints: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,3 +35,9 @@ func _search_door(destiny_level: String, origin_level: String) -> Door:
 			return door
 	
 	return null
+
+func register_spawnpoint(id: String, node: Node3D) -> void:
+	_spawnpoints[id] = node
+
+func unregister_spawnpoint(id: String) -> void:
+	_spawnpoints.erase(id)

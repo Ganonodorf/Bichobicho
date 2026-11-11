@@ -5,11 +5,8 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_f4tas"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_ifcqr"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_n0q71"]
-[ext_resource type="Script" uid="uid://b6yubwjialrna" path="res://Level/raycast_car.gd" id="6_3rqy4"]
-[ext_resource type="Curve" uid="uid://qhtlajt212gl" path="res://Coches/acceleration_curve.tres" id="7_bggpk"]
-[ext_resource type="PackedScene" uid="uid://cm6d33iv7xve5" path="res://Coches/3DModels/Carmen.blend" id="8_y2775"]
-[ext_resource type="Script" uid="uid://dtad64phd0x5s" path="res://Level/raycast_wheel.gd" id="9_6m603"]
-[ext_resource type="Curve" uid="uid://de4yjlq12jwsx" path="res://Coches/grip_curve.tres" id="10_4ylre"]
+[ext_resource type="PackedScene" uid="uid://bmiikuq6hnyys" path="res://Coches/prueba_coche_juanma.tscn" id="6_n0q71"]
+[ext_resource type="PackedScene" uid="uid://dm2473avdnbeb" path="res://Level/components/spawn_point.tscn" id="11_3rqy4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f4tas"]
 sky_top_color = Color(0.3904536, 0.5667054, 0.66068953, 1)
@@ -29,36 +26,6 @@ glow_enabled = true
 
 [sub_resource type="Resource" id="Resource_m35px"]
 script = ExtResource("5_n0q71")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8fjah"]
-size = Vector3(2.8410645, 1.2781372, 5.693062)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_265ye"]
-top_radius = 0.45
-bottom_radius = 0.45
-height = 0.1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7k0s"]
-albedo_color = Color(0.25565878, 0.25565878, 0.25565878, 1)
-
-[sub_resource type="Gradient" id="Gradient_cbnhr"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.3764706)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_plwxe"]
-gradient = SubResource("Gradient_cbnhr")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3rqy4"]
-gravity = Vector3(0, 0, 0)
-color_ramp = SubResource("GradientTexture1D_plwxe")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6sym"]
-transparency = 1
-vertex_color_use_as_albedo = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_bggpk"]
-material = SubResource("StandardMaterial3D_s6sym")
-size = Vector2(0.6, 1)
-orientation = 1
 
 [node name="NivelDeConducir" type="Node3D" unique_id=644890190]
 
@@ -103,96 +70,9 @@ align_position_with_view = Callable()
 align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="PruebaCocheJuanma" type="RigidBody3D" parent="." unique_id=603469467 node_paths=PackedStringArray("skid_marks")]
+[node name="PruebaCocheJuanma" parent="." unique_id=609410684 instance=ExtResource("6_n0q71")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.80957, 18.656338, 324.76788)
-mass = 50.0
-script = ExtResource("6_3rqy4")
-acceleration_curve = ExtResource("7_bggpk")
-skid_marks = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D4")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PruebaCocheJuanma" unique_id=9969578]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05090332, 0.1177063, 0.20051193)
-shape = SubResource("BoxShape3D_8fjah")
-
-[node name="Carmen" parent="PruebaCocheJuanma" unique_id=1017877524 instance=ExtResource("8_y2775")]
-transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 0)
-
-[node name="WheelFrontRight" type="RayCast3D" parent="PruebaCocheJuanma" unique_id=232008830]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6308062, -0.13029766, -1.5886459)
-script = ExtResource("9_6m603")
-is_motor = true
-steering = true
-grip_curve = ExtResource("10_4ylre")
-
-[node name="Wheel" type="MeshInstance3D" parent="PruebaCocheJuanma/WheelFrontRight" unique_id=42764096]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
-mesh = SubResource("CylinderMesh_265ye")
-surface_material_override/0 = SubResource("StandardMaterial3D_o7k0s")
-
-[node name="WheelFrontLeft" type="RayCast3D" parent="PruebaCocheJuanma" unique_id=1822915577]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.631, -0.13, -1.589)
-script = ExtResource("9_6m603")
-is_motor = true
-steering = true
-grip_curve = ExtResource("10_4ylre")
-
-[node name="Wheel" type="MeshInstance3D" parent="PruebaCocheJuanma/WheelFrontLeft" unique_id=532395874]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
-mesh = SubResource("CylinderMesh_265ye")
-surface_material_override/0 = SubResource("StandardMaterial3D_o7k0s")
-
-[node name="WheelRearLeft" type="RayCast3D" parent="PruebaCocheJuanma" unique_id=1464030068]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6308062, -0.13029766, 1.7197194)
-script = ExtResource("9_6m603")
-grip_curve = ExtResource("10_4ylre")
-
-[node name="Wheel" type="MeshInstance3D" parent="PruebaCocheJuanma/WheelRearLeft" unique_id=392129087]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
-mesh = SubResource("CylinderMesh_265ye")
-surface_material_override/0 = SubResource("StandardMaterial3D_o7k0s")
-
-[node name="WheelRearRight" type="RayCast3D" parent="PruebaCocheJuanma" unique_id=476335975]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.631, -0.13, 1.72)
-script = ExtResource("9_6m603")
-grip_curve = ExtResource("10_4ylre")
-
-[node name="Wheel" type="MeshInstance3D" parent="PruebaCocheJuanma/WheelRearRight" unique_id=1963525555]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, -0.5, 0)
-mesh = SubResource("CylinderMesh_265ye")
-surface_material_override/0 = SubResource("StandardMaterial3D_o7k0s")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="PruebaCocheJuanma" unique_id=1824354193]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9809937, 0, -5.436889)
-emitting = false
-amount = 100
-lifetime = 1.5
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_3rqy4")
-draw_pass_1 = SubResource("QuadMesh_bggpk")
-
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="PruebaCocheJuanma" unique_id=226647186]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9809937, 0, -5.436889)
-emitting = false
-amount = 100
-lifetime = 1.5
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_3rqy4")
-draw_pass_1 = SubResource("QuadMesh_bggpk")
-
-[node name="GPUParticles3D3" type="GPUParticles3D" parent="PruebaCocheJuanma" unique_id=914450410]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9809937, 0, -5.436889)
-emitting = false
-amount = 100
-lifetime = 1.5
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_3rqy4")
-draw_pass_1 = SubResource("QuadMesh_bggpk")
-
-[node name="GPUParticles3D4" type="GPUParticles3D" parent="PruebaCocheJuanma" unique_id=233341702]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9809937, 0, -5.436889)
-emitting = false
-amount = 100
-lifetime = 1.5
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_3rqy4")
-draw_pass_1 = SubResource("QuadMesh_bggpk")
+[node name="mainSpawnPoint" parent="." unique_id=437112311 instance=ExtResource("11_3rqy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.69894, 17.80263, 330.8106)
+spawnpoint_id = "main"
