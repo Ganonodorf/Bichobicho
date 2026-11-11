@@ -50,9 +50,9 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phan
 
 [global_group]
 
-bichero="El bichero"
 bicho=""
 door=""
+player="El bichero"
 
 [input]
 

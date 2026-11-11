@@ -11,7 +11,7 @@ func _ready() -> void:
 	destination_node = $Destination
 
 func _on_body_entered(body: Node3D) -> void:
-	if(body.is_in_group("bichero")):
+	if(body.is_in_group("player")):
 		for level in levels:
 			level.notify(destiny_level, origin_level)
 

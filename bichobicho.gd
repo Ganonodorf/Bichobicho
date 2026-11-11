@@ -25,7 +25,7 @@ func _deferred_goto_scene(destiny_level: String, origin_level: String):
 	var door = _search_door(destiny_level, origin_level)
 	
 	if(door != null):
-		get_tree().call_group("bichero", "move_to_position", door.get_destination_position())
+		get_tree().call_group("player", "move_to_position", door.get_destination_position())
 
 func _search_door(destiny_level: String, origin_level: String) -> Door:
 	var doors = get_tree().get_nodes_in_group("door")
