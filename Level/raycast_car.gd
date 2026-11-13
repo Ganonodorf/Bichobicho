@@ -26,6 +26,8 @@ class_name RaycastCar
 
 @onready var phantom_camera: PhantomCamera3D = get_node_or_null("../PhantomCamera3D")
 
+var _dialog_active: bool = false
+
 var wheels: Array[RaycastWheel]
 
 var motor_input: int = 0
@@ -64,6 +66,9 @@ func _physics_process(delta: float) -> void:
 		wheels[i].apply_wheel_traction(hand_brake, _wheel_number(), skid_marks[i])
 	
 	_update_center_of_mass(is_grounded)
+	
+	if _dialog_active:
+		linear_velocity = Vector3.ZERO
 
 func _update_center_of_mass(is_grounded: bool):
 	if is_grounded && center_of_mass != Vector3.ZERO:
@@ -100,3 +105,10 @@ func _wheel_number() -> int:
 
 func _get_point_velocity(point: Vector3) -> Vector3:
 	return linear_velocity + angular_velocity.cross(point - global_position)
+
+# --- Player interface (shared with all player types) ---
+func set_dialog_active(active: bool) -> void:
+	_dialog_active = active
+func move_to_position(_pos: Vector3, _rot: Vector3):
+	global_position = _pos
+	global_rotation = _rot

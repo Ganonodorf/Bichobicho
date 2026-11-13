@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_ifcqr"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_n0q71"]
 [ext_resource type="PackedScene" uid="uid://bmiikuq6hnyys" path="res://Coches/prueba_coche_juanma.tscn" id="6_n0q71"]
+[ext_resource type="PackedScene" uid="uid://vdxjme05hyyx" path="res://Interactions/interaction_manager.tscn" id="8_cbnhr"]
+[ext_resource type="PackedScene" uid="uid://gybju3oeenp0" path="res://Interactions/interactable.tscn" id="9_cbnhr"]
+[ext_resource type="PackedScene" uid="uid://dguitip3q2q3f" path="res://Interactions/Characters/3DModels/AbuelaMaria.blend" id="10_cbnhr"]
 [ext_resource type="PackedScene" uid="uid://dm2473avdnbeb" path="res://Level/components/spawn_point.tscn" id="11_3rqy4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f4tas"]
@@ -27,6 +30,11 @@ glow_enabled = true
 [sub_resource type="Resource" id="Resource_m35px"]
 script = ExtResource("5_n0q71")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cbnhr"]
+resource_local_to_scene = true
+height = 1.5
+radius = 3.4545898
+
 [node name="NivelDeConducir" type="Node3D" unique_id=644890190]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1521196604]
@@ -47,7 +55,7 @@ turn_amount = 0.6
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=168886965]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.80957, 18.656338, 345.38788)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.80957, 18.341082, 345.38788)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1177923607]
@@ -57,7 +65,7 @@ script = ExtResource("3_f4tas")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=2024199071 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.80957, 18.656338, 345.38788)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.80957, 18.341082, 345.38788)
 script = ExtResource("4_ifcqr")
 follow_mode = 6
 follow_target = NodePath("../PruebaCocheJuanma")
@@ -71,8 +79,22 @@ align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="PruebaCocheJuanma" parent="." unique_id=609410684 instance=ExtResource("6_n0q71")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.80957, 18.656338, 324.76788)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.80957, 18.341082, 324.76788)
 
 [node name="mainSpawnPoint" parent="." unique_id=437112311 instance=ExtResource("11_3rqy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.69894, 17.80263, 330.8106)
 spawnpoint_id = "main"
+
+[node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("8_cbnhr")]
+
+[node name="Interactable" parent="." unique_id=120528219 instance=ExtResource("9_cbnhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -436.1074, 17.662384, 328.42685)
+destination_scene = "res://Level/cruce_peana_nivel_andar.tscn"
+destination_spawnpoint = "main"
+
+[node name="CollisionShape3D" parent="Interactable/Area3D" parent_id_path=PackedInt32Array(120528219, 554297077) index="0" unique_id=1158057534]
+shape = SubResource("CylinderShape3D_cbnhr")
+
+[node name="AbuelaMaria" parent="Interactable" unique_id=1406152174 instance=ExtResource("10_cbnhr")]
+
+[editable path="Interactable"]

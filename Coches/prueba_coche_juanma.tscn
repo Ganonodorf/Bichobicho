@@ -36,7 +36,7 @@ material = SubResource("StandardMaterial3D_s6sym")
 size = Vector2(0.6, 1)
 orientation = 1
 
-[node name="PruebaCocheJuanma" type="RigidBody3D" unique_id=609410684 node_paths=PackedStringArray("skid_marks")]
+[node name="PruebaCocheJuanma" type="RigidBody3D" unique_id=609410684 node_paths=PackedStringArray("skid_marks") groups=["player"]]
 mass = 50.0
 script = ExtResource("1_0c85q")
 acceleration_curve = ExtResource("2_unjym")

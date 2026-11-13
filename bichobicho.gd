@@ -11,22 +11,29 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("release_camera"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func goto_scene(destiny_level: String, origin_level: String):
-	_deferred_goto_scene.call_deferred(destiny_level, origin_level)
+func goto_scene(destiny_level: String, spawnpoint_id: String):
+	_deferred_goto_scene.call_deferred(destiny_level, spawnpoint_id)
 
-func _deferred_goto_scene(destiny_level: String, origin_level: String):
+func _deferred_goto_scene(destiny_level: String, spawnpoint_id: String):
 	current_scene.free()
 	
-	var resourceLoader = ResourceLoader.load(destiny_level)
+	var packed = ResourceLoader.load(destiny_level)
 	
-	current_scene = resourceLoader.instantiate()
+	current_scene = packed.instantiate()
 	
 	get_tree().root.add_child(current_scene)
+	# SpawnPoints register in _ready() which runs during add_child,
+	# so by this line they're already in _spawnpoints
 	
-	var door = _search_door(destiny_level, origin_level)
+	if spawnpoint_id != "" and _spawnpoints.has(spawnpoint_id):
+		var _sp = _spawnpoints[spawnpoint_id]
+		get_tree().call_group("player", "move_to_position", _sp.global_position, _sp.global_rotation)
+	elif spawnpoint_id != "":
+		push_warning("SpawnPoint not found: " + spawnpoint_id)
 	
-	if(door != null):
-		get_tree().call_group("player", "move_to_position", door.get_destination_position())
+	# deprecated -> var door = _search_door(destiny_level, origin_level)
+	# if(door != null):
+	# 	get_tree().call_group("player", "move_to_position", door.get_destination_position())
 
 func _search_door(destiny_level: String, origin_level: String) -> Door:
 	var doors = get_tree().get_nodes_in_group("door")

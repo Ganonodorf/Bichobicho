@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://gybju3oeenp0"]
+
+[ext_resource type="Script" uid="uid://dt06uqjavk8a6" path="res://Interactions/interactable.gd" id="1_d4i6k"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6hwkl"]
+resource_local_to_scene = true
+height = 1.5
+radius = 1.6704102
+
+[node name="Interactable" type="Node3D" unique_id=120528219]
+script = ExtResource("1_d4i6k")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=554297077]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1158057534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46899414, 0)
+shape = SubResource("CylinderShape3D_6hwkl")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

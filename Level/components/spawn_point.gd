@@ -9,4 +9,4 @@ func _ready() -> void:
 		Bichobicho.register_spawnpoint(spawnpoint_id, self)
 
 func _exit_tree() -> void:
-	Bichobicho.unregiste_spawnpoint(spawnpoint_id)
+	Bichobicho.unregister_spawnpoint(spawnpoint_id)

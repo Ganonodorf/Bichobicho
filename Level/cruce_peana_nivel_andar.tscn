@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_ss83m"]
 [ext_resource type="PackedScene" uid="uid://5jh3lqk7c6il" path="res://Level/3DModels/callePeana.blend" id="4_vhq7r"]
 [ext_resource type="PackedScene" uid="uid://dm2473avdnbeb" path="res://Level/components/spawn_point.tscn" id="5_scw62"]
+[ext_resource type="PackedScene" uid="uid://gybju3oeenp0" path="res://Interactions/interactable.tscn" id="6_1mo7d"]
+[ext_resource type="PackedScene" uid="uid://dguitip3q2q3f" path="res://Interactions/Characters/3DModels/AbuelaMaria.blend" id="7_ss83m"]
+[ext_resource type="PackedScene" uid="uid://vdxjme05hyyx" path="res://Interactions/interaction_manager.tscn" id="8_ss83m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ov0l8"]
 sky_top_color = Color(0.13274401, 0.21865496, 0.27486518, 1)
@@ -53,3 +56,13 @@ metadata/_edit_lock_ = true
 [node name="mainSpawnpoint1" parent="." unique_id=437112311 instance=ExtResource("5_scw62")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3177097, 1.0600173, 0.5887184)
 spawnpoint_id = "main"
+
+[node name="Interactable" parent="." unique_id=120528219 instance=ExtResource("6_1mo7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94144595, 0)
+destination_scene = "res://Level/nivel_de_conducir.tscn"
+destination_spawnpoint = "main"
+
+[node name="AbuelaMaria" parent="Interactable" unique_id=948958285 instance=ExtResource("7_ss83m")]
+metadata/_edit_lock_ = true
+
+[node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("8_ss83m")]
