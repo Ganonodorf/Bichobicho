@@ -10,7 +10,6 @@ func _post_import(scene: Node) -> Object:
 	
 	for node in int_nodes:
 		var original_transform = _get_world_transfrom(node, scene)
-		node.visible = false
 		
 		var interactable = interactable_scene_packed.instantiate()
 		scene.add_child(interactable)
@@ -20,10 +19,12 @@ func _post_import(scene: Node) -> Object:
 		
 		var node_copy :Node = node.duplicate()
 		scene.add_child(node_copy)
-		node_copy.transform = original_transform
 		node_copy.reparent(interactable, false)
+		node_copy.transform = Transform3D.IDENTITY
 		node_copy.owner = scene
 		print("copied nodes: ",node_copy)
+		
+		node.visible = false
 	
 	return scene
 

@@ -27,10 +27,15 @@ sky = SubResource("Sky_ifcqr")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cbnhr"]
+resource_local_to_scene = true
+height = 3.2924805
+radius = 3.0019531
+
 [sub_resource type="Resource" id="Resource_m35px"]
 script = ExtResource("5_n0q71")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_cbnhr"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3rqy4"]
 resource_local_to_scene = true
 height = 1.5
 radius = 3.4545898
@@ -45,9 +50,20 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1642840026]
 environment = SubResource("Environment_n0q71")
 
-[node name="mundo_coche" parent="." unique_id=359537428 instance=ExtResource("1_tkfgy")]
+[node name="mundo_coche" parent="." unique_id=1424772087 instance=ExtResource("1_tkfgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9677558, 0)
-metadata/_edit_lock_ = true
+
+[node name="Int INT-EntradaPuebloCueva" parent="mundo_coche" index="3" unique_id=120528219]
+destination_scene = "res://Level/nivel_de_andar.tscn"
+destination_spawnpoint = "entradaDesdeMundoCoche"
+
+[node name="CollisionShape3D" parent="mundo_coche/Int INT-EntradaPuebloCueva/Area3D" parent_id_path=PackedInt32Array(1424772087, 120528219, 554297077) index="0" unique_id=1158057534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4272461, 0)
+shape = SubResource("CylinderShape3D_cbnhr")
+
+[node name="SpawnPoint" parent="mundo_coche/Int INT-EntradaPuebloCueva" index="2" unique_id=437112311 instance=ExtResource("11_3rqy4")]
+transform = Transform3D(-0.87919784, -0.09365744, 0.46716082, 0.12556508, 0.9002819, 0.41680437, -0.45961323, 0.42511263, -0.7797658, -1.0894305, -3.3452284, 3.675686)
+spawnpoint_id = "salidaPuebloCueva"
 
 [node name="manumanuCoche" parent="." unique_id=1389530946 instance=ExtResource("2_mpsmh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -417.10654, 18.124712, 325.02243)
@@ -81,20 +97,22 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="PruebaCocheJuanma" parent="." unique_id=609410684 instance=ExtResource("6_n0q71")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.80957, 18.341082, 324.76788)
 
-[node name="mainSpawnPoint" parent="." unique_id=437112311 instance=ExtResource("11_3rqy4")]
+[node name="mainSpawnPoint" parent="." unique_id=57924148 instance=ExtResource("11_3rqy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.69894, 17.80263, 330.8106)
 spawnpoint_id = "main"
 
 [node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("8_cbnhr")]
 
-[node name="Interactable" parent="." unique_id=120528219 instance=ExtResource("9_cbnhr")]
+[node name="Interactable" parent="." unique_id=1797502121 instance=ExtResource("9_cbnhr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -436.1074, 17.662384, 328.42685)
 destination_scene = "res://Level/cruce_peana_nivel_andar.tscn"
 destination_spawnpoint = "main"
 
-[node name="CollisionShape3D" parent="Interactable/Area3D" parent_id_path=PackedInt32Array(120528219, 554297077) index="0" unique_id=1158057534]
-shape = SubResource("CylinderShape3D_cbnhr")
+[node name="CollisionShape3D" parent="Interactable/Area3D" parent_id_path=PackedInt32Array(1797502121, 554297077) index="0" unique_id=1158057534]
+shape = SubResource("CylinderShape3D_3rqy4")
 
 [node name="AbuelaMaria" parent="Interactable" unique_id=1406152174 instance=ExtResource("10_cbnhr")]
 
+[editable path="mundo_coche"]
+[editable path="mundo_coche/Int INT-EntradaPuebloCueva"]
 [editable path="Interactable"]

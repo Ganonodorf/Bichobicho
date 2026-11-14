@@ -5,7 +5,7 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6hwkl"]
 resource_local_to_scene = true
 height = 1.5
-radius = 1.6704102
+radius = 0.1
 
 [node name="Interactable" type="Node3D" unique_id=120528219]
 script = ExtResource("1_d4i6k")
