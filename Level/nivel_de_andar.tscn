@@ -111,9 +111,6 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("6_jypwj")]
 
-[connection signal="interactable_focused" from="InteractionManager" to="Bichero" method="_on_interaction_manager_interactable_focused"]
-[connection signal="interactable_unfocused" from="InteractionManager" to="Bichero" method="_on_interaction_manager_interactable_unfocused"]
-
 [editable path="churchCavePacked"]
 [editable path="churchCavePacked/Int INT-PuertaAtrasCasetaHinchada"]
 [editable path="churchCavePacked/Int INT-PuertaCasetaHinchada"]
