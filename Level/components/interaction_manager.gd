@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 	_update_focus()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("Interact"):
+	if event.is_action_pressed("Interact") and _focused != null:
 		_focused.interact()
 
 func _update_focus() -> void:

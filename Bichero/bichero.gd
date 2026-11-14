@@ -48,3 +48,11 @@ func set_dialog_active(active: bool) -> void:
 func move_to_position(_pos: Vector3, _rot: Vector3):
 	global_position = _pos
 	global_rotation = _rot
+
+
+func _on_interaction_manager_interactable_focused(interactable: Interactable) -> void:
+	pass # Replace with function body.
+
+
+func _on_interaction_manager_interactable_unfocused() -> void:
+	pass # Replace with function body.

@@ -11,6 +11,9 @@ resource_local_to_scene = true
 height = 2.727539
 radius = 0.34570313
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_d3lbj"]
+radius = 0.7467878
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hjst5"]
 resource_local_to_scene = true
 height = 1.5
@@ -20,15 +23,18 @@ radius = 0.39892578
 
 [node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("1_yg3u3")]
 
-[node name="InteriorCasetaHinchada" parent="." unique_id=1887713882 instance=ExtResource("2_xbveq")]
+[node name="InteriorCasetaHinchada" parent="." unique_id=1711045941 instance=ExtResource("2_xbveq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-06, 3.8146973e-06, 2.026558e-05)
 
-[node name="Int INT-EntradaCueva" parent="InteriorCasetaHinchada" index="4" unique_id=120528219]
+[node name="ground" parent="InteriorCasetaHinchada" index="0" unique_id=540869333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4685799, 1.8270289, 0.39388198)
+
+[node name="Int INT-EntradaCueva" parent="InteriorCasetaHinchada" index="5" unique_id=120528219]
 trigger_mode = 1
 destination_scene = "res://Level/nivel_de_andar.tscn"
 destination_spawnpoint = "salidaCasaHinchadaACueva"
 
-[node name="CollisionShape3D" parent="InteriorCasetaHinchada/Int INT-EntradaCueva/Area3D" parent_id_path=PackedInt32Array(1887713882, 120528219, 554297077) index="0" unique_id=1158057534]
+[node name="CollisionShape3D" parent="InteriorCasetaHinchada/Int INT-EntradaCueva/Area3D" parent_id_path=PackedInt32Array(1711045941, 120528219, 554297077) index="0" unique_id=1158057534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14477527, 0)
 shape = SubResource("CylinderShape3D_d3lbj")
 
@@ -36,12 +42,19 @@ shape = SubResource("CylinderShape3D_d3lbj")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1.5781193, 0.85411847)
 spawnpoint_id = "salidaCueva"
 
-[node name="Int INT-PuertaAFuera" parent="InteriorCasetaHinchada" index="5" unique_id=678536853]
+[node name="Int INT-FloatingHead" parent="InteriorCasetaHinchada" index="6" unique_id=786551990]
+dialog_timeline = "res://dialog/timelines/timeline.dtl"
+
+[node name="CollisionShape3D" parent="InteriorCasetaHinchada/Int INT-FloatingHead/Area3D" parent_id_path=PackedInt32Array(1711045941, 786551990, 554297077) index="0" unique_id=1158057534]
+transform = Transform3D(0.9999993, 4.3213367e-07, -2.682209e-07, -1.1920929e-07, 0.99999624, 2.9802322e-07, 0, 7.8231096e-08, 0.99999416, -1.1920929e-07, 0.09863281, 0)
+shape = SubResource("SphereShape3D_d3lbj")
+
+[node name="Int INT-PuertaAFuera" parent="InteriorCasetaHinchada" index="7" unique_id=1959447548]
 trigger_mode = 1
 destination_scene = "res://Level/nivel_de_andar.tscn"
 destination_spawnpoint = "salidaCasaHinchada"
 
-[node name="CollisionShape3D" parent="InteriorCasetaHinchada/Int INT-PuertaAFuera/Area3D" parent_id_path=PackedInt32Array(1887713882, 678536853, 554297077) index="0" unique_id=1158057534]
+[node name="CollisionShape3D" parent="InteriorCasetaHinchada/Int INT-PuertaAFuera/Area3D" parent_id_path=PackedInt32Array(1711045941, 1959447548, 554297077) index="0" unique_id=1158057534]
 transform = Transform3D(1.0000153, 0, 1.8626451e-09, 0, 1.000015, 0, -1.8626451e-09, 0, 1.0000153, 0, 0.46899432, 0)
 shape = SubResource("CylinderShape3D_hjst5")
 
@@ -64,4 +77,5 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [editable path="InteriorCasetaHinchada"]
 [editable path="InteriorCasetaHinchada/Int INT-EntradaCueva"]
+[editable path="InteriorCasetaHinchada/Int INT-FloatingHead"]
 [editable path="InteriorCasetaHinchada/Int INT-PuertaAFuera"]
