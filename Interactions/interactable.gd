@@ -25,7 +25,7 @@ func interact() -> void:
 	if dialog_timeline != "":
 		Bichobicho.set_game_state(Bichobicho.GameState.DIALOG)
 		Dialogic.start(dialog_timeline)
-#		Dialogic.timeline_ended.connect(_on_dialog_ended, CONNECT_ONE_SHOT)
+		Dialogic.timeline_ended.connect(_on_dialog_ended, CONNECT_ONE_SHOT)
 	elif destination_scene != "":
 		Bichobicho.goto_scene(destination_scene, destination_spawnpoint)
 
@@ -40,7 +40,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			manager.add_interactable(self)
 
 func _on_dialog_ended() -> void:
-	get_tree().call_group("player", "set_dialog_active", false)
+	Bichobicho.set_game_state(Bichobicho.GameState.FREE)
 	if destination_scene != "":
 		Bichobicho.goto_scene(destination_scene, destination_spawnpoint)
 

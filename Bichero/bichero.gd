@@ -8,8 +8,11 @@ const JUMP_VELOCITY = 4.5
 @export var mouse_sensitivity_h = 0.25
 @export var mouse_sensitivity_v = 0.15
 
+var _dialog_frozen := false
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Bichobicho.game_state_changed.connect(_on_game_state_changed)
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -45,8 +48,13 @@ func move_to_position(_pos: Vector3, _rot: Vector3):
 	global_position = _pos
 	global_rotation = _rot
 
+func _on_game_state_changed(new_state :Bichobicho.GameState) -> void:
+	if new_state == Bichobicho.GameState.DIALOG:
+		_dialog_frozen = true
+	else:
+		_dialog_frozen = false
 
-func _on_interaction_manager_interactable_focused(interactable: Interactable) -> void:
+func _on_interaction_manager_interactable_focused(_interactable: Interactable) -> void:
 	pass # Replace with function body.
 
 

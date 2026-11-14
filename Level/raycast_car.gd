@@ -28,6 +28,8 @@ class_name RaycastCar
 
 var wheels: Array[RaycastWheel]
 
+var _dialog_frozen := false
+
 var motor_input: int = 0
 var turn_input: float = 0
 var hand_brake: bool = false
@@ -39,6 +41,8 @@ func _ready() -> void:
 	wheels.append($WheelRearRight)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
+	Bichobicho.game_state_changed.connect(_on_game_state_changed)
+
 
 func _physics_process(delta: float) -> void:
 	var is_grounded: bool = false
@@ -65,7 +69,7 @@ func _physics_process(delta: float) -> void:
 	
 	_update_center_of_mass(is_grounded)
 	
-	if _dialog_active:
+	if _dialog_frozen:
 		linear_velocity = Vector3.ZERO
 
 func _update_center_of_mass(is_grounded: bool):
@@ -108,3 +112,9 @@ func _get_point_velocity(point: Vector3) -> Vector3:
 func move_to_position(_pos: Vector3, _rot: Vector3):
 	global_position = _pos
 	global_rotation = _rot
+
+func _on_game_state_changed(new_state :Bichobicho.GameState) -> void:
+	if new_state == Bichobicho.GameState.DIALOG:
+		_dialog_frozen = true
+	else:
+		_dialog_frozen = false

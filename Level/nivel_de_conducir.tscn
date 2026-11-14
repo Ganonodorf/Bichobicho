@@ -105,6 +105,7 @@ spawnpoint_id = "main"
 
 [node name="Interactable" parent="." unique_id=1797502121 instance=ExtResource("9_cbnhr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -436.1074, 17.662384, 328.42685)
+dialog_timeline = "res://dialog/timelines/timeline.dtl"
 destination_scene = "res://Level/cruce_peana_nivel_andar.tscn"
 destination_spawnpoint = "main"
 
