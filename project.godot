@@ -40,6 +40,12 @@ layout/style_list=[]
 layout/default_style="Default"
 glossary/default_case_sensitive=true
 
+[display]
+
+window/size/viewport_height=646
+window/size/mode=2
+window/stretch/mode="canvas_items"
+
 [editor]
 
 movie_writer/movie_file="D:/Juanjo_GarBas/Proyectos/ColectivoRayente/Bichobicho/Recording/test.avi"
