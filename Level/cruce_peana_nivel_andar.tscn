@@ -57,8 +57,9 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3177097, 1.0600173, 0.5887184)
 spawnpoint_id = "main"
 
-[node name="Interactable" parent="." unique_id=120528219 instance=ExtResource("6_1mo7d")]
+[node name="Interactable" parent="." unique_id=120528219 node_paths=PackedStringArray("mesh_node") instance=ExtResource("6_1mo7d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94144595, 0)
+mesh_node = NodePath("AbuelaMaria/Plane_007")
 destination_scene = "res://Level/nivel_de_conducir.tscn"
 destination_spawnpoint = "main"
 
@@ -66,3 +67,5 @@ destination_spawnpoint = "main"
 metadata/_edit_lock_ = true
 
 [node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("8_ss83m")]
+
+[editable path="Interactable/AbuelaMaria"]

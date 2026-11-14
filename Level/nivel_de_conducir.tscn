@@ -103,8 +103,9 @@ spawnpoint_id = "main"
 
 [node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("8_cbnhr")]
 
-[node name="Interactable" parent="." unique_id=1797502121 instance=ExtResource("9_cbnhr")]
+[node name="Interactable" parent="." unique_id=1797502121 node_paths=PackedStringArray("mesh_node") instance=ExtResource("9_cbnhr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -436.1074, 17.662384, 328.42685)
+mesh_node = NodePath("AbuelaMaria/Plane_007")
 dialog_timeline = "res://dialog/timelines/timeline.dtl"
 destination_scene = "res://Level/cruce_peana_nivel_andar.tscn"
 destination_spawnpoint = "main"
@@ -117,3 +118,4 @@ shape = SubResource("CylinderShape3D_3rqy4")
 [editable path="mundo_coche"]
 [editable path="mundo_coche/Int INT-EntradaPuebloCueva"]
 [editable path="Interactable"]
+[editable path="Interactable/AbuelaMaria"]
