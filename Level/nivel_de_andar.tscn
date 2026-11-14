@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://ct5c2c4dlykkl"]
 
-[ext_resource type="Script" uid="uid://c66yc0rldyt6g" path="res://Level/level.gd" id="1_eo0uw"]
 [ext_resource type="PackedScene" uid="uid://duh30gg6er3ue" path="res://Level/3DModels/churchCavePacked.blend" id="1_pu21s"]
 [ext_resource type="PackedScene" uid="uid://bb23bxd0ch2ed" path="res://Bichero/bichero.tscn" id="2_is2wt"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_ov0l8"]
@@ -23,12 +22,12 @@ tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_jypwj"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qnl6n"]
 resource_local_to_scene = true
 height = 1.5
 radius = 0.3720703
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_yy31b"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jypwj"]
 resource_local_to_scene = true
 height = 1.5
 radius = 0.1
@@ -37,7 +36,6 @@ radius = 0.1
 size = Vector3(4.6378174, 3.0336914, 1)
 
 [node name="NivelDeAndar" type="Node3D" unique_id=1512371646]
-script = ExtResource("1_eo0uw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=3466969]
 environment = SubResource("Environment_qnl6n")
@@ -50,33 +48,33 @@ shadow_enabled = true
 [node name="churchCavePacked" parent="." unique_id=617892177 instance=ExtResource("1_pu21s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8140907, -19.997696, -3.1971335)
 
-[node name="Int INT-PuertaAtrasCasetaHinchada" parent="churchCavePacked" index="27" unique_id=1019719340]
+[node name="Int INT-PuertaAtrasCasetaHinchada" parent="churchCavePacked" index="27" unique_id=651994604]
 trigger_mode = 1
 destination_scene = "res://Level/level_interior_casa_hinchada.tscn"
 destination_spawnpoint = "salidaCueva"
 
-[node name="CollisionShape3D" parent="churchCavePacked/Int INT-PuertaAtrasCasetaHinchada/Area3D" parent_id_path=PackedInt32Array(617892177, 1019719340, 554297077) index="0" unique_id=1158057534]
+[node name="CollisionShape3D" parent="churchCavePacked/Int INT-PuertaAtrasCasetaHinchada/Area3D" parent_id_path=PackedInt32Array(617892177, 651994604, 554297077) index="0" unique_id=1158057534]
 transform = Transform3D(1.0000064, 0, 9.313226e-10, 0, 1.0000063, 0, -9.313226e-10, 0, 1.0000064, 0.0004146099, 0.46899414, 0.091442585)
-shape = SubResource("CylinderShape3D_jypwj")
+shape = SubResource("CylinderShape3D_qnl6n")
 
 [node name="SpawnPoint" parent="churchCavePacked/Int INT-PuertaAtrasCasetaHinchada" index="2" unique_id=437112311 instance=ExtResource("6_yy31b")]
 transform = Transform3D(-0.8660256, 0, 0.5000002, 0, 1.0000002, 0, -0.5000002, 0, -0.8660256, -0.55287457, -0.07952644, 0.87780476)
 spawnpoint_id = "salidaCasaHinchadaACueva"
 
-[node name="Int INT-PuertaCasetaHinchada" parent="churchCavePacked" index="28" unique_id=201362108]
+[node name="Int INT-PuertaCasetaHinchada" parent="churchCavePacked" index="28" unique_id=152821465]
 trigger_mode = 1
 destination_scene = "res://Level/level_interior_casa_hinchada.tscn"
 destination_spawnpoint = "entradaDesdeFuera"
 
-[node name="CollisionShape3D" parent="churchCavePacked/Int INT-PuertaCasetaHinchada/Area3D" parent_id_path=PackedInt32Array(617892177, 201362108, 554297077) index="0" unique_id=1158057534]
+[node name="CollisionShape3D" parent="churchCavePacked/Int INT-PuertaCasetaHinchada/Area3D" parent_id_path=PackedInt32Array(617892177, 152821465, 554297077) index="0" unique_id=1158057534]
 transform = Transform3D(1.0000001, 0, 4.656613e-10, 0, 1.0000001, 0, -4.656613e-10, 0, 1.0000001, 0.00045919418, 0.46899426, 0.10123229)
-shape = SubResource("CylinderShape3D_yy31b")
+shape = SubResource("CylinderShape3D_jypwj")
 
 [node name="SpawnPoint" parent="churchCavePacked/Int INT-PuertaCasetaHinchada" index="2" unique_id=1809576211 instance=ExtResource("6_yy31b")]
 transform = Transform3D(1.0000002, 0, 9.313226e-10, 0, 1.0000002, 0, -9.313226e-10, 0, 1.0000002, -0.0025084019, 0.0830605, -0.5530996)
 spawnpoint_id = "salidaCasaHinchada"
 
-[node name="Int INT-PuertaEsquinaLuz" parent="churchCavePacked" index="29" unique_id=2012485840]
+[node name="Int INT-PuertaEsquinaLuz" parent="churchCavePacked" index="29" unique_id=355518904]
 trigger_mode = 1
 destination_scene = "res://Level/nivel_de_andar_2.tscn"
 destination_spawnpoint = "main"
@@ -85,11 +83,11 @@ destination_spawnpoint = "main"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16407585, 0.031870127, -0.784462)
 spawnpoint_id = "puertaLuz"
 
-[node name="Int INT-SalidaAMundoCoche" parent="churchCavePacked" index="30" unique_id=702564819]
+[node name="Int INT-SalidaAMundoCoche" parent="churchCavePacked" index="30" unique_id=2008584145]
 destination_scene = "res://Level/nivel_de_conducir.tscn"
 destination_spawnpoint = "salidaPuebloCueva"
 
-[node name="CollisionShape3D" parent="churchCavePacked/Int INT-SalidaAMundoCoche/Area3D" parent_id_path=PackedInt32Array(617892177, 702564819, 554297077) index="0" unique_id=1158057534]
+[node name="CollisionShape3D" parent="churchCavePacked/Int INT-SalidaAMundoCoche/Area3D" parent_id_path=PackedInt32Array(617892177, 2008584145, 554297077) index="0" unique_id=1158057534]
 transform = Transform3D(0.90578336, 0, -0.42374104, 0, 1, 0, 0.42374104, 0, 0.90578336, -0.08448601, -0.8557129, 0.09333801)
 shape = SubResource("BoxShape3D_jypwj")
 

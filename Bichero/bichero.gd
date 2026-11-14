@@ -8,8 +8,6 @@ const JUMP_VELOCITY = 4.5
 @export var mouse_sensitivity_h = 0.25
 @export var mouse_sensitivity_v = 0.15
 
-var _dialog_active: bool = false
-
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -43,8 +41,6 @@ func _physics_process(delta: float) -> void:
 
 
 # --- Player interface (shared with all player types) ---
-func set_dialog_active(active: bool) -> void:
-	_dialog_active = active
 func move_to_position(_pos: Vector3, _rot: Vector3):
 	global_position = _pos
 	global_rotation = _rot

@@ -1,5 +1,9 @@
 extends Node3D
 
+enum GameState{FREE, DIALOG, PAUSED, CUTSCENE}
+var current_game_state := GameState.FREE
+signal game_state_changed(new_state: GameState)
+
 var current_scene = null
 var _spawnpoints: Dictionary = {}
 
@@ -7,9 +11,16 @@ var _spawnpoints: Dictionary = {}
 func _ready() -> void:
 	current_scene = get_tree().root.get_child(-1)
 
-func _unhandled_input(event: InputEvent) -> void:		
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("release_camera"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func set_game_state(new_state: GameState) -> void:
+	current_game_state = new_state
+	game_state_changed.emit(new_state)
 
 func goto_scene(destiny_level: String, spawnpoint_id: String):
 	_deferred_goto_scene.call_deferred(destiny_level, spawnpoint_id)
@@ -35,13 +46,13 @@ func _deferred_goto_scene(destiny_level: String, spawnpoint_id: String):
 	# if(door != null):
 	# 	get_tree().call_group("player", "move_to_position", door.get_destination_position())
 
-func _search_door(destiny_level: String, origin_level: String) -> Door:
-	var doors = get_tree().get_nodes_in_group("door")
-	for door in doors:
-		if(door.is_your_other_side(destiny_level, origin_level)):
-			return door
-	
-	return null
+#func _search_door(destiny_level: String, origin_level: String) -> Door:
+	#var doors = get_tree().get_nodes_in_group("door")
+	#for door in doors:
+		#if(door.is_your_other_side(destiny_level, origin_level)):
+			#return door
+	#
+	#return null
 
 func register_spawnpoint(id: String, node: Node3D) -> void:
 	_spawnpoints[id] = node

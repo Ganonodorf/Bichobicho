@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 
 func interact() -> void:
 	if dialog_timeline != "":
-		get_tree().call_group("player", "set_dialog_active", true)
+		Bichobicho.set_game_state(Bichobicho.GameState.DIALOG)
 		Dialogic.start(dialog_timeline)
 #		Dialogic.timeline_ended.connect(_on_dialog_ended, CONNECT_ONE_SHOT)
 	elif destination_scene != "":

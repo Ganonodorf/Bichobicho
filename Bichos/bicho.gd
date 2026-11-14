@@ -4,7 +4,6 @@ class_name Bicho
 
 var patas: Array[Pata]
 
-var _dialog_active: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,8 +26,6 @@ func _process(_delta: float) -> void:
 	pass
 
 # --- Player interface (shared with all player types) ---
-func set_dialog_active(active: bool) -> void:
-	_dialog_active = active
 func move_to_position(_pos: Vector3, _rot: Vector3):
 	global_position = _pos
 	global_rotation = _rot
