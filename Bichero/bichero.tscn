@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cpuqdluq4n8m1" path="res://Bichero/bichero.gd" id="1_4g36f"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_21rvj"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_4g36f"]
+[ext_resource type="Script" uid="uid://b4k0cmjphlbv6" path="res://Bichero/ui_manager.gd" id="4_21rvj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g3o6u"]
 radius = 0.4
@@ -32,6 +33,10 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_4g36f")
 
+[node name="UIManager" type="Node" parent="." unique_id=1270226266 node_paths=PackedStringArray("interact_flag")]
+script = ExtResource("4_21rvj")
+interact_flag = NodePath("../CanvasLayer/Label")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=745897831]
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1625885569]
@@ -43,6 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=911090322]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

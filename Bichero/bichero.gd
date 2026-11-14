@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var phantom_camera_3d: PhantomCamera3D = $PhantomCamera3D
+@onready var ui_manager: Node = $UIManager
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -13,6 +14,10 @@ var _dialog_frozen := false
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Bichobicho.game_state_changed.connect(_on_game_state_changed)
+	var manager = get_tree().get_first_node_in_group("interaction_manager")
+	if manager:
+		manager.interactable_focused.connect(_on_interaction_manager_interactable_focused)
+		manager.interactable_unfocused.connect(_on_interaction_manager_interactable_unfocused)
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -55,8 +60,7 @@ func _on_game_state_changed(new_state :Bichobicho.GameState) -> void:
 		_dialog_frozen = false
 
 func _on_interaction_manager_interactable_focused(_interactable: Interactable) -> void:
-	pass # Replace with function body.
-
+	ui_manager.set_interact_flag(true)
 
 func _on_interaction_manager_interactable_unfocused() -> void:
-	pass # Replace with function body.
+	ui_manager.set_interact_flag(false)
