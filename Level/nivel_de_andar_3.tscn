@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://bpdy4eqp8477q"]
+[gd_scene format=3 uid="uid://bgwlopeaih6gu"]
 
 [ext_resource type="Script" uid="uid://c66yc0rldyt6g" path="res://Level/level.gd" id="1_i66cp"]
 [ext_resource type="PackedScene" uid="uid://bb23bxd0ch2ed" path="res://Bichero/bichero.tscn" id="2_rskmq"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_7va4l"]
 [ext_resource type="Script" uid="uid://qik2hg72ijug" path="res://Level/door.gd" id="4_lj5pd"]
+[ext_resource type="PackedScene" uid="uid://gybju3oeenp0" path="res://Interactions/interactable.tscn" id="5_rskmq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e7clw"]
 sky_top_color = Color(0.13274401, 0.21865496, 0.27486518, 1)
@@ -94,5 +95,8 @@ shape = SubResource("BoxShape3D_usu4d")
 
 [node name="Destination" type="Node3D" parent="NivelDeAndar" unique_id=729609234]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.37605286, -1.9216704)
+
+[node name="Interactable" parent="." unique_id=120528219 instance=ExtResource("5_rskmq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47898388, 3.2689843)
 
 [connection signal="body_entered" from="NivelDeAndar" to="NivelDeAndar" method="_on_body_entered"]

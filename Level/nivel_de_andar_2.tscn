@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://c66yc0rldyt6g" path="res://Level/level.gd" id="1_usu4d"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_e7clw"]
 [ext_resource type="Script" uid="uid://qik2hg72ijug" path="res://Level/door.gd" id="3_o165o"]
+[ext_resource type="PackedScene" uid="uid://dm2473avdnbeb" path="res://Level/components/spawn_point.tscn" id="5_v8xw2"]
+[ext_resource type="PackedScene" uid="uid://gybju3oeenp0" path="res://Interactions/interactable.tscn" id="6_guidf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e7clw"]
 sky_top_color = Color(0.13274401, 0.21865496, 0.27486518, 1)
@@ -25,6 +27,9 @@ fog_enabled = true
 albedo_color = Color(1, 0, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_usu4d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n30ix"]
+size = Vector3(3.0357056, 1, 1)
 
 [node name="NivelDeAndar2" type="Node3D" unique_id=1865975331]
 script = ExtResource("1_usu4d")
@@ -95,4 +100,20 @@ shape = SubResource("BoxShape3D_usu4d")
 [node name="Destination" type="Node3D" parent="NivelDeAndar" unique_id=729609234]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.37605286, -1.9216704)
 
+[node name="SpawnPoint" parent="." unique_id=437112311 instance=ExtResource("5_v8xw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00023168325, 0.5309288, 1.4171617)
+spawnpoint_id = "main"
+
+[node name="Interactable" parent="." unique_id=120528219 instance=ExtResource("6_guidf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7085694, 3.2086577)
+trigger_mode = 1
+destination_scene = "res://Level/nivel_de_andar.tscn"
+destination_spawnpoint = "puertaLuz"
+
+[node name="CollisionShape3D" parent="Interactable/Area3D" parent_id_path=PackedInt32Array(120528219, 554297077) index="0" unique_id=1158057534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046051025, 0.46899414, 0)
+shape = SubResource("BoxShape3D_n30ix")
+
 [connection signal="body_entered" from="NivelDeAndar" to="NivelDeAndar" method="_on_body_entered"]
+
+[editable path="Interactable"]
