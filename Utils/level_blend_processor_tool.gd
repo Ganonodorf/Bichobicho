@@ -2,6 +2,7 @@
 extends EditorScenePostImport
 
 var interactable_scene_packed = preload("res://Interactions/interactable.tscn")
+var spawnpoint_scene_packed = preload("res://Level/components/spawn_point.tscn")
 
 func _post_import(scene: Node) -> Object:
 	var int_nodes: Array = []
@@ -26,6 +27,21 @@ func _post_import(scene: Node) -> Object:
 		
 		node.visible = false
 	
+	var sp_nodes: Array = []
+	_find_spawnpoints(scene, sp_nodes)
+	print("found spawnpoints: ", sp_nodes)
+	
+	for node in sp_nodes:
+		var original_transform = _get_world_transfrom(node, scene)
+		
+		var spawnpoint = spawnpoint_scene_packed.instantiate()
+		scene.add_child(spawnpoint)
+		spawnpoint.owner = scene
+		spawnpoint.transform = original_transform
+		spawnpoint. name = "Sp " + node.name
+		
+		node.visible = false
+	
 	return scene
 
 func _find_interactables(node: Node, _interactable_nodes: Array) -> void:
@@ -33,6 +49,12 @@ func _find_interactables(node: Node, _interactable_nodes: Array) -> void:
 		_find_interactables(child, _interactable_nodes)
 	if node.name.begins_with("INT-"):
 		_interactable_nodes.append(node)
+
+func _find_spawnpoints(node: Node, _spawnpoint_nodes: Array) -> void:
+	for child in node.get_children():
+		_find_spawnpoints(child, _spawnpoint_nodes)
+	if node.name.begins_with("SP-"):
+		_spawnpoint_nodes.append(node)
 
 # hace falta calcular este global transform manualmente porque este postimport script
 # corre cuando aún no hay una escena por lo que no puede calcular global_transform

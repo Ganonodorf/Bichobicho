@@ -50,8 +50,7 @@ process_physics_priority = 300
 script = ExtResource("4_ss83m")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="callePeana" parent="." unique_id=1015394232 instance=ExtResource("4_vhq7r")]
-metadata/_edit_lock_ = true
+[node name="callePeana" parent="." unique_id=447743574 instance=ExtResource("4_vhq7r")]
 
 [node name="mainSpawnpoint1" parent="." unique_id=437112311 instance=ExtResource("5_scw62")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3177097, 1.0600173, 0.5887184)
@@ -68,4 +67,5 @@ metadata/_edit_lock_ = true
 
 [node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("8_ss83m")]
 
+[editable path="callePeana"]
 [editable path="Interactable/AbuelaMaria"]
