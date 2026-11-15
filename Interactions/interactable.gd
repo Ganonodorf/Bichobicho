@@ -15,11 +15,14 @@ enum TriggerMode { INTERACT_KEY, AUTO }
 @export var destination_spawnpoint: String = ""
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# si no tiene mesh asignado busca uno entre sus hijos. 
+	# solo para los INT- autoprocesados importados de blender.
 	if mesh_node == null:
 		for child in get_children():
 			if child is MeshInstance3D:
 				mesh_node = child
 				break
+	# esto substituye el material por una copia nueva para cada interactable
 	if mesh_node != null:
 		var original_mat = mesh_node.get_active_material(0)
 		var override_mat: StandardMaterial3D
