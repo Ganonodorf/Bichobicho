@@ -1,11 +1,11 @@
 class_name InteractionManager
 extends Node
 
-var _nearby: Array[Interactable] = []
-var _focused: Interactable = null
+var _nearby: Array[Interactable2] = []
+var _focused: Interactable2 = null
 var player: Node3D = null
 
-signal interactable_focused(interactable: Interactable)
+signal interactable_focused(interactable: Interactable2)
 signal interactable_unfocused()
 
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +26,7 @@ func _update_focus() -> void:
 	if player == null or _nearby.is_empty():
 		set_focus(null)
 		return
-	var closest: Interactable = null
+	var closest: Interactable2 = null
 	var closest_distance := INF
 	for item in _nearby:
 		var d := item.global_position.distance_to(player.global_position)
@@ -35,7 +35,7 @@ func _update_focus() -> void:
 			closest = item
 	set_focus(closest)
 
-func set_focus(item: Interactable) -> void:
+func set_focus(item: Interactable2) -> void:
 	if item == _focused:
 		return
 	if _focused != null:
@@ -43,16 +43,15 @@ func set_focus(item: Interactable) -> void:
 	_focused = item
 	if _focused != null:
 		_focused.show_outline(true) # activar nueva outline
-		if _focused.trigger_mode == Interactable.TriggerMode.INTERACT_KEY:
-			interactable_focused.emit(_focused) # signal for UI to show "press E to interact"
+		interactable_focused.emit(_focused) # signal for UI to show "press E to interact"
 	else:
 		interactable_unfocused.emit() # signal for UI to hide
 
-func add_interactable(item: Interactable) -> void:
+func add_interactable(item: Interactable2) -> void:
 	if not _nearby.has(item):
 		_nearby.append(item)
 
-func remove_interactable(item: Interactable) -> void:
+func remove_interactable(item: Interactable2) -> void:
 	if _nearby.has(item):
 		_nearby.erase(item)
 		if _focused == item:

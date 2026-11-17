@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c6hqymkfdf5po"]
+
+[ext_resource type="Script" uid="uid://c45nusoo8tymt" path="res://Interactions/manual_interactable.gd" id="1_lqj1x"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ejwmi"]
+height = 1.8501282
+radius = 0.6665039
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lqj1x"]
+radius = 0.3022461
+height = 1.8497314
+
+[node name="ManualInteractable" type="Node3D" unique_id=394993836 groups=["interactable"]]
+script = ExtResource("1_lqj1x")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1257380559]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1165948194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84425354, 0)
+shape = SubResource("CylinderShape3D_ejwmi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1260444587]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=30939936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8521118, 0)
+shape = SubResource("CapsuleShape3D_lqj1x")
