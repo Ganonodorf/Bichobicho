@@ -62,8 +62,6 @@ func interact() -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("player"):
 		return
-	#if not body.is_in_group("bichocoche") and trigger_mode == TriggerMode.INTERACT_KEY:
-		#return
 	if trigger_mode == TriggerMode.AUTO:
 		interact()
 	else:
@@ -80,8 +78,6 @@ func _on_dialog_ended() -> void:
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if not body.is_in_group("player"):
 		return
-	#if not body.is_in_group("bichocoche") and trigger_mode == TriggerMode.INTERACT_KEY:
-		#return
 	var manager = get_tree().get_first_node_in_group("interaction_manager")
 	if manager:
 		manager.remove_interactable(self)
