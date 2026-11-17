@@ -3,6 +3,7 @@ extends Node
 
 var _nearby: Array[Interactable] = []
 var _focused: Interactable = null
+var player: Node3D = null
 
 signal interactable_focused(interactable: Interactable)
 signal interactable_unfocused()
@@ -10,6 +11,7 @@ signal interactable_unfocused()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("interaction_manager")
+	player = get_tree().get_first_node_in_group("player")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,9 +23,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_focused.interact()
 
 func _update_focus() -> void:
-	var player = get_tree().get_first_node_in_group("player")
 	if player == null or _nearby.is_empty():
-		_set_focus(null)
+		set_focus(null)
 		return
 	var closest: Interactable = null
 	var closest_distance := INF
@@ -32,9 +33,9 @@ func _update_focus() -> void:
 		if d < closest_distance:
 			closest_distance = d
 			closest = item
-	_set_focus(closest)
+	set_focus(closest)
 
-func _set_focus(item: Interactable) -> void:
+func set_focus(item: Interactable) -> void:
 	if item == _focused:
 		return
 	if _focused != null:
@@ -54,4 +55,4 @@ func add_interactable(item: Interactable) -> void:
 func remove_interactable(item: Interactable) -> void:
 	_nearby.erase(item)
 	if _focused == item:
-		_set_focus(null)
+		set_focus(null)

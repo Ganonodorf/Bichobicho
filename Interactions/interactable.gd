@@ -46,7 +46,7 @@ func interact() -> void:
 		Bichobicho.goto_scene(destination_scene, destination_spawnpoint)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if not body.is_in_group("player"):
+	if not body.is_in_group("bichocoche"):
 		return
 	if trigger_mode == TriggerMode.AUTO:
 		interact()
@@ -62,7 +62,7 @@ func _on_dialog_ended() -> void:
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	if not body.is_in_group("player"):
+	if not body.is_in_group("bichocoche"):
 		return
 	var manager = get_tree().get_first_node_in_group("interaction_manager")
 	if manager:

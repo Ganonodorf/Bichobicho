@@ -1,7 +1,7 @@
 @tool
 extends EditorScenePostImport
 
-var interactable_scene_packed = preload("res://Interactions/interactable.tscn")
+var interactable_scene_packed = preload("res://Interactions/interactable_for_import.tscn")
 var spawnpoint_scene_packed = preload("res://Level/components/spawn_point.tscn")
 
 func _post_import(scene: Node) -> Object:
@@ -23,6 +23,7 @@ func _post_import(scene: Node) -> Object:
 		node_copy.reparent(interactable, false)
 		node_copy.transform = Transform3D.IDENTITY
 		node_copy.owner = scene
+		node_copy.create_trimesh_collision()
 		print("copied nodes: ",node_copy)
 		
 		node.visible = false
