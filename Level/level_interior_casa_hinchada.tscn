@@ -24,7 +24,7 @@ radius = 0.39892578
 [node name="InteriorCasetaHinchada" parent="." unique_id=1139188329 instance=ExtResource("2_xbveq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-06, 3.8146973e-06, 2.026558e-05)
 
-[node name="ground" parent="InteriorCasetaHinchada" index="0" unique_id=612508668]
+[node name="ground" parent="InteriorCasetaHinchada" index="0" unique_id=1047031032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4685799, 1.8270289, 0.39388198)
 
 [node name="Int INT-EntradaCueva" parent="InteriorCasetaHinchada" index="5" unique_id=120528219]
@@ -40,18 +40,18 @@ shape = SubResource("CylinderShape3D_d3lbj")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1.5781193, 0.85411847)
 spawnpoint_id = "salidaCueva"
 
-[node name="Int INT-FloatingHead" parent="InteriorCasetaHinchada" index="6" unique_id=1545802107]
+[node name="Int INT-FloatingHead" parent="InteriorCasetaHinchada" index="6" unique_id=1534123316]
 dialog_timeline = "res://dialog/timelines/timeline.dtl"
 
-[node name="CollisionShape3D" parent="InteriorCasetaHinchada/Int INT-FloatingHead/Area3D" parent_id_path=PackedInt32Array(1139188329, 1545802107, 554297077) index="0" unique_id=1158057534]
+[node name="CollisionShape3D" parent="InteriorCasetaHinchada/Int INT-FloatingHead/Area3D" parent_id_path=PackedInt32Array(1139188329, 1534123316, 554297077) index="0" unique_id=1158057534]
 transform = Transform3D(0.9999993, 4.3213367e-07, -2.682209e-07, -1.1920929e-07, 0.99999624, 2.9802322e-07, 0, 7.8231096e-08, 0.99999416, -1.1920929e-07, 0.09863281, 0)
 shape = SubResource("SphereShape3D_d3lbj")
 
-[node name="Int INT-PuertaAFuera" parent="InteriorCasetaHinchada" index="7" unique_id=276524741]
+[node name="Int INT-PuertaAFuera" parent="InteriorCasetaHinchada" index="7" unique_id=804347135]
 destination_scene = "res://Level/nivel_de_andar.tscn"
 destination_spawnpoint = "salidaCasaHinchada"
 
-[node name="CollisionShape3D" parent="InteriorCasetaHinchada/Int INT-PuertaAFuera/Area3D" parent_id_path=PackedInt32Array(1139188329, 276524741, 554297077) index="0" unique_id=1158057534]
+[node name="CollisionShape3D" parent="InteriorCasetaHinchada/Int INT-PuertaAFuera/Area3D" parent_id_path=PackedInt32Array(1139188329, 804347135, 554297077) index="0" unique_id=1158057534]
 transform = Transform3D(1.0000153, 0, 1.8626451e-09, 0, 1.000015, 0, -1.8626451e-09, 0, 1.0000153, 0, 0.46899432, 0)
 shape = SubResource("CylinderShape3D_hjst5")
 
