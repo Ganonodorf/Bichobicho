@@ -31,7 +31,21 @@ func _ready() -> void:
 		else:
 			override_mat = StandardMaterial3D.new()
 		mesh_node.set_surface_override_material(0, override_mat)
-
+	
+	var player = get_tree().get_first_node_in_group("player")
+	if player != null:
+		if not player.is_in_group("bichocoche"):
+			if trigger_mode == TriggerMode.INTERACT_KEY:
+				for child in get_children():
+					if child is Area3D:
+						child.free()
+			if trigger_mode == TriggerMode.AUTO:
+				for child in get_children():
+					if child is StaticBody3D:
+						child.set_collision_layer_value(1,false)
+					for grandchild in child.get_children():
+						if grandchild is StaticBody3D:
+							grandchild.set_collision_layer_value(1,false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -46,8 +60,10 @@ func interact() -> void:
 		Bichobicho.goto_scene(destination_scene, destination_spawnpoint)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if not body.is_in_group("bichocoche"):
+	if not body.is_in_group("player"):
 		return
+	#if not body.is_in_group("bichocoche") and trigger_mode == TriggerMode.INTERACT_KEY:
+		#return
 	if trigger_mode == TriggerMode.AUTO:
 		interact()
 	else:
@@ -62,8 +78,10 @@ func _on_dialog_ended() -> void:
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	if not body.is_in_group("bichocoche"):
+	if not body.is_in_group("player"):
 		return
+	#if not body.is_in_group("bichocoche") and trigger_mode == TriggerMode.INTERACT_KEY:
+		#return
 	var manager = get_tree().get_first_node_in_group("interaction_manager")
 	if manager:
 		manager.remove_interactable(self)

@@ -31,8 +31,9 @@ func _input(event):
 func _process(_delta: float) -> void:
 	var detected_interactable = _detect_interactable()
 	if detected_interactable != last_detected_interactable:
-		manager.remove_interactable(last_detected_interactable)
-		last_detected_interactable = null
+		if last_detected_interactable != null:
+			manager.remove_interactable(last_detected_interactable)
+		last_detected_interactable = detected_interactable
 	if detected_interactable != null:
 		manager.add_interactable(detected_interactable)
 		last_detected_interactable = detected_interactable

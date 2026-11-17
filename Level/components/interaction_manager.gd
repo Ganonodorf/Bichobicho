@@ -53,6 +53,7 @@ func add_interactable(item: Interactable) -> void:
 		_nearby.append(item)
 
 func remove_interactable(item: Interactable) -> void:
-	_nearby.erase(item)
-	if _focused == item:
-		set_focus(null)
+	if _nearby.has(item):
+		_nearby.erase(item)
+		if _focused == item:
+			set_focus(null)

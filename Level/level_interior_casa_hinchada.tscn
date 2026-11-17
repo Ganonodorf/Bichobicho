@@ -9,7 +9,7 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d3lbj"]
 resource_local_to_scene = true
 height = 2.727539
-radius = 0.34570313
+radius = 0.32958984
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d3lbj"]
 radius = 0.7467878
@@ -28,6 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-06, 3.8146973e-06,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4685799, 1.8270289, 0.39388198)
 
 [node name="Int INT-EntradaCueva" parent="InteriorCasetaHinchada" index="5" unique_id=120528219]
+trigger_mode = 1
 destination_scene = "res://Level/nivel_de_andar.tscn"
 destination_spawnpoint = "salidaCasaHinchadaACueva"
 

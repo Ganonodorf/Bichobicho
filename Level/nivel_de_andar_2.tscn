@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://qik2hg72ijug" path="res://Level/door.gd" id="3_o165o"]
 [ext_resource type="PackedScene" uid="uid://dm2473avdnbeb" path="res://Level/components/spawn_point.tscn" id="5_v8xw2"]
 [ext_resource type="PackedScene" uid="uid://gybju3oeenp0" path="res://Interactions/interactable.tscn" id="6_guidf"]
+[ext_resource type="PackedScene" uid="uid://vdxjme05hyyx" path="res://Interactions/interaction_manager.tscn" id="7_guidf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e7clw"]
 sky_top_color = Color(0.13274401, 0.21865496, 0.27486518, 1)
@@ -113,6 +114,8 @@ destination_spawnpoint = "puertaLuz"
 [node name="CollisionShape3D" parent="Interactable/Area3D" parent_id_path=PackedInt32Array(120528219, 554297077) index="0" unique_id=1158057534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046051025, 0.46899414, 0)
 shape = SubResource("BoxShape3D_n30ix")
+
+[node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("7_guidf")]
 
 [connection signal="body_entered" from="NivelDeAndar" to="NivelDeAndar" method="_on_body_entered"]
 

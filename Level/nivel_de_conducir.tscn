@@ -50,14 +50,14 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1642840026]
 environment = SubResource("Environment_n0q71")
 
-[node name="mundo_coche" parent="." unique_id=252760911 instance=ExtResource("1_tkfgy")]
+[node name="mundo_coche" parent="." unique_id=458879623 instance=ExtResource("1_tkfgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9677558, 0)
 
 [node name="Int INT-EntradaPuebloCueva" parent="mundo_coche" index="3" unique_id=120528219]
 destination_scene = "res://Level/nivel_de_andar.tscn"
 destination_spawnpoint = "entradaDesdeMundoCoche"
 
-[node name="CollisionShape3D" parent="mundo_coche/Int INT-EntradaPuebloCueva/Area3D" parent_id_path=PackedInt32Array(252760911, 120528219, 554297077) index="0" unique_id=1158057534]
+[node name="CollisionShape3D" parent="mundo_coche/Int INT-EntradaPuebloCueva/Area3D" parent_id_path=PackedInt32Array(458879623, 120528219, 554297077) index="0" unique_id=1158057534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4272461, 0)
 shape = SubResource("CylinderShape3D_cbnhr")
 
