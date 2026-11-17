@@ -6,10 +6,6 @@
 radius = 0.30078125
 height = 2.3217773
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ugi1j"]
-radius = 0.3
-height = 2.322
-
 [node name="Interactable" type="Node3D" unique_id=120528219 groups=["interactable"]]
 script = ExtResource("1_5uubw")
 
@@ -18,13 +14,6 @@ script = ExtResource("1_5uubw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1158057534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8901367, 0)
 shape = SubResource("CapsuleShape3D_ii5sf")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=291403349]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1620121315]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88275236, 0)
-shape = SubResource("CapsuleShape3D_ugi1j")
-disabled = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
