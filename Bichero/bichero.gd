@@ -82,7 +82,7 @@ func _on_game_state_changed(new_state :Bichobicho.GameState) -> void:
 	else:
 		_dialog_frozen = false
 
-func _on_interaction_manager_interactable_focused(_interactable: Interactable) -> void:
+func _on_interaction_manager_interactable_focused(_interactable: Interactable2) -> void:
 	ui_manager.set_interact_flag(true)
 
 func _on_interaction_manager_interactable_unfocused() -> void:
