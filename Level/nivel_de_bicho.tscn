@@ -1,3 +1,26 @@
 [gd_scene format=3 uid="uid://bu7jrfl2v7tgj"]
 
+[ext_resource type="PackedScene" uid="uid://nc0jthgdmfhh" path="res://Level/3DModels/2ndBugLevel.blend" id="1_728jj"]
+[ext_resource type="PackedScene" uid="uid://cbiqq30n104ig" path="res://Bichos/bicho_coraza.tscn" id="2_468by"]
+[ext_resource type="PackedScene" uid="uid://vdxjme05hyyx" path="res://Interactions/interaction_manager.tscn" id="3_468by"]
+
 [node name="NivelDeBicho" type="Node3D" unique_id=1264728065]
+
+[node name="2ndBugLevel" parent="." unique_id=1654839229 instance=ExtResource("1_728jj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+
+[node name="StaticBody3D" parent="2ndBugLevel/ground" parent_id_path=PackedInt32Array(1654839229, 1153281765) index="0" unique_id=635135085]
+collision_layer = 4
+
+[node name="StaticBody3D" parent="2ndBugLevel/skull" parent_id_path=PackedInt32Array(1654839229, 896787642) index="0" unique_id=315545508]
+collision_layer = 4
+
+[node name="bichoCoraza" parent="." unique_id=2139795818 instance=ExtResource("2_468by")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.076194, 1.8332009, 6.047845)
+
+[node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("3_468by")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1506075531]
+transform = Transform3D(0.8775468, 0.3229855, -0.35438985, 0, 0.73909575, 0.67360044, 0.47949123, -0.5911159, 0.648591, -6.016059, 11.768574, 14.808097)
+
+[editable path="2ndBugLevel"]

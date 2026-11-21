@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://b6xfftffx8xge"]
-
-[ext_resource type="PackedScene" uid="uid://duh30gg6er3ue" path="res://Level/3DModels/churchCavePacked.blend" id="1_ss43v"]
-
-[node name="churchCavePacked" unique_id=588111163 instance=ExtResource("1_ss43v")]
-
-[node name="INT-PuertaEsquinaLuz" parent="." index="5" unique_id=1215692584]
-visible = false
