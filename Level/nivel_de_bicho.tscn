@@ -3,24 +3,95 @@
 [ext_resource type="PackedScene" uid="uid://nc0jthgdmfhh" path="res://Level/3DModels/2ndBugLevel.blend" id="1_728jj"]
 [ext_resource type="PackedScene" uid="uid://cbiqq30n104ig" path="res://Bichos/bicho_coraza.tscn" id="2_468by"]
 [ext_resource type="PackedScene" uid="uid://vdxjme05hyyx" path="res://Interactions/interaction_manager.tscn" id="3_468by"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_fej4s"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_kda3p"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_kda3p"]
+[ext_resource type="PackedScene" uid="uid://dm2473avdnbeb" path="res://Level/components/spawn_point.tscn" id="7_cftoi"]
+[ext_resource type="PackedScene" uid="uid://c6hqymkfdf5po" path="res://Interactions/manual_interactable.tscn" id="8_qjdyd"]
+[ext_resource type="PackedScene" uid="uid://dguitip3q2q3f" path="res://Interactions/Characters/3DModels/AbuelaMaria.blend" id="9_4lvuk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kda3p"]
+sky_top_color = Color(0.3904536, 0.5667054, 0.66068953, 1)
+sky_horizon_color = Color(1.0596659, 1.1763453, 1.2391026, 1)
+ground_bottom_color = Color(0.2911526, 0.58161837, 0.7386634, 1)
+ground_horizon_color = Color(1.0596659, 1.1763453, 1.2391026, 1)
+energy_multiplier = 1.6
+
+[sub_resource type="Sky" id="Sky_cftoi"]
+sky_material = SubResource("ProceduralSkyMaterial_kda3p")
+
+[sub_resource type="Environment" id="Environment_tt8xw"]
+background_mode = 2
+sky = SubResource("Sky_cftoi")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_cftoi"]
+script = ExtResource("5_kda3p")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kda3p"]
+radius = 0.1
 
 [node name="NivelDeBicho" type="Node3D" unique_id=1264728065]
 
-[node name="2ndBugLevel" parent="." unique_id=1654839229 instance=ExtResource("1_728jj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=539025086]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.81332195, 0.80193454, 0.4682852, 1)
+shadow_enabled = true
 
-[node name="StaticBody3D" parent="2ndBugLevel/ground" parent_id_path=PackedInt32Array(1654839229, 1153281765) index="0" unique_id=635135085]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2014612798]
+environment = SubResource("Environment_tt8xw")
+
+[node name="2ndBugLevel" parent="." unique_id=13157279 instance=ExtResource("1_728jj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.011867523)
+
+[node name="StaticBody3D" parent="2ndBugLevel/ground" parent_id_path=PackedInt32Array(13157279, 192784380) index="0" unique_id=468799189]
 collision_layer = 4
 
-[node name="StaticBody3D" parent="2ndBugLevel/skull" parent_id_path=PackedInt32Array(1654839229, 896787642) index="0" unique_id=315545508]
+[node name="StaticBody3D" parent="2ndBugLevel/skull" parent_id_path=PackedInt32Array(13157279, 569131134) index="0" unique_id=782649420]
 collision_layer = 4
 
 [node name="bichoCoraza" parent="." unique_id=2139795818 instance=ExtResource("2_468by")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.076194, 1.8332009, 6.047845)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12285197, 0.7489561, 1.3753235)
 
 [node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("3_468by")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1506075531]
-transform = Transform3D(0.8775468, 0.3229855, -0.35438985, 0, 0.73909575, 0.67360044, 0.47949123, -0.5911159, 0.648591, -6.016059, 11.768574, 14.808097)
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12285197, 1.0689561, 2.3753235)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1114260404]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("4_kda3p")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1154399750 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12285197, 1.0689561, 2.3753235)
+script = ExtResource("4_fej4s")
+follow_mode = 6
+follow_target = NodePath("../bichoCoraza")
+tween_resource = SubResource("Resource_cftoi")
+follow_offset = Vector3(0, 0.32, 0)
+follow_damping = true
+collision_mask = 5
+shape = SubResource("SphereShape3D_kda3p")
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="SpawnPoint" parent="." unique_id=437112311 instance=ExtResource("7_cftoi")]
+transform = Transform3D(-0.99954206, 0, -0.030259432, 0, 1, 0, 0.030259432, 0, -0.99954206, -12.473535, 0.07888436, -34.745495)
+
+[node name="ManualInteractable" parent="." unique_id=394993836 instance=ExtResource("8_qjdyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7556515, 27.85945, -3.6906533)
+
+[node name="CollisionShape3D" parent="ManualInteractable/Area3D" parent_id_path=PackedInt32Array(394993836, 1257380559) index="0" unique_id=1165948194]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.84425354, 0)
+
+[node name="AbuelaMaria" parent="ManualInteractable" unique_id=1486338615 instance=ExtResource("9_4lvuk")]
 
 [editable path="2ndBugLevel"]
+[editable path="ManualInteractable"]
