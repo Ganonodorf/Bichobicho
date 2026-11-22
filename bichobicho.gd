@@ -22,6 +22,7 @@ func set_game_state(new_state: GameState) -> void:
 	current_game_state = new_state
 	game_state_changed.emit(new_state)
 
+
 func goto_scene(destiny_level: String, spawnpoint_id: String):
 	_deferred_goto_scene.call_deferred(destiny_level, spawnpoint_id)
 

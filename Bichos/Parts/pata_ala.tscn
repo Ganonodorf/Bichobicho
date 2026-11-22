@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bc1o8w6oecutw"]
+
+[ext_resource type="PackedScene" uid="uid://cyp6kevfnsp1a" path="res://Bichos/Parts/3DModels/pataVisualizer.blend" id="1_onsnt"]
+[ext_resource type="Script" uid="uid://eqfjj76h3qeq" path="res://Bichos/Parts/pata_ala.gd" id="1_qpk8h"]
+[ext_resource type="Script" uid="uid://deyhdfd3elnql" path="res://Level/components/spawnpointVisualizer.gd" id="2_qpk8h"]
+
+[node name="PataAla" type="Node3D" unique_id=1308528689]
+script = ExtResource("1_qpk8h")
+
+[node name="pataVisualizer" parent="." unique_id=1450828889 instance=ExtResource("1_onsnt")]
+script = ExtResource("2_qpk8h")

@@ -1,6 +1,6 @@
+class_name Pata
 extends Node3D
 
-class_name Pata
 
 signal animated_wing_pata_fired(is_right_side: bool)
 signal animated_ground_pata_fired()
