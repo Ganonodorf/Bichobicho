@@ -21,12 +21,12 @@ script = ExtResource("1_ddsum")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1902902585]
 shape = SubResource("ConvexPolygonShape3D_0os24")
 
-[node name="bichoCoraza" parent="." unique_id=781358015 instance=ExtResource("2_hrnkt")]
+[node name="bichoCoraza" parent="." unique_id=1852850685 instance=ExtResource("2_hrnkt")]
 
-[node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(781358015, 1457327869) index="0" unique_id=1956267837]
+[node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(1852850685, 1088968347) index="0" unique_id=1498393556]
 bones/0/position = Vector3(-0.0083938055, 0.0012270218, -0.01180705)
 bones/0/rotation = Quaternion(0.4223608, -0.003968727, -0.011186309, 0.9063501)
-bones/1/rotation = Quaternion(0.9390851, 0.004047389, -0.021690803, -0.3429758)
+bones/1/rotation = Quaternion(0.94382906, 0.004451419, -0.020393454, -0.3297744)
 bones/2/position = Vector3(0.43382394, -0.0106189, 0.24892908)
 bones/2/rotation = Quaternion(9.295945e-09, 2.3849864e-07, 3.6382276e-11, 1)
 bones/3/position = Vector3(-0.43382382, -0.010618976, 0.2489293)
@@ -37,24 +37,24 @@ bones/4/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/5/position = Vector3(-0.35452965, 0.1646793, 0.18496539)
 bones/5/rotation = Quaternion(-0.0120044835, 6.6238414e-08, 0.050030075, 0.9986756)
 bones/5/scale = Vector3(0.99999994, 0.99999994, 1.0000002)
-bones/6/rotation = Quaternion(0.32267708, 0.011069908, -0.01199063, 0.94636846)
+bones/6/rotation = Quaternion(0.3568833, -0.001066485, -0.015690621, 0.9340166)
 bones/7/position = Vector3(0.48454472, 0.38714907, 0.24816875)
-bones/7/rotation = Quaternion(0.32237497, 0.17385697, -0.2377419, 0.8996261)
+bones/7/rotation = Quaternion(0.3315427, 0.11344874, -0.25529334, 0.9011294)
 bones/8/position = Vector3(-0.49891198, 0.38131744, 0.24173501)
-bones/8/rotation = Quaternion(0.34214595, -0.12833396, 0.22819945, 0.9024365)
+bones/8/rotation = Quaternion(0.32113686, -0.1586916, 0.21908239, 0.9075743)
 bones/9/position = Vector3(0.75381184, -0.18556307, -0.24179763)
-bones/9/rotation = Quaternion(0.29390404, 0.26421684, -0.67591935, 0.62204736)
+bones/9/rotation = Quaternion(0.28034577, 0.25203907, -0.66554534, 0.64415216)
 bones/10/position = Vector3(-0.7531527, -0.19686359, -0.25419432)
-bones/10/rotation = Quaternion(0.3329651, -0.23241507, 0.65687186, 0.63532424)
+bones/10/rotation = Quaternion(0.3244049, -0.245203, 0.66304505, 0.6284969)
 bones/11/position = Vector3(0.6993685, -0.43066272, -0.388005)
-bones/11/rotation = Quaternion(-0.15903337, -0.3885269, 0.895674, -0.14670867)
+bones/11/rotation = Quaternion(-0.15635651, -0.3931276, 0.89459753, -0.14387037)
 bones/12/position = Vector3(-0.6842424, -0.43287623, -0.39494154)
-bones/12/rotation = Quaternion(0.19280583, -0.3960672, 0.88064957, 0.17439361)
+bones/12/rotation = Quaternion(0.18606141, -0.3916151, 0.8868685, 0.15963438)
 
-[node name="collider" parent="bichoCoraza" index="1" unique_id=699417647]
+[node name="collider" parent="bichoCoraza" index="1" unique_id=1840357349]
 visible = false
 
-[node name="AnimationPlayer" parent="bichoCoraza" index="2" unique_id=665710117]
+[node name="AnimationPlayer" parent="bichoCoraza" index="2" unique_id=1207954616]
 autoplay = &"Idle"
 
 [node name="PataE" parent="." unique_id=1847736130 node_paths=PackedStringArray("groundcheck") instance=ExtResource("3_h17ml")]
@@ -76,7 +76,7 @@ target_position = Vector3(0, -0.09, 0)
 transform = Transform3D(1, 1.8626451e-09, -1.4901161e-07, -5.5879354e-09, 0.99999994, 1.4901161e-08, 2.9802322e-08, -1.1175871e-08, 0.99999976, -0.17014779, -0.005130959, -0.098234996)
 target_position = Vector3(0, -0.09, 0)
 
-[node name="PataQ" parent="." unique_id=1404070798 node_paths=PackedStringArray("groundcheck") instance=ExtResource("3_h17ml")]
+[node name="PataQ" parent="." unique_id=1353905210 node_paths=PackedStringArray("groundcheck") instance=ExtResource("3_h17ml")]
 transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 0, 0, 0.29183558)
 is_ground_animated_pata = true
 key_name = "Q_key"
@@ -102,7 +102,7 @@ spring_rest_lenth = 0.14
 spring_max_compression = 2.0
 spring_stiffnes = 6.0
 spring_damper = 3.0
-longitudinal_friction = 0.5
+lateral_friction = 2.0
 
 [node name="suspensor2" parent="." unique_id=1897320209 instance=ExtResource("5_x2hrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103499494, 0.058853284, 0.12170532)
@@ -111,7 +111,7 @@ spring_rest_lenth = 0.14
 spring_max_compression = 2.0
 spring_stiffnes = 6.0
 spring_damper = 3.0
-longitudinal_friction = 0.5
+lateral_friction = 2.0
 
 [node name="suspensor3" parent="." unique_id=279816322 instance=ExtResource("5_x2hrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09847845, 0.058853284, -0.20147628)
@@ -120,7 +120,7 @@ spring_rest_lenth = 0.14
 spring_max_compression = 2.0
 spring_stiffnes = 6.0
 spring_damper = 3.0
-longitudinal_friction = 0.5
+lateral_friction = 2.0
 
 [node name="suspensor4" parent="." unique_id=697907191 instance=ExtResource("5_x2hrt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103499494, 0.058853284, -0.20146261)
@@ -129,34 +129,34 @@ spring_rest_lenth = 0.14
 spring_max_compression = 2.0
 spring_stiffnes = 6.0
 spring_damper = 3.0
-longitudinal_friction = 0.5
+lateral_friction = 2.0
 
-[node name="PataAlaDerecha" parent="." unique_id=2093642614 instance=ExtResource("3_h17ml")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.01773145, 0.08038905, 0.07206166)
+[node name="PataAlaDerecha" parent="." unique_id=285333374 instance=ExtResource("3_h17ml")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.01773145, 0.08066102, 0.03546619)
 is_winged_animated_pata = true
 key_name = "A_key"
-impulse = 0.17
+impulse = 0.4
 vertical_impulse = 1.4
 wing_impulse_always_horizontal = true
 
-[node name="PataAlaIzquierda" parent="." unique_id=1068382621 instance=ExtResource("3_h17ml")]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.018137336, 0.08038905, 0.07206166)
+[node name="PataAlaIzquierda" parent="." unique_id=791821865 instance=ExtResource("3_h17ml")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.018137336, 0.08066102, 0.03546619)
 is_winged_animated_pata = true
 key_name = "D_key"
-impulse = 0.17
+impulse = 0.4
 vertical_impulse = 1.4
 wing_impulse_always_horizontal = true
 
-[node name="PataGiroAlaDerecha" parent="." unique_id=2066564345 instance=ExtResource("3_h17ml")]
+[node name="PataGiroAlaDerecha" parent="." unique_id=413745992 instance=ExtResource("3_h17ml")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0031443932, 0.012467418, 0.26010555)
 key_name = "A_key"
-impulse = 0.5
+impulse = 0.7
 wing_impulse_always_horizontal = true
 
-[node name="PataGiroAlaIzquierda" parent="." unique_id=1364874155 instance=ExtResource("3_h17ml")]
+[node name="PataGiroAlaIzquierda" parent="." unique_id=1752664662 instance=ExtResource("3_h17ml")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0031573605, 0.012467418, 0.26010555)
 key_name = "D_key"
-impulse = 0.5
+impulse = 0.7
 wing_impulse_always_horizontal = true
 
 [node name="FlutterFuelCounter" parent="." unique_id=115663575 instance=ExtResource("6_be1o1")]

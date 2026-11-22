@@ -42,13 +42,13 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2014612798]
 environment = SubResource("Environment_tt8xw")
 
-[node name="2ndBugLevel" parent="." unique_id=13157279 instance=ExtResource("1_728jj")]
+[node name="2ndBugLevel" parent="." unique_id=926967528 instance=ExtResource("1_728jj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.011867523)
 
-[node name="StaticBody3D" parent="2ndBugLevel/ground" parent_id_path=PackedInt32Array(13157279, 192784380) index="0" unique_id=468799189]
+[node name="StaticBody3D" parent="2ndBugLevel/ground" parent_id_path=PackedInt32Array(926967528, 1288724356) index="0" unique_id=1240602010]
 collision_layer = 4
 
-[node name="StaticBody3D" parent="2ndBugLevel/skull" parent_id_path=PackedInt32Array(13157279, 569131134) index="0" unique_id=782649420]
+[node name="StaticBody3D" parent="2ndBugLevel/skull" parent_id_path=PackedInt32Array(926967528, 2126335503) index="0" unique_id=1741297054]
 collision_layer = 4
 
 [node name="bichoCoraza" parent="." unique_id=2139795818 instance=ExtResource("2_468by")]
