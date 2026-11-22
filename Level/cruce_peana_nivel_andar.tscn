@@ -25,11 +25,6 @@ tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ss83m"]
-resource_local_to_scene = true
-height = 1.5
-radius = 0.2685547
-
 [node name="NivelDeAndar" type="Node3D" unique_id=1512371646]
 script = ExtResource("1_scw62")
 
@@ -57,9 +52,6 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="callePeana" parent="." unique_id=1346012221 instance=ExtResource("4_vhq7r")]
 
-[node name="CollisionShape3D" parent="callePeana/Int INT-puertaCasaGorda/Area3D" parent_id_path=PackedInt32Array(1346012221, 120528219, 554297077) index="0" unique_id=1158057534]
-shape = SubResource("CylinderShape3D_ss83m")
-
 [node name="mainSpawnpoint1" parent="." unique_id=437112311 instance=ExtResource("5_scw62")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3177097, 1.0600173, 0.5887184)
 spawnpoint_id = "main"
@@ -76,6 +68,5 @@ metadata/_edit_lock_ = true
 [node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("8_ss83m")]
 
 [editable path="callePeana"]
-[editable path="callePeana/Int INT-puertaCasaGorda"]
 [editable path="Interactable"]
 [editable path="Interactable/AbuelaMaria"]
