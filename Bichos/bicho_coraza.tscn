@@ -26,7 +26,7 @@ shape = SubResource("ConvexPolygonShape3D_0os24")
 [node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(1852850685, 1088968347) index="0" unique_id=1498393556]
 bones/0/position = Vector3(-0.0083938055, 0.0012270218, -0.01180705)
 bones/0/rotation = Quaternion(0.4223608, -0.003968727, -0.011186309, 0.9063501)
-bones/1/rotation = Quaternion(0.9489697, 0.0010992386, -0.010505977, -0.31519052)
+bones/1/rotation = Quaternion(0.9483131, 0.0028550338, -0.010677567, -0.31714362)
 bones/2/position = Vector3(0.43382394, -0.0106189, 0.24892908)
 bones/2/rotation = Quaternion(9.295945e-09, 2.3849864e-07, 3.6382276e-11, 1)
 bones/3/position = Vector3(-0.43382382, -0.010618976, 0.2489293)
@@ -37,32 +37,25 @@ bones/4/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/5/position = Vector3(-0.35452965, 0.1646793, 0.18496539)
 bones/5/rotation = Quaternion(-0.0120044835, 6.6238414e-08, 0.050030075, 0.9986756)
 bones/5/scale = Vector3(0.99999994, 0.99999994, 1.0000002)
-bones/6/rotation = Quaternion(0.33690426, 0.014982721, 0.01819464, 0.9412439)
+bones/6/rotation = Quaternion(0.33164778, 0.014911303, 0.009848242, 0.943234)
 bones/7/position = Vector3(0.48454472, 0.38714907, 0.24816875)
-bones/7/rotation = Quaternion(0.3078632, 0.10597911, -0.23798414, 0.9150695)
+bones/7/rotation = Quaternion(0.31001732, 0.116620354, -0.23738065, 0.9132028)
 bones/8/position = Vector3(-0.49891198, 0.38131744, 0.24173501)
-bones/8/rotation = Quaternion(0.33629578, -0.1892532, 0.20495798, 0.89948905)
+bones/8/rotation = Quaternion(0.34016412, -0.18696521, 0.20524144, 0.8984478)
 bones/9/position = Vector3(0.75381184, -0.18556307, -0.24179763)
-bones/9/rotation = Quaternion(0.30588043, 0.25221613, -0.69306296, 0.6020698)
+bones/9/rotation = Quaternion(0.30380195, 0.25484496, -0.69128853, 0.6040517)
 bones/10/position = Vector3(-0.7531527, -0.19686359, -0.25419432)
-bones/10/rotation = Quaternion(0.31471547, -0.26525766, 0.6540462, 0.63467807)
+bones/10/rotation = Quaternion(0.3201752, -0.25561166, 0.65470755, 0.63522327)
 bones/11/position = Vector3(0.6993685, -0.43066272, -0.388005)
-bones/11/rotation = Quaternion(-0.16570438, -0.37695295, 0.89821976, -0.1537856)
+bones/11/rotation = Quaternion(-0.16467586, -0.3787476, 0.8978401, -0.15269405)
 bones/12/position = Vector3(-0.6842424, -0.43287623, -0.39494154)
-bones/12/rotation = Quaternion(0.14811847, -0.42583707, 0.8801253, 0.14867172)
+bones/12/rotation = Quaternion(0.15783456, -0.4195276, 0.8805002, 0.1542863)
 
 [node name="collider" parent="bichoCoraza" index="1" unique_id=1840357349]
 visible = false
 
 [node name="AnimationPlayer" parent="bichoCoraza" index="2" unique_id=1207954616]
 autoplay = &"Idle"
-
-[node name="PataE" parent="." unique_id=1847736130 node_paths=PackedStringArray("groundcheck") instance=ExtResource("3_h17ml")]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 0, 0, 0.29183558)
-is_ground_animated_pata = true
-key_name = "E_key"
-groundcheck = NodePath("../groundCheckE")
-impulse = 1.5
 
 [node name="groundCheckE" parent="." unique_id=102550460 instance=ExtResource("4_x2hrt")]
 transform = Transform3D(0.49999988, 1.4901161e-08, -0.86602545, 0.37610453, 0.90077406, 0.21714398, 0.78009325, -0.43428808, 0.4503869, 0.060864694, 0.016471434, 0.15033475)
@@ -75,13 +68,6 @@ target_position = Vector3(0, -0.09, 0)
 [node name="groundCheck3" parent="groundCheckE/groundCheck2" unique_id=695370047 instance=ExtResource("4_x2hrt")]
 transform = Transform3D(1, 1.8626451e-09, -1.4901161e-07, -5.5879354e-09, 0.99999994, 1.4901161e-08, 2.9802322e-08, -1.1175871e-08, 0.99999976, -0.17014779, -0.005130959, -0.098234996)
 target_position = Vector3(0, -0.09, 0)
-
-[node name="PataQ" parent="." unique_id=1353905210 node_paths=PackedStringArray("groundcheck") instance=ExtResource("3_h17ml")]
-transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 0, 0, 0.29183558)
-is_ground_animated_pata = true
-key_name = "Q_key"
-groundcheck = NodePath("../groundCheckQ")
-impulse = 1.5
 
 [node name="groundCheckQ" parent="." unique_id=1879932017 instance=ExtResource("4_x2hrt")]
 transform = Transform3D(0.49999988, -1.4901161e-08, 0.86602545, -0.37610453, 0.90077406, 0.21714398, -0.78009325, -0.43428808, 0.4503869, -0.0589635, 0.016471434, 0.15096416)
@@ -131,33 +117,32 @@ spring_stiffnes = 6.0
 spring_damper = 3.0
 lateral_friction = 2.0
 
+[node name="PataE" parent="." unique_id=1847736130 instance=ExtResource("3_h17ml")]
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 0, 0, 0.29183558)
+is_animated = true
+key_name = "E_key"
+mirror_key_name = "Q_key"
+impulse = 1.5
+
 [node name="PataAlaDerecha" parent="." unique_id=285333374 instance=ExtResource("3_h17ml")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.01773145, 0.08066102, 0.03546619)
-is_winged_animated_pata = true
 key_name = "A_key"
 impulse = 0.4
-vertical_impulse = 1.4
-wing_impulse_always_horizontal = true
 
 [node name="PataAlaIzquierda" parent="." unique_id=791821865 instance=ExtResource("3_h17ml")]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.018137336, 0.08066102, 0.03546619)
-is_winged_animated_pata = true
 key_name = "D_key"
 impulse = 0.4
-vertical_impulse = 1.4
-wing_impulse_always_horizontal = true
 
 [node name="PataGiroAlaDerecha" parent="." unique_id=413745992 instance=ExtResource("3_h17ml")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0031443932, 0.012467418, 0.26010555)
 key_name = "A_key"
 impulse = 0.7
-wing_impulse_always_horizontal = true
 
 [node name="PataGiroAlaIzquierda" parent="." unique_id=1752664662 instance=ExtResource("3_h17ml")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0031573605, 0.012467418, 0.26010555)
 key_name = "D_key"
 impulse = 0.7
-wing_impulse_always_horizontal = true
 
 [node name="FlutterFuelCounter" parent="." unique_id=115663575 instance=ExtResource("6_be1o1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4831765e-06, -0.0007977709, -0.009617373)

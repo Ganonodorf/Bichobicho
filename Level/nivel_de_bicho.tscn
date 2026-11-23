@@ -52,13 +52,13 @@ collision_layer = 4
 collision_layer = 4
 
 [node name="bichoCoraza" parent="." unique_id=2139795818 instance=ExtResource("2_468by")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12285197, 0.7489561, 1.3753235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1250906, 0.3088535, 2.164439)
 
 [node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("3_468by")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1506075531]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12285197, 1.0689561, 2.3753235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1250906, 0.6288535, 3.164439)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1114260404]
@@ -68,7 +68,7 @@ script = ExtResource("4_kda3p")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1154399750 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12285197, 1.0689561, 2.3753235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1250906, 0.6288535, 3.164439)
 script = ExtResource("4_fej4s")
 follow_mode = 6
 follow_target = NodePath("../bichoCoraza")

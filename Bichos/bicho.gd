@@ -38,6 +38,8 @@ func _process(_delta: float) -> void:
 		for pata in patas:
 			if Input.is_action_just_pressed(pata.key_name):
 				pata.applyImpulse()
+			if Input.is_action_just_pressed(pata.mirror_key_name):
+				pata.applyMirrorImpulse()
 
 	pass
 

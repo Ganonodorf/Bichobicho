@@ -37,15 +37,14 @@ func _connect_to_all_patas() -> void:
 		if child is Pata:
 			print("Found Pata: ", child.name) # Helpful debug print to check in Output!
 			
-			# Connect wing signals
-			if not child.animated_wing_pata_fired.is_connected(trigger_wing_flap):
-				child.animated_wing_pata_fired.connect(trigger_wing_flap)
-			
 			# Connect ground movement signals
 			if not child.animated_ground_pata_fired.is_connected(trigger_body_movement):
 				child.animated_ground_pata_fired.connect(trigger_body_movement)
-
-
+		
+		if child is PataAla:
+			# Connect wing signals
+			if not child.animated_wing_pata_fired.is_connected(trigger_wing_flap):
+				child.animated_wing_pata_fired.connect(trigger_wing_flap)
 
 # --- Public API Triggered by Pata Signals ---
 
@@ -58,7 +57,7 @@ func trigger_wing_flap(is_right_wing: bool) -> void:
 	else:
 		set(left_wing_shot_path, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
-func trigger_body_movement() -> void:
+func trigger_body_movement(_is_right_side) -> void:
 	set(move_shot_path, AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 # --- Internal Shell & Timer Logic ---

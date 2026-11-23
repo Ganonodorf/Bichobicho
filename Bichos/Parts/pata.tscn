@@ -6,6 +6,12 @@
 
 [node name="Pata" type="Node3D" unique_id=1847736130]
 script = ExtResource("1_81onr")
+is_winged_animated_pata = null
+is_ground_animated_pata = null
+key_name = null
+impulse = null
+vertical_impulse = null
+wing_impulse_always_horizontal = null
 
 [node name="pataVisualizer" parent="." unique_id=1450828889 instance=ExtResource("2_rcb5y")]
 script = ExtResource("3_bryj1")
