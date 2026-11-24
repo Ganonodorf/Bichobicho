@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://oio5e4wia2x5" path="res://Bichos/Parts/ground_check.tscn" id="4_x2hrt"]
 [ext_resource type="PackedScene" uid="uid://cq2kssntfbb2u" path="res://Bichos/Parts/suspensor.tscn" id="5_x2hrt"]
 [ext_resource type="PackedScene" uid="uid://c2lw1i0w3mc5y" path="res://Bichos/Parts/flutter_fuel_counter.tscn" id="6_be1o1"]
+[ext_resource type="PackedScene" uid="uid://bc1o8w6oecutw" path="res://Bichos/Parts/pata_ala.tscn" id="6_q0hl2"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0os24"]
 points = PackedVector3Array(-0.17656513, 0.048099723, -0.11838513, 0.19520028, 0.024293628, -0.10367617, 0.1835238, 0.03290693, -0.07993056, -0.016165556, 0.022442942, 0.19502787, 0.0073698466, 0.1375354, 0.023870384, -0.015606252, 0.016296152, -0.31536496, 0.0076735276, 0.0941716, -0.24907273, -0.15735863, 0.016045578, 0.07700932, 0.15742461, 0.016049707, 0.0769987, -0.08397284, 0.116958484, 0.049920022, 0.06220285, 0.08666839, 0.15310735, 0.123438455, 0.10197579, -0.11862117, 0.11723014, 0.016436493, -0.27560648, -0.09379183, 0.08675628, -0.22890392, 0.007543449, 0.0031475807, 0.033537712, -0.2017708, 0.014633708, -0.14536124, -0.0073648156, 0.13786568, -0.109107085, -0.06216959, 0.086670004, 0.15312997, 0.08403586, 0.11695043, 0.049899887, 0.053292144, 0.0025998976, -0.13310036, -0.12341931, 0.10199045, -0.118646815, 0.093591005, 0.078908265, -0.24407457, 0.2018471, 0.014634122, -0.14536065, -0.11009173, 0.031799592, -0.28492358, -0.053253964, 0.002596894, -0.13310337, 0.08840667, 0.038989753, 0.16836722, 0.015571009, 0.09451068, 0.16923393, -0.16628917, 0.023602152, 0.062097408, 0.016139045, 0.022637434, -0.32329047, -0.088358276, 0.038979065, 0.16844472, 0.15525825, 0.032329775, 0.075048946, -0.10917796, 0.01652241, -0.28309596)
@@ -26,7 +27,7 @@ shape = SubResource("ConvexPolygonShape3D_0os24")
 [node name="Skeleton3D" parent="bichoCoraza/Armature" parent_id_path=PackedInt32Array(1852850685, 1088968347) index="0" unique_id=1498393556]
 bones/0/position = Vector3(-0.0083938055, 0.0012270218, -0.01180705)
 bones/0/rotation = Quaternion(0.4223608, -0.003968727, -0.011186309, 0.9063501)
-bones/1/rotation = Quaternion(0.9483131, 0.0028550338, -0.010677567, -0.31714362)
+bones/1/rotation = Quaternion(0.94626164, 0.0036797773, -0.013033128, -0.3231184)
 bones/2/position = Vector3(0.43382394, -0.0106189, 0.24892908)
 bones/2/rotation = Quaternion(9.295945e-09, 2.3849864e-07, 3.6382276e-11, 1)
 bones/3/position = Vector3(-0.43382382, -0.010618976, 0.2489293)
@@ -37,19 +38,19 @@ bones/4/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/5/position = Vector3(-0.35452965, 0.1646793, 0.18496539)
 bones/5/rotation = Quaternion(-0.0120044835, 6.6238414e-08, 0.050030075, 0.9986756)
 bones/5/scale = Vector3(0.99999994, 0.99999994, 1.0000002)
-bones/6/rotation = Quaternion(0.33164778, 0.014911303, 0.009848242, 0.943234)
+bones/6/rotation = Quaternion(0.3277397, 0.0144730415, 0.0020440249, 0.94465494)
 bones/7/position = Vector3(0.48454472, 0.38714907, 0.24816875)
-bones/7/rotation = Quaternion(0.31001732, 0.116620354, -0.23738065, 0.9132028)
+bones/7/rotation = Quaternion(0.31390104, 0.13640167, -0.23753393, 0.90908664)
 bones/8/position = Vector3(-0.49891198, 0.38131744, 0.24173501)
-bones/8/rotation = Quaternion(0.34016412, -0.18696521, 0.20524144, 0.8984478)
+bones/8/rotation = Quaternion(0.34284246, -0.16364458, 0.21424264, 0.89987755)
 bones/9/position = Vector3(0.75381184, -0.18556307, -0.24179763)
-bones/9/rotation = Quaternion(0.30380195, 0.25484496, -0.69128853, 0.6040517)
+bones/9/rotation = Quaternion(0.3012293, 0.2577461, -0.68844604, 0.6073468)
 bones/10/position = Vector3(-0.7531527, -0.19686359, -0.25419432)
-bones/10/rotation = Quaternion(0.3201752, -0.25561166, 0.65470755, 0.63522327)
+bones/10/rotation = Quaternion(0.32505935, -0.24685176, 0.65544546, 0.6354462)
 bones/11/position = Vector3(0.6993685, -0.43066272, -0.388005)
-bones/11/rotation = Quaternion(-0.16467586, -0.3787476, 0.8978401, -0.15269405)
+bones/11/rotation = Quaternion(-0.16314323, -0.38141507, 0.8972655, -0.15106794)
 bones/12/position = Vector3(-0.6842424, -0.43287623, -0.39494154)
-bones/12/rotation = Quaternion(0.15783456, -0.4195276, 0.8805002, 0.1542863)
+bones/12/rotation = Quaternion(0.1686003, -0.412432, 0.8807472, 0.16049352)
 
 [node name="collider" parent="bichoCoraza" index="1" unique_id=1840357349]
 visible = false
@@ -124,25 +125,22 @@ key_name = "E_key"
 mirror_key_name = "Q_key"
 impulse = 1.5
 
-[node name="PataAlaDerecha" parent="." unique_id=285333374 instance=ExtResource("3_h17ml")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.01773145, 0.08066102, 0.03546619)
-key_name = "A_key"
-impulse = 0.4
-
-[node name="PataAlaIzquierda" parent="." unique_id=791821865 instance=ExtResource("3_h17ml")]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0.018137336, 0.08066102, 0.03546619)
+[node name="PataAla" parent="." unique_id=1308528689 instance=ExtResource("6_q0hl2")]
+transform = Transform3D(0.73267776, 0, -0.68057567, 0, 1, 0, 0.68057567, 0, 0.73267776, 0.017557766, 0.08112925, 0.03313303)
+vertical_impulse = 1.5
+wing_impulse_always_horizontal = true
+is_animated = true
 key_name = "D_key"
-impulse = 0.4
+mirror_key_name = "A_key"
+impulse = 0.3
 
-[node name="PataGiroAlaDerecha" parent="." unique_id=413745992 instance=ExtResource("3_h17ml")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0031443932, 0.012467418, 0.26010555)
-key_name = "A_key"
-impulse = 0.7
-
-[node name="PataGiroAlaIzquierda" parent="." unique_id=1752664662 instance=ExtResource("3_h17ml")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0031573605, 0.012467418, 0.26010555)
+[node name="PataAlaGiro" parent="." unique_id=243312022 instance=ExtResource("6_q0hl2")]
+transform = Transform3D(-0.0029924214, 0, -0.99999547, 0, 1, 0, 0.99999547, 0, -0.0029924214, -1.0635704e-05, 0.018840395, 0.2614675)
+wing_impulse_always_horizontal = true
+is_animated = true
 key_name = "D_key"
-impulse = 0.7
+mirror_key_name = "A_key"
+impulse = 0.4
 
 [node name="FlutterFuelCounter" parent="." unique_id=115663575 instance=ExtResource("6_be1o1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4831765e-06, -0.0007977709, -0.009617373)

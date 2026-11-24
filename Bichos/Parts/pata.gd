@@ -7,6 +7,7 @@ signal animated_ground_pata_fired(is_right_side)
 @export_category("Animation Settings")
 @export var is_animated: bool = false # Solo para una pata y una ala
 
+@export_category("Impulse Settings")
 @export_enum("Q_key", "A_key", "Z_key", "E_key", "D_key",  "C_key",) 
 var key_name: String
 @export_enum("Q_key", "A_key", "Z_key", "E_key", "D_key",  "C_key",) 
@@ -34,7 +35,7 @@ func applyImpulse() -> bool:
 	get_parent().apply_impulse(final_impulse, global_position - get_parent().global_position)
 	
 	if is_animated:
-		animated_ground_pata_fired.emit()
+		animated_ground_pata_fired.emit(true)
 	
 	return true
 
@@ -48,7 +49,7 @@ func applyMirrorImpulse() -> bool:
 	get_parent().apply_impulse(final_mirror_impulse, global_pos - get_parent().global_position)
 	
 	if is_animated:
-		animated_ground_pata_fired.emit()
+		animated_ground_pata_fired.emit(false)
 	
 	return true
 

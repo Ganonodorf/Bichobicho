@@ -21,8 +21,21 @@ func applyImpulse() -> bool:
 	get_parent().apply_impulse(final_impulse, global_position - get_parent().global_position)
 	
 	if is_animated:
-		var is_right_side = position.x < 0.0
-		animated_wing_pata_fired.emit(is_right_side)
+		animated_wing_pata_fired.emit(true)
+	
+	return true
+
+func applyMirrorImpulse() -> bool:
+	if not _can_apply_impulse():
+		return false
+		
+	var final_mirror_impulse = _calculate_mirror_impulse_vector()
+	var mirrored_local_pos = position.bounce(Vector3.LEFT)
+	var global_pos = get_parent().transform * mirrored_local_pos
+	get_parent().apply_impulse(final_mirror_impulse, global_pos - get_parent().global_position)
+	
+	if is_animated:
+		animated_wing_pata_fired.emit(false)
 	
 	return true
 
@@ -32,17 +45,31 @@ func _calculate_impulse_vector() -> Vector3:
 	if wing_impulse_always_horizontal:
 		# Take the forward axis and flatten it onto the horizontal ground plane (y = 0)
 		var raw_forward = global_transform.basis.z
-		var flat_forward = Vector3(raw_forward.x, 0.0, raw_forward.z)
-		
-		if flat_forward.length_squared() > 0.001:
-			forward_dir = flat_forward.normalized()
-		else:
-			forward_dir = Vector3.FORWARD
+		forward_dir = _horizontalize_and_normalize(raw_forward)
 	else:
 		# Use the standard local basis forward direction
 		forward_dir = global_transform.basis.z
 	
 	return forward_dir * impulse + Vector3.UP * vertical_impulse
+
+func _calculate_mirror_impulse_vector() -> Vector3:
+	var mirror_forward_dir :Vector3
+	var mirror_raw_forward :Vector3 = get_parent().transform.basis * transform.basis.z.bounce(Vector3.LEFT)
+	if wing_impulse_always_horizontal:
+		mirror_forward_dir = _horizontalize_and_normalize(mirror_raw_forward)
+	else:
+		mirror_forward_dir = mirror_raw_forward
+	
+	return mirror_forward_dir * impulse + Vector3.UP * vertical_impulse
+
+func _horizontalize_and_normalize(vector :Vector3) -> Vector3:
+		vector = Vector3(vector.x, 0.0, vector.z)
+		var horizontal_vector: Vector3
+		if vector.length_squared() > 0.001:
+			horizontal_vector = vector.normalized()
+		else:
+			horizontal_vector = Vector3.FORWARD
+		return horizontal_vector
 
 func _are_there_flutters_left() -> bool:
 	if flutter_fuel_counter and flutter_fuel_counter.has_method("are_there_flutters_left"):
