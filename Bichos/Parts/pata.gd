@@ -16,6 +16,8 @@ var mirror_key_name: String
 @export var impulse: float = 3.0
 @export var needs_grounded: bool = false
 
+var timer : Timer = null
+var on_wait_time : bool = false
 var impulse_vector: Vector3
 var groundchecks: Array[GroundCheck] = []
 
@@ -24,6 +26,9 @@ var groundchecks: Array[GroundCheck] = []
 func _ready() -> void:
 	var parent :Node3D = get_parent()
 	_find_and_store_groundchecks(parent)
+	timer = _find_timer(self)
+	if timer:
+		timer.timeout.connect(_on_timeout)
 
 # --- Public Interface ---
 
@@ -33,6 +38,10 @@ func applyImpulse() -> bool:
 		
 	var final_impulse = _calculate_impulse_vector()
 	get_parent().apply_impulse(final_impulse, global_position - get_parent().global_position)
+	
+	if timer:
+		timer.start()
+		on_wait_time = true
 	
 	if is_animated:
 		animated_ground_pata_fired.emit(true)
@@ -48,6 +57,10 @@ func applyMirrorImpulse() -> bool:
 	var global_pos = get_parent().transform * mirrored_local_pos
 	get_parent().apply_impulse(final_mirror_impulse, global_pos - get_parent().global_position)
 	
+	if timer:
+		timer.start()
+		on_wait_time = true
+	
 	if is_animated:
 		animated_ground_pata_fired.emit(false)
 	
@@ -58,6 +71,13 @@ func getKey() -> String:
 	return key_name
 
 # --- Internal Rules & Math (Separation of Concerns) ---
+
+func _can_impulse() -> bool:
+	if needs_grounded and not _isPataGrounded():
+		return false
+	if on_wait_time:
+		return false
+	return true
 
 func _calculate_impulse_vector() -> Vector3:
 	var forward_dir: Vector3
@@ -83,4 +103,12 @@ func _find_and_store_groundchecks(node :Node3D) -> void:
 			groundchecks.append(child)
 			_find_and_store_groundchecks(child)
 	return
-	
+
+func _find_timer(node: Node) -> Timer:
+	for child in node.get_children():
+		if child is Timer:
+			return child
+	return null
+
+func _on_timeout() -> void:
+	on_wait_time = false

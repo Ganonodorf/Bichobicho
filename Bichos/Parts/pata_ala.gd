@@ -14,11 +14,15 @@ func _ready() -> void:
 	_discover_and_cache_flutter_fuel_counter()
 
 func applyImpulse() -> bool:
-	if not _can_apply_impulse():
+	if not _can_impulse():
 		return false
 		
 	var final_impulse = _calculate_impulse_vector()
 	get_parent().apply_impulse(final_impulse, global_position - get_parent().global_position)
+	
+	if timer:
+		timer.start()
+		on_wait_time = true
 	
 	if is_animated:
 		animated_wing_pata_fired.emit(true)
@@ -26,13 +30,17 @@ func applyImpulse() -> bool:
 	return true
 
 func applyMirrorImpulse() -> bool:
-	if not _can_apply_impulse():
+	if not _can_impulse():
 		return false
 		
 	var final_mirror_impulse = _calculate_mirror_impulse_vector()
 	var mirrored_local_pos = position.bounce(Vector3.LEFT)
 	var global_pos = get_parent().transform * mirrored_local_pos
 	get_parent().apply_impulse(final_mirror_impulse, global_pos - get_parent().global_position)
+	
+	if timer:
+		timer.start()
+		on_wait_time = true
 	
 	if is_animated:
 		animated_wing_pata_fired.emit(false)
@@ -76,7 +84,9 @@ func _are_there_flutters_left() -> bool:
 		return flutter_fuel_counter.are_there_flutters_left()
 	return true # Fallback for infinite flight bugs
 
-func _can_apply_impulse() -> bool:
+func _can_impulse() -> bool:
+	if on_wait_time:
+		return false
 	if needs_grounded:
 		return _isPataGrounded() and _are_there_flutters_left()
 	else:
