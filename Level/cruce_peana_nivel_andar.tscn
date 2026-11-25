@@ -52,12 +52,23 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="callePeana" parent="." unique_id=1346012221 instance=ExtResource("4_vhq7r")]
 
+[node name="Manual-Int MANUAL-INT-Carmen" parent="callePeana" index="9" unique_id=394993836]
+destination_scene = "res://Level/nivel_de_conducir.tscn"
+destination_spawnpoint = "main"
+
+[node name="Manual-Int MANUAL-INT-mesita" parent="callePeana" index="10" unique_id=19393318]
+destination_scene = "res://Level/nivel_de_bicho.tscn"
+
 [node name="mainSpawnpoint1" parent="." unique_id=437112311 instance=ExtResource("5_scw62")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3177097, 1.0600173, 0.5887184)
+transform = Transform3D(1, 0, 0, 0, 0.94743794, 0.3199396, 0, -0.3199396, 0.94743794, 0.8275962, 1.6349092, 9.147466)
 spawnpoint_id = "main"
 
+[node name="mainSpawnpoint2" parent="." unique_id=1981264719 instance=ExtResource("5_scw62")]
+transform = Transform3D(-0.039906546, 0.0054662903, 0.9991884, -0.017719306, 0.99982405, -0.0061774566, -0.99904627, -0.017951446, -0.03980266, -0.11939216, 1.2697828, 5.8514986)
+spawnpoint_id = "tabler"
+
 [node name="Interactable" parent="." unique_id=120528219 node_paths=PackedStringArray("mesh_node") instance=ExtResource("6_1mo7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94144595, 0)
+transform = Transform3D(-0.14255896, 0, -0.9897863, 0, 1, 0, 0.9897863, 0, -0.14255896, -2.035892, 1.3739526, 6.423093)
 mesh_node = NodePath("AbuelaMaria/Plane_007")
 destination_scene = "res://Level/nivel_de_conducir.tscn"
 destination_spawnpoint = "main"

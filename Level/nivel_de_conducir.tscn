@@ -27,8 +27,16 @@ sky = SubResource("Sky_ifcqr")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3rqy4"]
+height = 1.8501282
+radius = 2.557129
+
 [sub_resource type="Resource" id="Resource_m35px"]
 script = ExtResource("5_n0q71")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cbnhr"]
+height = 1.8501282
+radius = 2.609
 
 [node name="NivelDeConducir" type="Node3D" unique_id=644890190]
 
@@ -46,6 +54,14 @@ spawnpoint_id = "salidaPuebloCueva"
 
 [node name="mundo_coche" parent="." unique_id=1032575377 instance=ExtResource("1_tkfgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9677558, 0)
+
+[node name="Manual-Int MANUAL-INT-mesita" parent="mundo_coche" index="37" unique_id=1273229032]
+destination_scene = "res://Level/cruce_peana_nivel_andar.tscn"
+destination_spawnpoint = "main"
+
+[node name="CollisionShape3D" parent="mundo_coche/Manual-Int MANUAL-INT-mesita/Area3D" parent_id_path=PackedInt32Array(1032575377, 1273229032, 1257380559) index="0" unique_id=1165948194]
+transform = Transform3D(1, 6.3329935e-08, 0, 3.7252903e-09, 1.0000113, -5.2154064e-08, 5.9604645e-08, -7.376075e-07, 1, -0.015411377, -0.20574951, 0.10083008)
+shape = SubResource("CylinderShape3D_3rqy4")
 
 [node name="manumanuCoche" parent="." unique_id=1389530946 instance=ExtResource("2_mpsmh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -417.10654, 18.124712, 325.02243)
@@ -68,6 +84,7 @@ script = ExtResource("4_ifcqr")
 follow_mode = 6
 follow_target = NodePath("../PruebaCocheJuanma")
 tween_resource = SubResource("Resource_m35px")
+tween_on_load = false
 follow_damping = true
 follow_distance = 10.0
 spring_length = 10.0
@@ -80,7 +97,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.80957, 18.341082, 324.76788)
 
 [node name="mainSpawnPoint" parent="." unique_id=57924148 instance=ExtResource("11_3rqy4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -421.69894, 17.80263, 330.8106)
+transform = Transform3D(-0.5410211, 0, 0.84100884, 0, 1, 0, -0.84100884, 0, -0.5410211, -408.47626, 19.084698, 316.6323)
 spawnpoint_id = "main"
 
 [node name="InteractionManager" parent="." unique_id=2138595705 instance=ExtResource("8_cbnhr")]
@@ -91,12 +108,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -436.1074, 17.662384, 328.426
 [node name="AbuelaMaria" parent="ManualInteractable2" unique_id=1406152174 instance=ExtResource("10_cbnhr")]
 
 [node name="ManualInteractable" parent="." unique_id=957568589 instance=ExtResource("11_bggpk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -426.84946, 17.362776, 337.24585)
+transform = Transform3D(-0.08598626, 0, 0.99629647, 0, 1, 0, -0.99629647, 0, -0.08598626, -409.24808, 18.465994, 321.26035)
 destination_scene = "res://Level/cruce_peana_nivel_andar.tscn"
 destination_spawnpoint = "main"
+
+[node name="CollisionShape3D" parent="ManualInteractable/Area3D" parent_id_path=PackedInt32Array(957568589, 1257380559) index="0" unique_id=1165948194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06133154, 0.84425354, -0.6595224)
+shape = SubResource("CylinderShape3D_cbnhr")
+disabled = true
 
 [node name="AbuelaMaria" parent="ManualInteractable" unique_id=1486338615 instance=ExtResource("10_cbnhr")]
 
 [editable path="mundo_coche"]
+[editable path="mundo_coche/Manual-Int MANUAL-INT-mesita"]
 [editable path="ManualInteractable2/AbuelaMaria"]
 [editable path="ManualInteractable"]

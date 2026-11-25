@@ -74,7 +74,7 @@ func _detect_interactable() -> Node3D:
 # --- Player interface (shared with all player types) ---
 func move_to_position(_pos: Vector3, _rot: Vector3):
 	global_position = _pos
-	global_rotation = _rot
+	global_rotation = Vector3(0,_rot.y,0)
 
 func _on_game_state_changed(new_state :Bichobicho.GameState) -> void:
 	if new_state == Bichobicho.GameState.DIALOG:
