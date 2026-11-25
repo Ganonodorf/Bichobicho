@@ -86,7 +86,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 transform = Transform3D(-0.99954206, 0, -0.030259432, 0, 1, 0, 0.030259432, 0, -0.99954206, -12.473535, 0.07888436, -34.745495)
 
 [node name="ManualInteractable" parent="." unique_id=394993836 instance=ExtResource("8_qjdyd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7556515, 27.85945, -3.6906533)
+transform = Transform3D(-0.15647832, 0, -0.11520558, 0, 0.19431365, 0, 0.11520558, 0, -0.15647832, 0.45785785, 4.3315506, -0.498986)
 
 [node name="CollisionShape3D" parent="ManualInteractable/Area3D" parent_id_path=PackedInt32Array(394993836, 1257380559) index="0" unique_id=1165948194]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.84425354, 0)

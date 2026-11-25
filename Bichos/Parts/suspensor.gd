@@ -10,6 +10,9 @@ extends RayCast3D
 @export var lateral_friction: float = 0.5   # sideways grip, higher = more grip
 @export var longitudinal_friction: float = 0.5  # forward/back rolling resistance
 
+@export var autoBreakMaximumVelocity: float = 0.5
+@export var autoBreakForceFactor: float = 3
+
 var last_frame_spring_length: float
 
 
@@ -40,7 +43,10 @@ func suspensionForce(distanceToFloor: float):
 	
 	return (spring_force + damper_force) * global_transform.basis.y
 
-
+func autoBreakForce(contact_velocity: Vector3):
+	if contact_velocity.length() < autoBreakMaximumVelocity:
+		return -contact_velocity/autoBreakMaximumVelocity * autoBreakForceFactor
+	else: return Vector3.ZERO
 
 func frictionForce(contact_velocity: Vector3):
 	var forward = global_transform.basis.z
@@ -48,4 +54,5 @@ func frictionForce(contact_velocity: Vector3):
 	var lateral_velocity = contact_velocity.dot(sideways) 
 	var longitudinal_velocity = contact_velocity.dot(forward)
 	var friction_force = (-sideways * lateral_velocity * lateral_friction) + (-forward * longitudinal_velocity * longitudinal_friction)
+	friction_force += autoBreakForce(contact_velocity)
 	return friction_force
